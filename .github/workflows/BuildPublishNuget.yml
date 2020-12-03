@@ -37,5 +37,7 @@ jobs:
       - name: AddGithubSource
         run: nuget sources Add -UserName Ryan.Phay@clearesult.com -Password ${{secrets.NUGET_API_KEY}} -Name CrDevOpsModules -Source https://clearesultdev.pkgs.visualstudio.com/_packaging/DevOps-PowerShell-Modules/nuget/v3/index.json
       - name: PushNuget
-        run: nuget push CrDevOpsModules --source .\cr-devops-rest.nupkg --api-key ${{secrets.NUGET_API_KEY}} --skip-duplicate
-
+        run: nuget push .\cr-devops-rest.nupkg CrDevOpsModules -api-key ${{secrets.NUGET_API_KEY}} -skip-duplicate
+      
+      
+      
