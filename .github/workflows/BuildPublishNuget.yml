@@ -20,6 +20,10 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Spitup output
+        run: |
+          echo "Heres some output"
+          echo ${{ github.event.release.tag_name }}
       - uses: actions/checkout@v2  
       - name: Setup .NET Core  
         uses: actions/setup-dotnet@v1  
