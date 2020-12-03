@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>cr-devops-core</id>
+        <version>1.0.0</version>
+        <authors>ryan.phay</authors>
+        <owners>CLEAResult</owners>
+        <description>CLEAResult DevOps PowerShell Rest API Library.</description>
+        <releaseNotes>MIT License</releaseNotes>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <copyright>(c) 2020 CLEAResult. All rights reserved.</copyright>
+        <tags></tags>
+        <dependencies>
+        </dependencies>
+    </metadata>
+</package>

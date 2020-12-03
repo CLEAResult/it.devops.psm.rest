@@ -1,0 +1,20 @@
+{
+  "GeneralInfo": {
+    "Name": "GoDaddy",
+    "Description": "Go Daddy Rest API",
+    "AuthorizationType": "sso-key",
+    "version": "v1",
+    "Docs": ""
+  },
+  "Services": {
+    "certificates": [
+      {
+        "Operation": "List",
+        "Method": "GET",
+        "Uri": "https://api.godaddy.com/{version}/certificates/",
+        "Description": "Get certificates from Godaddy.",
+        "Docs": "https://developer.godaddy.com/doc/endpoint/certificates"
+      }
+    ]
+  }
+}

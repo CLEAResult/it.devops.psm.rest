@@ -1,0 +1,10 @@
+{
+  "GeneralInfo": {
+    "ModuleName": "cr-devops-rest",
+    "Author": "Ryan Phay",
+    "ConfigVersion": "1.0.0",
+    "MinimumPowerShellVersion": "4",
+    "compatibleWithPowershellCore": "false"
+  },
+  "Settings": {}
+}

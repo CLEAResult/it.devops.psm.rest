@@ -1,0 +1,28 @@
+{
+  "GeneralInfo": {
+    "Name": "CloudFlare",
+    "Description": "Cloud Flare Rest API",
+    "AuthorizationType": "CustomHeaders",
+    "version": "v4",
+    "Docs": ""
+  },
+  "Requirements": {
+    "Headers": [
+      {
+        "Item1": "x-auth-email",
+        "Item2": "x-auth-key"
+      }
+    ]
+  },
+  "Services": {
+    "Zones": [
+      {
+        "Operation": "List",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones&per_page=1000",
+        "Description": "List, search, sort, and filter your zones.",
+        "Docs": "https://api.cloudflare.com/#zone-list-zones"
+      }
+    ]
+  }
+}

@@ -1,0 +1,416 @@
+{
+  "GeneralInfo": {
+    "Name": "ADO",
+    "Description": "Azure DevOps Rest API",
+    "AuthorizationType": "BearerToken",
+    "version": "5.1",
+    "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-5.1"
+  },
+  "Services": {
+    "Build": [
+      {
+        "Operation": "Builds - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}?api-version={version}",
+        "Description": "Gets a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/get?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Builds - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds?api-version={version}",
+        "Description": "Gets a list of builds.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/list?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Definitions - Create",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions?api-version={version}",
+        "Description": "Creates a new definition.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions/create?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Definitions - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{definitionId}?revision?api-version={version}",
+        "Description": "Gets a definition, returns the latest revision.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions/get?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Definitions - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions?{version}",
+        "Description": "Gets a list of definitions.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions/list?view=azure-devops-rest-5.1"
+      }
+    ],
+    "Git": [
+      {
+        "Operation": "Repositories - Create",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories?api-version=5.1{version}",
+        "Description": "Create a git repository in a team project.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories/create?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Repositories - Get Repository",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}?api-version={version}",
+        "Description": "Retrieve a git repository.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories/get%20repository?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Repositories - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories?api-version={version}",
+        "Description": "Retrieve git repositories.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories/list?view=azure-devops-rest-5.1"
+      }
+    ],
+    "Iterations": [
+      {
+        "Operation": "List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/{team}/_apis/work/teamsettings/iterations?api-version={version}",
+        "Description": "Get a team's iterations using timeframe filter",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/work/iterations/list?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Post Team Iteration",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/{team}/_apis/work/teamsettings/iterations?api-version={version}",
+        "Description": "Add an iteration to the team.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/work/iterations/post%20team%20iteration?view=azure-devops-rest-5.1"
+      }
+    ],
+    "Member Entitlement Management": [
+      {
+        "Operation": "Group Entitlements - List",
+        "Method": "GET",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/groupentitlements?api-version=6.1-preview.1",
+        "Description": "Get the group entitlements for an account.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/group%20entitlements/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Members - Get",
+        "Method": "GET",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/GroupEntitlements/{groupId}/members?api-version=6.1-preview.1",
+        "Description": "Get direct members of a Group.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/members/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Get User Entitlement",
+        "Method": "GET",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements/{userId}?api-version={version}-preview.2",
+        "Description": "Get User Entitlement for a user.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/get%20user%20entitlement?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Get User Entitlements",
+        "Method": "GET",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements?api-version={version}-preview.2",
+        "Description": "Get a paged set of user entitlements matching the filter criteria. If no filter is is passed, a page from all the account users is returned.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/get%20user%20entitlements?view=azure-devops-rest-5.1"
+      }
+    ],
+    "Users": [
+      {
+        "Operation": "Create",
+        "Method": "POST",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?api-version={version}-preview.1",
+        "Description": "NOT VALIDATED!!!  Materialize an existing AAD or MSA user into the VSTS account.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/delete",
+        "Body": "$Example = @{ principalName = 'ado.test.svc@clearesult.com' } | ConvertTo-JSon"
+      },
+      {
+        "Operation": "Delete",
+        "Method": "DELETE",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users/{userDescriptor}?api-version={version}-preview.1",
+        "Description": "Disables a user. The user will still be visible, but membership checks for the user will return false.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/delete"
+      },
+      {
+        "Operation": "Get",
+        "Method": "GET",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users/{userDescriptor}?api-version={version}-preview.1",
+        "Description": "Get a user by its descriptor.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/get"
+      },
+      {
+        "Operation": "List",
+        "Method": "GET",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?api-version={version}-preview.1",
+        "Description": "Get a list of all users in a given scope.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/list"
+      }
+    ],
+    "Permissions Report": [
+      {
+        "Operation": "Permissions Report - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/permissionsreport?api-version=6-preview.1",
+        "Description": "Get a list of permissions reports.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/permissionsreport/permissions%20report/list?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Permissions Report - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/permissionsreport/{id}?api-version=6-preview.1",
+        "Description": "Get a specific permissions report.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/permissionsreport/permissions%20report/get?view=azure-devops-rest-6.0"
+      }
+    ],
+    "Personal Access Tokens": [
+      {
+        "Operation": "List",
+        "Method": "GET",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/tokenadmin/personalaccesstokens/{subjectDescriptor}?api-version={version}-preview.1",
+        "Description": "Lists of all the session token details of the personal access tokens (PATs) for a particular user.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/tokenadmin/personal%20access%20tokens"
+      }
+    ],
+    "Projects": [
+      {
+        "Operation": "Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/projects/{projectId}?api-version={version}",
+        "Description": "Get project with the specified id or name, optionally including capabilities.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/projects?api-version={version}",
+        "Description": "Get all projects in the organization that the authenticated user has access to.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/list?view=azure-devops-rest-5.1"
+      }
+    ],
+    "Release": [
+      {
+        "Operation": "Approvals - List",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/approvals?api-version=6.1-preview.3",
+        "Description": "Get a list of approvals.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/approvals/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Definitions - Get",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/definitions/{definitionId}?api-version={version}",
+        "Description": "Get a release definition.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/definitions/get?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Definitions - List",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/definitions?api-version={version}",
+        "Description": "Get a list of release definitions.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/definitions/list?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Releases - Get Release",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases/{releaseId}?api-version={version}",
+        "Description": "Get a Release.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/get%20release?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Releases - List",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases?api-version={version}",
+        "Description": "Get a list of releases.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/list?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Releases - Get Release Environment",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/Release/releases/{releaseId}/environments/{environmentId}?api-version=6.1-preview.7",
+        "Description": "Get a release environment.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/get%20release%20environment?view=azure-devops-rest-6.1"
+      }
+    ],
+    "Task Agent": [
+      {
+        "Operation": "Agents - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools/{poolId}/agents?api-version={version}",
+        "Description": "Get a list of agents.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/agents/list?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Environments - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/environments/{environmentId}?api-version=6.0-preview.1",
+        "Description": "Get an environment by its ID.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments/get?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Environments - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/environments?api-version=6.0-preview.1",
+        "Description": "Get all environments.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments/list?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Pools - Get Agent Pools",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools?api-version={version}",
+        "Description": "Get a list of agent pools.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get%20agent%20pools?view=azure-devops-rest-5.1"
+      }
+    ],
+    "Teams": [
+      {
+        "Operation": "Get All Teams",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/teams?api-version={version}-preview.3",
+        "Description": "Get a list of all teams.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get%20all%20teams?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Get Teams",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/projects/{projectId}/teams?api-version={version}-preview.3",
+        "Description": "Get a list of teams.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get%20teams?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/projects/{projectId}/teams/{teamId}?api-version={version}-preview.3",
+        "Description": "Get a specific team.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Create",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/_apis/projects/{projectId}/teams?api-version={version}-preview.3",
+        "Description": "Create a team in a team project.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Delete",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/_apis/projects/{projectId}/teams/{teamId}?api-version={version}-preview.3",
+        "Description": "Delete a team.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/delete?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Update",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/_apis/projects/{projectId}/teams/{teamId}?api-version={version}-preview.3",
+        "Description": "Update a team's name and/or description..",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-5.1"
+      }
+    ],
+    "Work Item Tracking": [
+      {
+        "Operation": "Work Items - Get Work Item",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/wit/workitems/{id}?api-version={version}",
+        "Description": "Returns a single work item.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/work%20items/get%20work%20item?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Work Items - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/wit/workitems?ids={ids}&api-version={version}",
+        "Description": "Returns a list of work items (Maximum 200)",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/work%20items/list?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Queries - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/wit/queries/{query}?$depth=2&api-version={version}",
+        "Description": "Retrieves an individual query and its children",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/queries/get?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Queries - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/wit/queries?$depth=2&api-version={version}",
+        "Description": "Gets the root queries and their children",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/queries/list?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Wiql - Query By Id",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/{team}/_apis/wit/wiql/{id}?api-version={version}",
+        "Description": "Gets the results of the query given the query ID.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/wiql/query%20by%20id?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Wiql - Query By Wiql",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/{team}/_apis/wit/wiql?api-version={version}",
+        "Description": "Gets the results of the query given its WIQL.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/wiql/query%20by%20wiql?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Wiql - Get",
+        "Method": "HEAD",
+        "Uri": "https://dev.azure.com/{organization}/{project}/{team}/_apis/wit/wiql/{id}?api-version={version}",
+        "Description": "Gets the results of the query given the query ID.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/wiql/get?view=azure-devops-rest-5.1"
+      }
+    ],
+    "Work Item Tracking Process": [
+      {
+        "Operation": "Fields - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/work/processes/{processId}/workItemTypes/{witRefName}/fields/{fieldRefName}?api-version={version}-preview.2",
+        "Description": "Returns a field in a work item type.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/processes/fields/get?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Fields - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/work/processes/{processId}/workItemTypes/{witRefName}/fields?api-version={version}-preview.2",
+        "Description": "Returns a list of all fields in a work item type.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/processes/fields/list?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Processes - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/work/processes/{processTypeId}?api-version={version}-preview.2",
+        "Description": "Get a single process of a specified ID.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/processes/processes/get?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Processes - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/work/processes?api-version={version}-preview.2",
+        "Description": "Get list of all processes including system and inherited.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/processes/processes/list?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "States - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/work/processes/{processId}/workItemTypes/{witRefName}/states/{stateId}?api-version={version}-preview.1",
+        "Description": "Returns a single state definition in a work item type of the process.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/processes/states/get?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "States - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/work/processes/{processId}/workItemTypes/{witRefName}/states?api-version={version}-preview.1",
+        "Description": "Returns a list of all state definitions in a work item type of the process.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/processes/states/list?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Work Item Types - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/work/processes/{processId}/workitemtypes/{witRefName}?api-version={version}-preview.2",
+        "Description": "Returns a single work item type in a process.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/processes/work%20item%20types/get?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Work Item Types - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/work/processes/{processId}/workitemtypes?api-version={version}-preview.2",
+        "Description": "Returns a list of all work item types in a process.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/processes/work%20item%20types/list?view=azure-devops-rest-5.1"
+      }
+    ]
+  }
+}
