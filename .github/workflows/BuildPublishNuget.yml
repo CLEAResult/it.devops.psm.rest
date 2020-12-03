@@ -32,6 +32,8 @@ jobs:
         with:
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
           nuget-version: '5.x'
+      - name: Delete the old package (kludge)
+        uses: nuget delete cr-devops-rest 1.0.0 -apikey ${{secrets.NUGET_API_KEY}} -source https://clearesultdev.pkgs.visualstudio.com/_packaging/DevOps-PowerShell-Modules/nuget/v3/index.json
       - name: Build  
         run: nuget pack ./cr-devops-rest.nuspec
       - name: AddGithubSource
