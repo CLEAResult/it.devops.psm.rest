@@ -33,11 +33,9 @@ jobs:
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
           nuget-version: '5.x'
       - name: Build  
-        run: nuget pack ./cr-devops-rest.nuspec
+        run: nuget pack ./cr-devops-rest.nuspec -Version 1.0.1
       - name: AddGithubSource
         run: nuget sources Add -UserName Ryan.Phay@clearesult.com -Password ${{secrets.NUGET_API_KEY}} -Name CrDevOpsModules -Source https://clearesultdev.pkgs.visualstudio.com/_packaging/DevOps-PowerShell-Modules/nuget/v3/index.json
-      - name: Delete the old package (kludge)
-        run: nuget delete cr-devops-rest 1.0.0 -apikey ${{secrets.NUGET_API_KEY}} -source https://clearesultdev.pkgs.visualstudio.com/_packaging/DevOps-PowerShell-Modules/nuget/v3/index.json
       - name: PushNuget
         run: nuget push ./cr-devops-rest.1.0.0.nupkg -apikey ${{secrets.NUGET_API_KEY}} -source https://clearesultdev.pkgs.visualstudio.com/_packaging/DevOps-PowerShell-Modules/nuget/v3/index.json
 
