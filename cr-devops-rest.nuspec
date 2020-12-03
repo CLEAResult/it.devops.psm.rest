@@ -8,7 +8,7 @@
         <description>CLEAResult DevOps PowerShell Rest API Library.</description>
         <releaseNotes>MIT License</releaseNotes>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <copyright>(c) 2020 CLEAResult. All rights reserved.</copyright>
+        <copyright>(c) 2020 CLEAResult. MIT License.</copyright>
         <tags></tags>
         <dependencies>
         </dependencies>
