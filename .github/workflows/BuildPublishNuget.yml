@@ -30,9 +30,7 @@ jobs:
       - name: Install dependencies  
         run: dotnet restore  
       - name: Build  
-        run: dotnet build --configuration Release --no-restore  
-      - name: Test  
-        run: dotnet test --no-restore --verbosity normal      
+        run: dotnet nuget pack ./cr-devops-rest.nuspec
       - name: Pack
         run: dotnet pack --no-build --configuration Release it.devops.psm.rest.csproj --output .
       - name: PushNuget
