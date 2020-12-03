@@ -34,10 +34,10 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-
-      - name: Publish  
-        uses: brandedoutcast/publish-nuget@v2.5.2  
-        with:   
-            PROJECT_FILE_PATH: Extensions/Extensions.csproj  
-            NUGET_KEY: ${{secrets.NUGET_API_KEY}}
-            NUGET_SOURCE:  
+  deploy:
+    - provider: NuGet
+      server: https://nuget.pkg.github.com/<YOUR_GITHUB_USERNAME>/index.json
+      artifact: /.nupkg/
+      username: Ryan.Phay@clearesult.com
+      api_key: 
+        secure: ${{secrets.NUGET_API_KEY}}
