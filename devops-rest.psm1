@@ -26,7 +26,13 @@ catch {
    Write-Error -Message "There was an error importing the configuration file config\config.json: $_"
 }
 
-[Hashtable] $Global:crRestApis = @{}
+try{
+   $Global:crRestApis.Count
+}
+catch{
+   [Hashtable] $Global:crRestApis = @{}
+}
+
 try{
    $RestApiConfigs = Get-ChildItem $PSScriptRoot\config\RestApis\*.json
    foreach( $Config in $RestApiConfigs ){
@@ -38,5 +44,4 @@ try{
 catch{
    Write-Error -Message "There was an error importing one of the Rest API configuration files: $_"
 }
-
 
