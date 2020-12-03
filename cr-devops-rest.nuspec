@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
     <metadata>
-        <id>cr-devops-core</id>
+        <id>cr-devops-rest</id>
         <version>1.0.0</version>
         <authors>ryan.phay</authors>
         <owners>CLEAResult</owners>
