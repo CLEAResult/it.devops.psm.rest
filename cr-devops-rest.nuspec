@@ -13,4 +13,7 @@
         <dependencies>
         </dependencies>
     </metadata>
+    <files>
+        <file src="**\*.*" exclude=".git\**\*.*;.github\**\*.*;*.nupkg" />
+    </files>
 </package>
