@@ -2,7 +2,7 @@
 <package >
     <metadata>
         <id>cr-devops-rest</id>
-        <version>2020.12.35</version>
+        <version>2020.12.36</version>
         <authors>ryan.phay</authors>
         <owners>CLEAResult</owners>
         <description>CLEAResult DevOps PowerShell Rest API Library.</description>
