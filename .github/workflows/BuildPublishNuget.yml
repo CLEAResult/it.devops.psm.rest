@@ -37,9 +37,9 @@ jobs:
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
           nuget-version: '5.x'
       - name: Build  
-        run: nuget pack ./cr-devops-rest.nuspec -Version 12.12.$GITHUB_RUN_NUMBER
+        run: nuget pack ./cr-devops-rest.nuspec -Version 20.12.$GITHUB_RUN_NUMBER
       - name: AddGithubSource
         run: nuget sources Add -UserName Ryan.Phay@clearesult.com -Password ${{secrets.NUGET_API_KEY}} -Name CrDevOpsModules -Source https://clearesultdev.pkgs.visualstudio.com/_packaging/DevOps-PowerShell-Modules/nuget/v3/index.json
       - name: PushNuget
-        run: nuget push ./cr-devops-rest.12.12.$GITHUB_RUN_NUMBER.nupkg -apikey ${{secrets.NUGET_API_KEY}} -source https://clearesultdev.pkgs.visualstudio.com/_packaging/DevOps-PowerShell-Modules/nuget/v3/index.json
+        run: nuget push ./cr-devops-rest.20.12.$GITHUB_RUN_NUMBER.nupkg -apikey ${{secrets.NUGET_API_KEY}} -source https://clearesultdev.pkgs.visualstudio.com/_packaging/DevOps-PowerShell-Modules/nuget/v3/index.json
 
