@@ -11,7 +11,7 @@
    RootModule           = 'devops-rest.psm1'
 
    # Version number of this module.  Don't change, this is automatically modified by the Continuous Integration builds
-   ModuleVersion        = '20.20.42'
+   ModuleVersion        = '20.20.43'
 
    # Supported PSEditions
    CompatiblePSEditions = 'Core'

@@ -2,7 +2,7 @@
 <package >
     <metadata>
         <id>cr-devops-rest</id>
-        <version>20.12.42</version>
+        <version>20.12.43</version>
         <authors>ryan.phay</authors>
         <owners>CLEAResult</owners>
         <description>CLEAResult DevOps PowerShell Rest API Library.</description>
@@ -13,4 +13,7 @@
         <dependencies>
         </dependencies>
     </metadata>
+    <files>
+        <file src="**\*.*" exclude=".git\**\*.*;.github\**\*.*;*.nupkg" />
+    </files>
 </package>
