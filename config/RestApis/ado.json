@@ -48,6 +48,13 @@
       {
         "Operation": "Policy Configurations - Get",
         "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/policy/configurations?repositoryId={repositoryId}&api-version=6.1-preview.1",
+        "Description": "Retrieve a list of policy configurations by a given set of scope/filtering criteria.  See link for more information.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/policy%20configurations/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Policy Configurations - Get All",
+        "Method": "GET",
         "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/policy/configurations?api-version=6.1-preview.1",
         "Description": "Retrieve a list of policy configurations by a given set of scope/filtering criteria.  See link for more information.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/policy%20configurations/get?view=azure-devops-rest-6.1"
