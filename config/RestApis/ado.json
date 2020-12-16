@@ -46,6 +46,13 @@
     ],
     "Git": [
       {
+        "Operation": "Policy Configurations - Get",
+        "Method": "GET",
+        "Uri": "GET https://dev.azure.com/{organization}/{project}/_apis/git/policy/configurations?api-version=6.1-preview.1",
+        "Description": "Retrieve a list of policy configurations by a given set of scope/filtering criteria.  See link for more information.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/policy%20configurations/get?view=azure-devops-rest-6.1"
+      },
+      {
         "Operation": "Repositories - Create",
         "Method": "POST",
         "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories?api-version=5.1{version}",
