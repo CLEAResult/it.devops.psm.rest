@@ -1,0 +1,1 @@
+Following are examples of using the GoDaddy API via this module:

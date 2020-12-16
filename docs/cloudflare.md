@@ -1,0 +1,1 @@
+Following are examples of using the CloudFlare API via this module:
