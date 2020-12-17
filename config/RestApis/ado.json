@@ -7,6 +7,71 @@
     "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-5.1"
   },
   "Services": {
+    "Audit": [
+      {
+        "Operation": "Actions - List",
+        "Method": "GET",
+        "Uri": "https://auditservice.dev.azure.com/{organization}/_apis/audit/actions?api-version=6.1-preview.1",
+        "Description": "Get all auditable actions filterable by area.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/audit/actions/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Audit Log - Query",
+        "Method": "GET",
+        "Uri": "https://auditservice.dev.azure.com/{organization}/_apis/audit/auditlog?api-version=6.1-preview.1",
+        "Description": "Queries audit log entries",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/audit/audit%20log/query?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Download Log - Download Log",
+        "Method": "GET",
+        "Uri": "https://auditservice.dev.azure.com/{organization}/_apis/audit/downloadlog?format={format}&api-version=6.1-preview.1",
+        "Description": "Downloads audit log entries.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/audit/download%20log/download%20log?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Streams - Create",
+        "Method": "POST",
+        "Uri": "https://auditservice.dev.azure.com/{organization}/_apis/audit/streams?daysToBackfill={daysToBackfill}&api-version=6.1-preview.1",
+        "Description": "Create new Audit Stream",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/audit/streams/create?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Streams - Delete",
+        "Method": "DELETE",
+        "Uri": "https://auditservice.dev.azure.com/{organization}/_apis/audit/streams/{streamId}?api-version=6.1-preview.1",
+        "Description": "Delete Audit Stream",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/audit/streams/delete?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Streams - Query All Streams",
+        "Method": "GET",
+        "Uri": "https://auditservice.dev.azure.com/{organization}/_apis/audit/streams?api-version=6.1-preview.1",
+        "Description": "Return all Audit Streams scoped to an organization",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/audit/streams/query%20all%20streams?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Streams - Query Stream By Id",
+        "Method": "GET",
+        "Uri": "https://auditservice.dev.azure.com/{organization}/_apis/audit/streams/{streamId}?api-version=6.1-preview.1",
+        "Description": "Return Audit Stream with id of streamId if one exists otherwise throw",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/audit/streams/query%20stream%20by%20id?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Streams - Update Status",
+        "Method": "PUT",
+        "Uri": "https://auditservice.dev.azure.com/{organization}/_apis/audit/streams/{streamId}?status={status}&api-version=6.1-preview.1",
+        "Description": "Update existing Audit Stream status",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/audit/streams/update%20status?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Streams - Update Stream",
+        "Method": "PUT",
+        "Uri": "https://auditservice.dev.azure.com/{organization}/_apis/audit/streams?api-version=6.1-preview.1",
+        "Description": "Update existing Audit Stream",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/audit/streams/update%20stream?view=azure-devops-rest-6.1"
+      }
+    ],
     "Build": [
       {
         "Operation": "Artifacts - Create",
@@ -708,37 +773,6 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/get%20user%20entitlements?view=azure-devops-rest-5.1"
       }
     ],
-    "Users": [
-      {
-        "Operation": "Create",
-        "Method": "POST",
-        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?api-version={version}-preview.1",
-        "Description": "NOT VALIDATED!!!  Materialize an existing AAD or MSA user into the VSTS account.",
-        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/delete",
-        "Body": "$Example = @{ principalName = 'ado.test.svc@clearesult.com' } | ConvertTo-JSon"
-      },
-      {
-        "Operation": "Delete",
-        "Method": "DELETE",
-        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users/{userDescriptor}?api-version={version}-preview.1",
-        "Description": "Disables a user. The user will still be visible, but membership checks for the user will return false.",
-        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/delete"
-      },
-      {
-        "Operation": "Get",
-        "Method": "GET",
-        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users/{userDescriptor}?api-version={version}-preview.1",
-        "Description": "Get a user by its descriptor.",
-        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/get"
-      },
-      {
-        "Operation": "List",
-        "Method": "GET",
-        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?api-version={version}-preview.1",
-        "Description": "Get a list of all users in a given scope.",
-        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/list"
-      }
-    ],
     "Permissions Report": [
       {
         "Operation": "Permissions Report - Create",
@@ -1092,6 +1126,37 @@
         "Uri": "https://dev.azure.com/{organization}/_apis/projects/{projectId}/teams/{teamId}?api-version={version}-preview.3",
         "Description": "Update a team's name and/or description..",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-5.1"
+      }
+    ],
+    "Users": [
+      {
+        "Operation": "Create",
+        "Method": "POST",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?api-version={version}-preview.1",
+        "Description": "NOT VALIDATED!!!  Materialize an existing AAD or MSA user into the VSTS account.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/delete",
+        "Body": "$Example = @{ principalName = 'ado.test.svc@clearesult.com' } | ConvertTo-JSon"
+      },
+      {
+        "Operation": "Delete",
+        "Method": "DELETE",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users/{userDescriptor}?api-version={version}-preview.1",
+        "Description": "Disables a user. The user will still be visible, but membership checks for the user will return false.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/delete"
+      },
+      {
+        "Operation": "Get",
+        "Method": "GET",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users/{userDescriptor}?api-version={version}-preview.1",
+        "Description": "Get a user by its descriptor.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/get"
+      },
+      {
+        "Operation": "List",
+        "Method": "GET",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?api-version={version}-preview.1",
+        "Description": "Get a list of all users in a given scope.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/list"
       }
     ],
     "Work Item Tracking": [
