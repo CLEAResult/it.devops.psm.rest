@@ -161,8 +161,8 @@
     "Permissions Report": [
       {
         "Operation": "Permissions Report - Create",
-        "Method": "Post",
-        "Uri": "POST https://dev.azure.com/{organization}/_apis/permissionsreport?api-version=6.1-preview.1",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/_apis/permissionsreport?api-version=6.1-preview.1",
         "Description": "Request a permissions report to be created asyncronously",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/permissionsreport/permissions%20report/create?view=azure-devops-rest-6.1"
       },
