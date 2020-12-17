@@ -26,6 +26,10 @@ $AdoBuilds = Invoke-crRestMethod -Params $Params -BearerToken $AdoPAT
 ```
 $Params = @{ RestApi = "ADO"; Service = "Git"; Operation = "Repositories - List"; organization = $AdoOrganization; project = $AdoProject }
 $Repos = Invoke-crRestMethod -Params $Params -BearerToken $AdoPAT
+
+$RepoID = $Repos[0].Id
+$Params = @{ RestApi = "ADO"; Service = "Git"; Operation = "Policy Configurations - Get"; organization = $AdoOrganization; project = $AdoProject; repositoryId = $RepoId }
+$PolicyConfigurations = Invoke-crRestMethod -Params $Params -BearerToken $AdoPAT
 ```
 
 ## Member Entitlement Management Service
@@ -46,7 +50,30 @@ $UserEntitlements = Invoke-crRestMethod -Params $Params -BearerToken $AdoPAT
 ## Permissions Report Service
 ```
 $Params = @{ RestApi = "ADO"; Service = "Permissions Report"; Operation = "Permissions Report - List"; organization = $AdoOrganization }
-$AdoPerms = Invoke-crRestMethod -Params $Params -BearerToken $AdoPAT
+$PermissionsReports = Invoke-crRestMethod -Params $Params -BearerToken $AdoPAT
+
+$Params = @{ RestApi = "ADO"; Service = "Permissions Report"; Operation = "Permissions Report - Get"; organization = $AdoOrganization; id = "REPORT_ID"}
+$PermissionsReport = Invoke-crRestMethod -Params $Params -BearerToken $AdoPAT
+
+# The following demonstrates generating a report, manual download, and converting to an excel file
+
+$Params = @{ RestApi = "ADO"; Service = "Projects"; Operation = "List"; organization = $AdoOrganization }
+$Projects = Invoke-crRestMethod -Params $Params -BearerToken $AdoPAT
+
+$CurrentProject = $Projects[0]
+
+$PermissionsReportResources = @()
+$PermissionsReportResources += @{ resourceId = @( $CurrentProject.Id ); resourceName = "REPOSITORY_NAME"; resourceType = "projectGit"}
+$Body = @{ descriptors = @(); reportName = "MyReport"; resources = $PermissionsReportResources }
+$Params = @{ RestApi = "ADO"; Service = "Permissions Report"; Operation = "Permissions Report - Create"; organization = $AdoOrganization}
+$ReportLink = Invoke-crRestMethod -Params $Params -BearerToken $AdoPAT -Body $Body
+
+# Note, ReportLink doesn't provide anything useful except to download the json file manually in a browser...
+
+$ReportObj = Get-Content "./DownloadedReport.json" | ConvertFrom-Json
+foreach( $Item in $ReportObj ){
+    $Item.permissions | Export-Excel -WorksheetName $Item.DisplayName -Table $Item.DisplayName ./Output.xlsx
+}
 ```
 
 ## Personal Access Tokens Service
