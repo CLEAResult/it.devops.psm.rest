@@ -7,6 +7,15 @@
     "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-5.1"
   },
   "Services": {
+    "Accounts": [
+      {
+        "Operation": "Accounts - List",
+        "Method": "GET",
+        "Uri": "https://app.vssps.visualstudio.com/_apis/accounts?api-version=6.1-preview.1",
+        "Description": "Get a list of accounts for a specific owner or a specific member.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/account/accounts/list?view=azure-devops-rest-6.1"
+      }
+    ],
     "Audit": [
       {
         "Operation": "Actions - List",
