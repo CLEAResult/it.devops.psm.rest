@@ -796,11 +796,74 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/approvals/list?view=azure-devops-rest-6.1"
       },
       {
+        "Operation": "Approvals - Update",
+        "Method": "PATCH",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/approvals/{approvalId}?api-version=6.1-preview.3",
+        "Description": "Update status of an approval",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/approvals/update?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Attachments - Get Release Task Attachment Content",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases/{releaseId}/environments/{environmentId}/attempts/{attemptId}/plan/{planId}/timelines/{timelineId}/records/{recordId}/attachments/{type}/{name}?api-version=6.1-preview.1",
+        "Description": "Get a release task attachment.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/attachments/get%20release%20task%20attachment%20content?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Attachments - Get Release Task Attachments",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases/{releaseId}/environments/{environmentId}/attempts/{attemptId}/plan/{planId}/attachments/{type}?api-version=6.1-preview.1",
+        "Description": "Get the release task attachments.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/attachments/get%20release%20task%20attachments?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Attachments - Get Task Attachment Content",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases/{releaseId}/environments/{environmentId}/attempts/{attemptId}/timelines/{timelineId}/records/{recordId}/attachments/{type}/{name}?api-version=6.1-preview.1",
+        "Description": "GetTaskAttachmentContent API is deprecated. Use GetReleaseTaskAttachmentContent API instead.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/attachments/get%20task%20attachment%20content?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Attachments - Get Task Attachments",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases/{releaseId}/environments/{environmentId}/attempts/{attemptId}/timelines/{timelineId}/attachments/{type}?api-version=6.1-preview.1",
+        "Description": "GetTaskAttachments API is deprecated. Use GetReleaseTaskAttachments API instead.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/attachments/get%20task%20attachments?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Definitions - Create",
+        "Method": "POST",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/definitions?api-version=6.1-preview.4",
+        "Description": "Create a release definition",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/definitions/create?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Definitions - Delete",
+        "Method": "DELETE",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/definitions/{definitionId}?api-version=6.1-preview.4",
+        "Description": "Delete a release definition.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/definitions/delete?view=azure-devops-rest-6.1"
+      },
+      {
         "Operation": "Definitions - Get",
         "Method": "GET",
         "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/definitions/{definitionId}?api-version={version}",
         "Description": "Get a release definition.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/definitions/get?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Definitions - Get Definition Revision",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/Release/definitions/{definitionId}/revisions/{revision}?api-version=6.1-preview.1",
+        "Description": "Get release definition for a given definitionId and revision",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/definitions/get%20definition%20revision?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Definitions - Get Release Definition History",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/Release/definitions/{definitionId}/revisions?api-version=6.1-preview.1",
+        "Description": "Get revision history for a release definition",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/definitions/get%20release%20definition%20history?view=azure-devops-rest-6.1"
       },
       {
         "Operation": "Definitions - List",
@@ -810,18 +873,95 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/definitions/list?view=azure-devops-rest-5.1"
       },
       {
-        "Operation": "Releases - Get Release",
-        "Method": "GET",
-        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases/{releaseId}?api-version={version}",
-        "Description": "Get a Release.",
-        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/get%20release?view=azure-devops-rest-5.1"
+        "Operation": "Definitions - Update",
+        "Method": "PUT",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/definitions?api-version=6.1-preview.4",
+        "Description": "Update a release definition.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/definitions/update?view=azure-devops-rest-6.1"
       },
       {
-        "Operation": "Releases - List",
+        "Operation": "Deployments - List",
         "Method": "GET",
-        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases?api-version={version}",
-        "Description": "Get a list of releases.",
-        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/list?view=azure-devops-rest-5.1"
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/deployments?api-version=6.1-preview.2",
+        "Description": "",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/deployments/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Folders - Create",
+        "Method": "POST",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/folders/{path}?api-version=6.1-preview.2",
+        "Description": "This method is no longer supported. Use CreateFolder with folder parameter API.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/folders/create?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Folders - Delete",
+        "Method": "DELETE",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/folders/{path}?api-version=6.1-preview.2",
+        "Description": "Deletes a definition folder for given folder name and path and all it's existing definitions.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/folders/delete?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Folders - List",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/folders/{path}?api-version=6.1-preview.2",
+        "Description": "Gets folders.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/folders/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Folders - Update",
+        "Method": "PATCH",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/folders/{path}?api-version=6.1-preview.2",
+        "Description": "Updates an existing folder at given existing path.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/folders/update?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Gates - Update",
+        "Method": "PATCH",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/gates/{gateStepId}?api-version=6.1-preview.1",
+        "Description": "Updates the gate for a deployment.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/gates/update?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Manual Interventions - Get",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/Release/releases/{releaseId}/manualinterventions/{manualInterventionId}?api-version=6.1-preview.1",
+        "Description": "Get manual intervention for a given release and manual intervention id.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/manual%20interventions/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Manual Interventions - List",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/Release/releases/{releaseId}/manualinterventions?api-version=6.1-preview.1",
+        "Description": "List all manual interventions for a given release.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/manual%20interventions/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Manual Interventions - Update",
+        "Method": "PATCH",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/Release/releases/{releaseId}/manualinterventions/{manualInterventionId}?api-version=6.1-preview.1",
+        "Description": "Update manual intervention.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/manual%20interventions/update?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Releases - Create",
+        "Method": "POST",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases?api-version=6.1-preview.8",
+        "Description": "Create a release.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/create?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Releases - Get Logs",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases/{releaseId}/logs?api-version=6.1-preview.2",
+        "Description": "Get logs for a release Id.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/get%20logs?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Releases - Get Release",
+        "Method": "GET",
+        "Uri": "GET https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases/{releaseId}?api-version=6.1-preview.8",
+        "Description": "Get a Release.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/get%20release?view=azure-devops-rest-6.1"
       },
       {
         "Operation": "Releases - Get Release Environment",
@@ -829,6 +969,55 @@
         "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/Release/releases/{releaseId}/environments/{environmentId}?api-version=6.1-preview.7",
         "Description": "Get a release environment.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/get%20release%20environment?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Releases - Get Release Environment",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/Release/releases/{releaseId}/environments/{environmentId}?api-version=6.1-preview.7",
+        "Description": "Get a release environment.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/get%20release%20environment?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Releases - Get Release Revision",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases/{releaseId}?definitionSnapshotRevision={definitionSnapshotRevision}&api-version=6.1-preview.8",
+        "Description": "Get release for a given revision number.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/get%20release%20revision?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Releases - Get Task Log",
+        "Method": "GET",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases/{releaseId}/environments/{environmentId}/deployPhases/{releaseDeployPhaseId}/tasks/{taskId}/logs?api-version=6.1-preview.2",
+        "Description": "Gets the task log of a release as a plain text file.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/get%20task%20log?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Releases - List",
+        "Method": "GET",
+        "Uri": "GET https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases?api-version=6.1-preview.8",
+        "Description": "Get a list of releases.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Releases - Update Release",
+        "Method": "PUT",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases/{releaseId}?api-version=6.1-preview.8",
+        "Description": "Update a complete release object.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/update%20release?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Releases - Update Release Environment",
+        "Method": "PATCH",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/Release/releases/{releaseId}/environments/{environmentId}?api-version=6.1-preview.7",
+        "Description": "Update the status of a release environment",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/update%20release%20environment?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/update%20release%20resource?view=azure-devops-rest-6.1",
+        "Method": "PATCH",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases/{releaseId}?api-version=6.1-preview.8",
+        "Description": "Update few properties of a release.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/update%20release%20resource?view=azure-devops-rest-6.1"
       }
     ],
     "Task Agent": [
