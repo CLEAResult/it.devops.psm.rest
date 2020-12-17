@@ -9,11 +9,137 @@
   "Services": {
     "Build": [
       {
+        "Operation": "Artifacts - Create",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/artifacts?api-version=6.1-preview.5",
+        "Description": "Associates an artifact with a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/artifacts/create?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Artifacts - Get Artifact",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/artifacts?artifactName={artifactName}&api-version=6.1-preview.5",
+        "Description": "Gets a specific artifact for a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/artifacts/get%20artifact?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Artifacts - Get File",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/artifacts?artifactName={artifactName}&fileId={fileId}&fileName={fileName}&api-version=6.1-preview.5",
+        "Description": "Gets a file from the build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/artifacts/get%20file?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Artifacts - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/artifacts?api-version=6.1-preview.5",
+        "Description": "Gets all artifacts for a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/artifacts/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Attachments - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/{timelineId}/{recordId}/attachments/{type}/{name}?api-version=6.1-preview.2",
+        "Description": "Gets a specific attachment.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/attachments/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Attachments - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/attachments/{type}?api-version=6.1-preview.2",
+        "Description": "Gets the list of attachments of a specific type that are associated with a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/attachments/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Authorizedresources - Authorize Project Resources",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/authorizedresources?api-version=6.1-preview.1",
+        "Description": "",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources/authorize%20project%20resources?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Authorizedresources - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/authorizedresources?api-version=6.1-preview.1",
+        "Description": "",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Badge - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/public/build/definitions/{project}/{definitionId}/badge?api-version=6.1-preview.2",
+        "Description": "This endpoint is deprecated. Please see the Build Status REST endpoint.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/badge/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Badge - Get Build Badge Data",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/repos/{repoType}/badge?api-version=6.1-preview.2",
+        "Description": "Gets a badge that indicates the status of the most recent build for the specified branch.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/badge/get%20build%20badge%20data?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Builds - Delete",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}?api-version=6.1-preview.6",
+        "Description": "Deletes a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/delete?view=azure-devops-rest-6.1"
+      },
+      {
         "Operation": "Builds - Get",
         "Method": "GET",
         "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}?api-version={version}",
         "Description": "Gets a build.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/get?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Builds - Get Build Changes",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/changes?api-version=6.1-preview.2",
+        "Description": "Gets the changes associated with a build",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/get%20build%20changes?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Builds - Get Build Log",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/logs/{logId}?api-version=6.1-preview.2",
+        "Description": "Gets an individual log file for a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/get%20build%20log?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Builds - Get Build Logs",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/logs?api-version=6.1-preview.2",
+        "Description": "Gets the logs for a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/get%20build%20logs?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Builds - Get Build Work Items Refs",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/workitems?api-version=6.1-preview.2",
+        "Description": "Gets the work items associated with a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/get%20build%20work%20items%20refs?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Builds - Get Build Work Items Refs From Commits",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/workitems?api-version=6.1-preview.2",
+        "Description": "Gets the work items associated with a build, filtered to specific commits.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/get%20build%20work%20items%20refs%20from%20commits?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Builds - Get Changes Between Builds",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/changes?api-version=6.1-preview.2",
+        "Description": "Gets the changes made to the repository between two given builds.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/get%20changes%20between%20builds?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Builds - Get Work Items Between Builds",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/workitems?fromBuildId={fromBuildId}&toBuildId={toBuildId}&api-version=6.1-preview.2",
+        "Description": "Gets all the work items between two builds.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/get%20work%20items%20between%20builds?view=azure-devops-rest-6.1"
       },
       {
         "Operation": "Builds - List",
@@ -23,11 +149,53 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/list?view=azure-devops-rest-5.1"
       },
       {
+        "Operation": "Builds - Queue",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds?api-version=6.1-preview.6",
+        "Description": "Queues a build",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/queue?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Builds - Update Build",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}?api-version=6.1-preview.6",
+        "Description": "Updates a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/update%20build?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Builds - Update Builds",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds?api-version=6.1-preview.6",
+        "Description": "Updates multiple builds.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/builds/update%20builds?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Controllers - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/build/controllers/{controllerId}?api-version=6.1-preview.2",
+        "Description": "Gets a controller",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/controllers/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Controllers - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/build/controllers?api-version=6.1-preview.2",
+        "Description": "Gets controller, optionally filtered by name",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/controllers/list?view=azure-devops-rest-6.1"
+      },
+      {
         "Operation": "Definitions - Create",
         "Method": "POST",
         "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions?api-version={version}",
         "Description": "Creates a new definition.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions/create?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Definitions - Delete",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{definitionId}?api-version=6.1-preview.7",
+        "Description": "Deletes a definition and all associated builds.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions/delete?view=azure-devops-rest-6.1"
       },
       {
         "Operation": "Definitions - Get",
@@ -37,11 +205,424 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions/get?view=azure-devops-rest-5.1"
       },
       {
+        "Operation": "Definitions - Get Definition Revisions",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{definitionId}/revisions?api-version=6.1-preview.3",
+        "Description": "Gets all revisions of a definition.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions/get%20definition%20revisions?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Definitions - Get Definition Yaml",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{definitionId}?dummyValue={dummyValue}&api-version=6.1-preview.7",
+        "Description": "",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions/get%20definition%20yaml?view=azure-devops-rest-6.1"
+      },
+      {
         "Operation": "Definitions - List",
         "Method": "GET",
         "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions?{version}",
         "Description": "Gets a list of definitions.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions/list?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Definitions - Restore Definition",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{definitionId}?deleted={deleted}&api-version=6.1-preview.7",
+        "Description": "Restores a deleted definition",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions/restore%20definition?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Definitions - Update",
+        "Method": "PUT",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{definitionId}?api-version=6.1-preview.7",
+        "Description": "Updates an existing build definition. In order for this operation to succeed, the value of the 'Revision' property of the request body must match the existing build definition's. It is recommended that you obtain the existing build definition by using GET, modify the build definition as necessary, and then submit the modified definition with PUT.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions/update?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Folders - Create",
+        "Method": "PUT",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/folders?path={path}&api-version=6.1-preview.2",
+        "Description": "Creates a new folder.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/folders/create?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Folders - Delete",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/folders?path={path}&api-version=6.1-preview.2",
+        "Description": "Deletes a definition folder. Definitions and their corresponding builds will also be deleted.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/folders/delete?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Folders - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/folders/{path}?api-version=6.1-preview.2",
+        "Description": "Gets a list of build definition folders.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/folders/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Folders - Update",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/folders?path={path}&api-version=6.1-preview.2",
+        "Description": "Updates an existing folder at given existing path",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/folders/update?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "General Settings - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/generalsettings?api-version=6.1-preview.1",
+        "Description": "Gets pipeline general settings.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/general%20settings/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "General Settings - Update",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/generalsettings?api-version=6.1-preview.1",
+        "Description": "Updates pipeline general settings.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/general%20settings/update?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "History - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/build/retention/history?api-version=6.1-preview.1",
+        "Description": "Returns the retention history for the project collection. This includes pipelines that have custom retention rules that may prevent the retention job from cleaning them up, runs per pipeline with retention type, files associated with pipelines owned by the collection with retention type, and the number of files per pipeline.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/history/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Latest - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/latest/{definition}?api-version=6.1-preview.1",
+        "Description": "Gets the latest build for a definition, optionally scoped to a specific branch.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/latest/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Leases - Add",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/retention/leases?api-version=6.1-preview.1",
+        "Description": "Adds new leases for pipeline runs.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/leases/add?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Leases - Delete",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/retention/leases?ids={ids}&api-version=6.1-preview.1",
+        "Description": "Removes specific retention leases.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/leases/delete?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Leases - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/retention/leases/{leaseId}?api-version=6.1-preview.1",
+        "Description": "Returns the details of the retention lease given a lease id.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/leases/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Leases - Get Retention Leases By Minimal Retention Leases",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/retention/leases?leasesToFetch={leasesToFetch}&api-version=6.1-preview.1",
+        "Description": "Returns any leases matching the specified MinimalRetentionLeases",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/leases/get%20retention%20leases%20by%20minimal%20retention%20leases?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Leases - Get Retention Leases By Owner Id",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/retention/leases?api-version=6.1-preview.1",
+        "Description": "Returns any leases owned by the specified entity, optionally scoped to a single pipeline definition and run.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/leases/get%20retention%20leases%20by%20owner%20id?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Leases - Get Retention Leases By User Id",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/retention/leases?userOwnerId={userOwnerId}&api-version=6.1-preview.1",
+        "Description": "Returns any leases owned by the specified user, optionally scoped to a single pipeline definition and run.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/leases/get%20retention%20leases%20by%20user%20id?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Metrics - Get Definition Metrics",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{definitionId}/metrics?api-version=6.1-preview.1",
+        "Description": "Gets build metrics for a definition.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/metrics/get%20definition%20metrics?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Metrics - Get Project Metrics",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/metrics/{metricAggregationType}?api-version=6.1-preview.1",
+        "Description": "Gets build metrics for a project.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/metrics/get%20project%20metrics?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Options - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/options?api-version=6.1-preview.2",
+        "Description": "Gets all build definition options supported by the system.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/options/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Properties - Get Build Properties",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/properties?api-version=6.1-preview.1",
+        "Description": "Gets properties for a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/properties/get%20build%20properties?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Properties - Get Definition Properties",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{definitionId}/properties?api-version=6.1-preview.1",
+        "Description": "Gets properties for a definition.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/properties/get%20definition%20properties?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Properties - Update Build Properties",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/properties?api-version=6.1-preview.1",
+        "Description": "Updates properties for a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/properties/update%20build%20properties?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Properties - Update Definition Properties",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{definitionId}/properties?api-version=6.1-preview.1",
+        "Description": "Updates properties for a definition.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/properties/update%20definition%20properties?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Report - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/report?api-version=6.1-preview.2",
+        "Description": "Gets a build report.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/report/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Resource Usage - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/build/resourceusage?api-version=6.1-preview.2",
+        "Description": "Gets information about build resources in the system.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resource%20usage/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Resources - Authorize Definition Resources",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{definitionId}/resources?api-version=6.1-preview.1",
+        "Description": "",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Resources - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{definitionId}/resources?api-version=6.1-preview.1",
+        "Description": "",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Retention - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/retention?api-version=6.1-preview.1",
+        "Description": "Gets the project's retention settings.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/retention/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Retention - Update",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/retention?api-version=6.1-preview.1",
+        "Description": "Updates the project's retention settings.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/retention/update?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Settings - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/settings?api-version=6.1-preview.1",
+        "Description": "Gets the build settings.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/settings/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Settings - Update",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/settings?api-version=6.1-preview.1",
+        "Description": "Updates the build settings.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/settings/update?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Source Providers - Get File Contents",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/sourceProviders/{providerName}/filecontents?api-version=6.1-preview.1",
+        "Description": "Gets the contents of a file in the given source code repository.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/source%20providers/get%20file%20contents?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Source Providers - Get Path Contents",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/sourceProviders/{providerName}/pathcontents?api-version=6.1-preview.1",
+        "Description": "Gets the contents of a directory in the given source code repository.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/source%20providers/get%20path%20contents?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Source Providers - Get Pull Request",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/sourceProviders/{providerName}/pullrequests/{pullRequestId}?api-version=6.1-preview.1",
+        "Description": "Gets a pull request object from source provider.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/source%20providers/get%20pull%20request?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Source Providers - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/sourceproviders?api-version=6.1-preview.1",
+        "Description": "Get a list of source providers and their capabilities.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/source%20providers/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Source Providers - List Branches",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/sourceProviders/{providerName}/branches?api-version=6.1-preview.1",
+        "Description": "Gets a list of branches for the given source code repository.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/source%20providers/list%20branches?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Source Providers - List Repositories",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/sourceProviders/{providerName}/repositories?api-version=6.1-preview.1",
+        "Description": "Gets a list of source code repositories.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/source%20providers/list%20repositories?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Source Providers - List Webhooks",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/sourceProviders/{providerName}/webhooks?api-version=6.1-preview.1",
+        "Description": "Gets a list of webhooks installed in the given source code repository.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/source%20providers/list%20webhooks?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Source Providers - Restore Webhooks",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/sourceProviders/{providerName}/webhooks?api-version=6.1-preview.1",
+        "Description": "Recreates the webhooks for the specified triggers in the given source code repository.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/source%20providers/restore%20webhooks?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Stages - Update",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/stages/{stageRefName}?api-version=6.1-preview.1",
+        "Description": "Update a build stage",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/stages/update?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Status - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/status/{definition}?api-version=6.1-preview.1",
+        "Description": "Gets the build status for a definition, optionally scoped to a specific branch, stage, job, and configuration.  If there are more than one, then it is required to pass in a stageName value when specifying a jobName, and the same rule then applies for both if passing a configuration parameter.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/status/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Tags - Add Build Tag",
+        "Method": "PUT",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/tags/{tag}?api-version=6.1-preview.2",
+        "Description": "Adds a tag to a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/tags/add%20build%20tag?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Tags - Add Build Tags",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/tags?api-version=6.1-preview.2",
+        "Description": "Adds tags to a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/tags/add%20build%20tags?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Tags - Add Definition Tag",
+        "Method": "PUT",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{DefinitionId}/tags/{tag}?api-version=6.1-preview.2",
+        "Description": "Adds a tag to a definition",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/tags/add%20definition%20tag?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Tags - Add Definition Tags",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{DefinitionId}/tags?api-version=6.1-preview.2",
+        "Description": "Adds multiple tags to a definition.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/tags/add%20definition%20tags?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Tags - Add Definition Tags",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{DefinitionId}/tags?api-version=6.1-preview.2",
+        "Description": "Adds multiple tags to a definition.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/tags/add%20definition%20tags?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Tags - Delete Build Tag",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/tags/{tag}?api-version=6.1-preview.2",
+        "Description": "Removes a tag from a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/tags/delete%20build%20tag?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Tags - Delete Definition Tag",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{DefinitionId}/tags/{tag}?api-version=6.1-preview.2",
+        "Description": "Removes a tag from a definition.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/tags/delete%20definition%20tag?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Tags - Delete Tag",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/tags/{tag}?api-version=6.1-preview.2",
+        "Description": "Removes a tag from builds, definitions, and from the tag store",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/tags/delete%20tag?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Tags - Get Build Tags",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/tags?api-version=6.1-preview.2",
+        "Description": "Gets the tags for a build.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/tags/get%20build%20tags?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Tags - Get Definition Tags",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/{DefinitionId}/tags?api-version=6.1-preview.2",
+        "Description": "Gets the tags for a definition.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/tags/get%20definition%20tags?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Tags - Get Tags",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/tags?api-version=6.1-preview.2",
+        "Description": "Gets a list of all build tags in the project.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/tags/get%20tags?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Templates - Delete",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/templates/{templateId}?api-version=6.1-preview.3",
+        "Description": "Deletes a build definition template.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/templates/delete?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Templates - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/templates/{templateId}?api-version=6.1-preview.3",
+        "Description": "Gets a specific build definition template.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/templates/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Templates - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/templates?api-version=6.1-preview.3",
+        "Description": "Gets all definition templates.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/templates/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Templates - Save Template",
+        "Method": "PUT",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/definitions/templates/{templateId}?api-version=6.1-preview.3",
+        "Description": "Updates an existing build definition template.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/templates/save%20template?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Timeline - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/build/builds/{buildId}/timeline/{timelineId}?api-version=6.1-preview.2",
+        "Description": "Gets details for a build",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/timeline/get?view=azure-devops-rest-6.1"
       }
     ],
     "Git": [
