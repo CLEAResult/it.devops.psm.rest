@@ -1,0 +1,27 @@
+{
+  "GeneralInfo": {
+    "Name": "WordPress",
+    "Description": "WordPress Rest API",
+    "AuthorizationType": "Basic",
+    "version": "v2",
+    "Docs": "https://developer.wordpress.org/rest-api/reference/"
+  },
+  "Services": {
+    "Posts": [
+      {
+        "Operation": "List Posts",
+        "Method": "GET",
+        "Uri": "https://{mysite}/wp-json/wp/{version}/posts",
+        "Description": "Query this endpoint to retrieve a collection of posts. The response you receive can be controlled and filtered using the URL query parameters below.",
+        "Docs": "https://developer.wordpress.org/rest-api/reference/posts/#list-posts"
+      },
+      {
+        "Operation": "Create Post",
+        "Method": "POST",
+        "Uri": "https://{mysite}/wp-json/wp/{version}/posts",
+        "Description": "",
+        "Docs": "https://developer.wordpress.org/rest-api/reference/posts/#list-posts"
+      }
+    ]
+  }
+}
