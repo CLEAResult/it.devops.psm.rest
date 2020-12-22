@@ -7,6 +7,15 @@
     "Docs": "https://developer.wordpress.org/rest-api/reference/"
   },
   "Services": {
+    "Categories": [
+      {
+        "Operation": "List Categories",
+        "Method": "GET",
+        "Uri": "https://{mysite}/wp-json/wp/{version}/categories",
+        "Description": "Query this endpoint to retrieve a collection of categories. The response you receive can be controlled and filtered using the URL query parameters below.",
+        "Docs": "https://developer.wordpress.org/rest-api/reference/categories/"
+      }
+    ],
     "Posts": [
       {
         "Operation": "List Posts",
