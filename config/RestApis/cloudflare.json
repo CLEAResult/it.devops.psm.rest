@@ -17,7 +17,28 @@
   "Services": {
     "Zones": [
       {
-        "Operation": "List",
+        "Operation": "Get - Web Application Firewall setting",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/settings/waf",
+        "Description": "The WAF examines HTTP requests to your website. It inspects both GET and POST requests and applies rules to help filter out illegitimate traffic from legitimate website visitors. The Cloudflare WAF inspects website addresses or URLs to detect anything out of the ordinary. If the Cloudflare WAF determines suspicious user behavior, then the WAF will 'challenge' the web visitor with a page that asks them to submit a CAPTCHA successfully to continue their action. If the challenge is failed, the action will be stopped. What this means is that Cloudflare's WAF will block any traffic identified as illegitimate before it reaches your origin web server.",
+        "Docs": "https://api.cloudflare.com/#zone-settings-get-web-application-firewall-waf-setting"
+      },
+      {
+        "Operation": "List - DSN Records",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/dns_records",
+        "Description": "List, search, sort, and filter a zones' DNS records.",
+        "Docs": "https://api.cloudflare.com/#dns-records-for-a-zone-list-dns-records"
+      },
+      {
+        "Operation": "List - Page Rules",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/pagerules",
+        "Description": "List, search, sort, and filter a zones' page rules.",
+        "Docs": "https://api.cloudflare.com/#page-rules-for-a-zone-properties"
+      },
+      {
+        "Operation": "List - Zones",
         "Method": "GET",
         "Uri": "https://api.cloudflare.com/client/{version}/zones?per_page=1000",
         "Description": "List, search, sort, and filter your zones.",
