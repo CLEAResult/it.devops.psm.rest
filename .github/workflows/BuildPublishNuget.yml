@@ -58,7 +58,7 @@ jobs:
           cleanup: false  
       - name: Install Azure PowerShell Module
         shell: pwsh
-        run: Install-Module -Name Az -AllowClobber -Scope CurrentUser
+        run: Install-Module -Name Az -AllowClobber -Scope CurrentUser -Force
       - name: Publish Module to Azure Automation
         shell: pwsh
         run: |
