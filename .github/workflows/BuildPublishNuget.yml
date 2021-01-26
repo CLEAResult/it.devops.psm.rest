@@ -52,3 +52,4 @@ jobs:
           source-path: ./cr-devops-rest.zip
           sas-url: ${{ secrets.DEPLOY_SAS_URL }}
           container: devopsmodules
+          require-index: false
