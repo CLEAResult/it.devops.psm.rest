@@ -51,3 +51,4 @@ jobs:
         with:
           source-path: ./cr-devops-rest.zip
           sas-url: ${{ secrets.DEPLOY_SAS_URL }}
+          container: devopsmodules
