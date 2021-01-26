@@ -45,11 +45,11 @@ jobs:
       - name: Zip
         uses: montudor/action-zip@v0.1.1
         with:
-          args: zip -qq -r cr-devops-rest.zip ./
+          args: zip -qq -r ./zip/cr-devops-rest.zip ./
       - name: Deploy to Azure
         uses: TravisSpomer/deploy-to-azure-storage@v1.3.0
         with:
-          source-path: ./*.zip
+          source-path: ./zip/
           sas-url: ${{ secrets.DEPLOY_SAS_URL }}
           container: devopsmodules
           require-index: false
