@@ -754,6 +754,13 @@
     ],
     "Member Entitlement Management": [
       {
+        "Operation": "Group Entitlements - Delete",
+        "Method": "DELETE",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements/{userId}?api-version=6.0-preview.3",
+        "Description": "Delete a user from the account.  The delete operation includes unassigning Extensions and Licenses and removing the user from all project memberships. The user would continue to have access to the account if she is member of an AAD group, that is added directly to the account.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/delete?view=azure-devops-rest-6.0"
+      },
+      {
         "Operation": "Group Entitlements - List",
         "Method": "GET",
         "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/groupentitlements?api-version=6.1-preview.1",
