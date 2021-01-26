@@ -736,6 +736,22 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories/list?view=azure-devops-rest-5.1"
       }
     ],
+    "Groups": [
+      {
+        "Operation": "Groups - Get",
+        "Method": "GET",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/groups/{groupDescriptor}?api-version=6.0-preview.1",
+        "Description": "Get a group by its descriptor.  The group will be returned even if it has been deleted from the account or has had all its memberships deleted.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Groups - List",
+        "Method": "GET",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/groups?api-version=6.0-preview.1",
+        "Description": "Gets a list of all groups in the current scope (usually organization or account). The optional parameters are used to filter down the returned results. Returned results are in no guaranteed order. Since the list of groups may be large, results are returned in pages of groups. If there are more results than can be returned in a single page, the result set will contain a continuation token for retrieval of the next set of results.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-6.0"
+      }
+    ],
     "Iterations": [
       {
         "Operation": "List",
@@ -1158,7 +1174,7 @@
         "Method": "POST",
         "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?groupDescriptors={groupDescriptors}&api-version=6.0-preview.1",
         "Description": "NOT VALIDATED!!!  Materialize an existing AAD or MSA user into the VSTS account and put in group.",
-        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/delete",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/create?view=azure-devops-rest-6.0",
         "Body": "$Example = @{ principalName = 'ado.test.svc@clearesult.com' } | ConvertTo-JSon"
       },
       {
