@@ -59,10 +59,10 @@ jobs:
       - name: Publish Module to Azure Automation
         shell: pwsh
         run: |
-          Set-AzContext -SubscriptionId "${{ PRODUCTIONSUBSCRIPTIONID }}"
-          $SAC = New-AzStorageContext -StorageAccountName "${{ StorageAccountName }}" -StorageAccountKey "${{ StorageAccountAccessKey }}"
-          $URL = New-AzStorageBlobSASToken -Container "${{ BlobContainer }}" -Blob "${{ModuleName$}}.zip" -Permission "rwd" -context $SAC -FullUri -ExpiryTime ((Get-Date).AddMinutes(15)) -StartTime ((Get-Date).AddMinutes(-1))
-          Remove-AzAutomationModule -AutomationAccountName ${{ AutomationAccountName }} -Name ${{ ModuleName }} -ResourceGroupName ${{ AutomationRgName }} -Force -ErrorAction Ignore
+          Set-AzContext -SubscriptionId "${{ secrets.PRODUCTIONSUBSCRIPTIONID }}"
+          $SAC = New-AzStorageContext -StorageAccountName "${{ secrets.StorageAccountName }}" -StorageAccountKey "${{ secrets.StorageAccountAccessKey }}"
+          $URL = New-AzStorageBlobSASToken -Container "${{ secrets.BlobContainer }}" -Blob "${{secrets.ModuleName$}}.zip" -Permission "rwd" -context $SAC -FullUri -ExpiryTime ((Get-Date).AddMinutes(15)) -StartTime ((Get-Date).AddMinutes(-1))
+          Remove-AzAutomationModule -AutomationAccountName ${{ secrets.AutomationAccountName }} -Name ${{ secrets.ModuleName }} -ResourceGroupName ${{ secrets.AutomationRgName }} -Force -ErrorAction Ignore
           Start-Sleep 10
-            New-AzAutomationModule -AutomationAccountName ${{ AutomationAccountName }} -Name ${{ ModuleName }} -ContentLink "$URL" -ResourceGroupName ${{ AutomationRgName }}
+            New-AzAutomationModule -AutomationAccountName ${{ secrets.AutomationAccountName }} -Name ${{ secrets.ModuleName }} -ContentLink "$URL" -ResourceGroupName ${{ secrets.AutomationRgName }}
 
