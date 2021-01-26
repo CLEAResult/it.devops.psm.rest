@@ -59,7 +59,7 @@ jobs:
       - name: Publish Module to Azure Automation
         shell: pwsh
         run: |
-          Set-AzContext -SubscriptionId "${{ ProductionSubscriptionID }}"
+          Set-AzContext -SubscriptionId "${{ PRODUCTIONSUBSCRIPTIONID }}"
           $SAC = New-AzStorageContext -StorageAccountName "${{ StorageAccountName }}" -StorageAccountKey "${{ StorageAccountAccessKey }}"
           $URL = New-AzStorageBlobSASToken -Container "${{ BlobContainer }}" -Blob "${{ModuleName$}}.zip" -Permission "rwd" -context $SAC -FullUri -ExpiryTime ((Get-Date).AddMinutes(15)) -StartTime ((Get-Date).AddMinutes(-1))
           Remove-AzAutomationModule -AutomationAccountName ${{ AutomationAccountName }} -Name ${{ ModuleName }} -ResourceGroupName ${{ AutomationRgName }} -Force -ErrorAction Ignore
