@@ -49,7 +49,8 @@ jobs:
       - name: Deploy to Azure
         uses: TravisSpomer/deploy-to-azure-storage@v1.3.0
         with:
-          source-path: ./cr-devops-rest.zip
+          source-path: ./
           sas-url: ${{ secrets.DEPLOY_SAS_URL }}
           container: devopsmodules
           require-index: false
+          immutable: "*.zip"  
