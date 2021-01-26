@@ -56,6 +56,9 @@ jobs:
           container: devopsmodules
           require-index: false
           cleanup: false  
+      - name: Install Azure PowerShell Module
+        shell: pwsh
+        run: Install-Module -Name Az -AllowClobber -Scope CurrentUser
       - name: Publish Module to Azure Automation
         shell: pwsh
         run: |
