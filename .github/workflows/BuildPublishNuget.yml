@@ -62,7 +62,10 @@ jobs:
       - name: Publish Module to Azure Automation
         shell: pwsh
         run: |
-          Connect-AzAccount -CertificateThumbprint ${{ secrets.AZURE_THUMBPRINT }} -ApplicationId ${{ secrets.AZURE_APPLICATION_ID }} -Tenant ${{ secrets.AZURE_TENANTID }} -Subscription ${{ secrets.AZURE_SUBSCRIPTION }} -ServicePrincipal
+          $azurePassword = ConvertTo-SecureString ${{ AZURE_ACCESSTOKEN }} -AsPlainText -Force
+          $psCred = New-Object System.Management.Automation.PSCredential( ${{ AZURE_APPLICATION_ID }} , $azurePassword)
+          Connect-AzAccount -Credential $psCred -TenantId ${{ AZURE_TENANTID }}  -ServicePrincipal 
+          # Connect-AzAccount -CertificateThumbprint ${{ secrets.AZURE_THUMBPRINT }} -ApplicationId ${{ secrets.AZURE_APPLICATION_ID }} -Tenant ${{ secrets.AZURE_TENANTID }} -Subscription ${{ secrets.AZURE_SUBSCRIPTION }} -ServicePrincipal
           Set-AzContext -SubscriptionId "${{ secrets.PRODUCTIONSUBSCRIPTIONID }}"
           $SAC = New-AzStorageContext -StorageAccountName "${{ secrets.StorageAccountName }}" -StorageAccountKey "${{ secrets.StorageAccountAccessKey }}"
           $URL = New-AzStorageBlobSASToken -Container "${{ secrets.BlobContainer }}" -Blob "${{secrets.ModuleName}}.zip" -Permission "rwd" -context $SAC -FullUri -ExpiryTime ((Get-Date).AddMinutes(15)) -StartTime ((Get-Date).AddMinutes(-1))
