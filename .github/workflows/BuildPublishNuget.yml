@@ -62,9 +62,9 @@ jobs:
       - name: Publish Module to Azure Automation
         shell: pwsh
         run: |
-          $azurePassword = ConvertTo-SecureString ${{ AZURE_ACCESSTOKEN }} -AsPlainText -Force
-          $psCred = New-Object System.Management.Automation.PSCredential( ${{ AZURE_APPLICATION_ID }} , $azurePassword)
-          Connect-AzAccount -Credential $psCred -TenantId ${{ AZURE_TENANTID }}  -ServicePrincipal 
+          $azurePassword = ConvertTo-SecureString ${{ secrets.AZURE_ACCESSTOKEN }} -AsPlainText -Force
+          $psCred = New-Object System.Management.Automation.PSCredential( ${{ secrets.AZURE_APPLICATION_ID }} , $azurePassword)
+          Connect-AzAccount -Credential $psCred -TenantId ${{ secrets.AZURE_TENANTID }}  -ServicePrincipal 
           # Connect-AzAccount -CertificateThumbprint ${{ secrets.AZURE_THUMBPRINT }} -ApplicationId ${{ secrets.AZURE_APPLICATION_ID }} -Tenant ${{ secrets.AZURE_TENANTID }} -Subscription ${{ secrets.AZURE_SUBSCRIPTION }} -ServicePrincipal
           Set-AzContext -SubscriptionId "${{ secrets.PRODUCTIONSUBSCRIPTIONID }}"
           $SAC = New-AzStorageContext -StorageAccountName "${{ secrets.StorageAccountName }}" -StorageAccountKey "${{ secrets.StorageAccountAccessKey }}"
