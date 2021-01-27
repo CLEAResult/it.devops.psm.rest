@@ -75,16 +75,16 @@ jobs:
       - name: Publish Module to Azure Automation
         shell: pwsh
         run: |
-          $azureAplicationId = "95b87743-999e-4a9e-ae51-edbff11bd752"
-          $azureTenantId= ${{ secrets.AZURE_TENANTID }}
-          $azurePassword = ConvertTo-SecureString ${{ secrets.AZURE_ACCESSTOKEN }} -AsPlainText -Force
+          $azureAplicationId = '${{ secrets.AZURE_APPLICATION_ID }}'
+          $azureTenantId= '${{ secrets.AZURE_TENANTID }}'
+          $azurePassword = ConvertTo-SecureString '${{ secrets.AZURE_ACCESSTOKEN }}' -AsPlainText -Force
           $psCred = New-Object System.Management.Automation.PSCredential($azureAplicationId , $azurePassword)
           Connect-AzAccount -Credential $psCred -TenantId $azureTenantId  -ServicePrincipal 
-          # Connect-AzAccount -CertificateThumbprint ${{ secrets.AZURE_THUMBPRINT }} -ApplicationId ${{ secrets.AZURE_APPLICATION_ID }} -Tenant ${{ secrets.AZURE_TENANTID }} -Subscription ${{ secrets.AZURE_SUBSCRIPTION }} -ServicePrincipal
-          Set-AzContext -SubscriptionId "${{ secrets.PRODUCTIONSUBSCRIPTIONID }}"
-          $SAC = New-AzStorageContext -StorageAccountName "${{ secrets.StorageAccountName }}" -StorageAccountKey "${{ secrets.StorageAccountAccessKey }}"
-          $URL = New-AzStorageBlobSASToken -Container "${{ secrets.BlobContainer }}" -Blob "${{secrets.ModuleName}}.zip" -Permission "rwd" -context $SAC -FullUri -ExpiryTime ((Get-Date).AddMinutes(15)) -StartTime ((Get-Date).AddMinutes(-1))
-          Remove-AzAutomationModule -AutomationAccountName ${{ secrets.AutomationAccountName }} -Name ${{ secrets.ModuleName }} -ResourceGroupName ${{ secrets.AutomationRgName }} -Force -ErrorAction Ignore
+          # Connect-AzAccount -CertificateThumbprint '${{ secrets.AZURE_THUMBPRINT }}' -ApplicationId '${{ secrets.AZURE_APPLICATION_ID }}' -Tenant '${{ secrets.AZURE_TENANTID }}' -Subscription '${{ secrets.AZURE_SUBSCRIPTION }}' -ServicePrincipal
+          Set-AzContext -SubscriptionId '${{ secrets.PRODUCTIONSUBSCRIPTIONID }}'
+          $SAC = New-AzStorageContext -StorageAccountName '${{ secrets.StorageAccountName }}' -StorageAccountKey '${{ secrets.StorageAccountAccessKey }}'
+          $URL = New-AzStorageBlobSASToken -Container '${{ secrets.BlobContainer }}' -Blob '${{secrets.ModuleName}}.zip' -Permission "rwd" -context $SAC -FullUri -ExpiryTime ((Get-Date).AddMinutes(15)) -StartTime ((Get-Date).AddMinutes(-1))
+          Remove-AzAutomationModule -AutomationAccountName '${{ secrets.AutomationAccountName }}' -Name '${{ secrets.ModuleName }}' -ResourceGroupName '${{ secrets.AutomationRgName }}' -Force -ErrorAction Ignore
           Start-Sleep 10
-          New-AzAutomationModule -AutomationAccountName ${{ secrets.AutomationAccountName }} -Name ${{ secrets.ModuleName }} -ContentLink "$URL" -ResourceGroupName ${{ secrets.AutomationRgName }}
+          New-AzAutomationModule -AutomationAccountName '${{ secrets.AutomationAccountName }}' -Name '${{ secrets.ModuleName }}' -ContentLink "$URL" -ResourceGroupName '${{ secrets.AutomationRgName }}'
 
