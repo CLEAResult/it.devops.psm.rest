@@ -79,6 +79,9 @@ function Invoke-crRestMethod{
       [System.String] $BodyJson,
 
       [Parameter( Mandatory = $false )]
+      [System.String] $ContentType = 'application/json',
+
+      [Parameter( Mandatory = $false )]
       [validateset("CustomHeaders","BearerToken","sso-key","Basic", IgnoreCase = $true)]
       [System.String] $AuthorizationType = $null # Grok, update notes, use to override default behavior in the .json file
    )
@@ -168,15 +171,15 @@ function Invoke-crRestMethod{
          if( $Uri -notlike '*{*}*'){
             if( $Body ){
                Write-Verbose "Making the Rest call with a Body now."
-               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json) -ContentType 'application/json'
+               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json) -ContentType $ContentType
             }
             elseif( $BodyJson ){
                Write-Verbose "Making the Rest call with a JSON Body now."
-               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType 'application/json'
+               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType
             }
             else{
                Write-Verbose "Making the Rest call now."
-               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType 'application/json'
+               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType
             }
 
             Write-Verbose "Ensuring the result is a [System.Array] object."
