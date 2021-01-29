@@ -76,6 +76,9 @@ function Invoke-crRestMethod{
       [HashTable] $Body,
 
       [Parameter( Mandatory = $false )]
+      [System.String] $BodyJson,
+
+      [Parameter( Mandatory = $false )]
       [validateset("CustomHeaders","BearerToken","sso-key","Basic", IgnoreCase = $true)]
       [System.String] $AuthorizationType = $null # Grok, update notes, use to override default behavior in the .json file
    )
@@ -163,9 +166,13 @@ function Invoke-crRestMethod{
          Write-Verbose "URI (with replacements)= $Uri"
 
          if( $Uri -notlike '*{*}*'){
-            if($Body){
+            if( $Body ){
                Write-Verbose "Making the Rest call with a Body now."
                $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json) -ContentType 'application/json'
+            }
+            elseif( $BodyJson ){
+               Write-Verbose "Making the Rest call with a JSON Body now."
+               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType 'application/json'
             }
             else{
                Write-Verbose "Making the Rest call now."
