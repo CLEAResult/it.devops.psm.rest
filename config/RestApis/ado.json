@@ -803,6 +803,13 @@
         "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements?api-version={version}-preview.2",
         "Description": "Get a paged set of user entitlements matching the filter criteria. If no filter is is passed, a page from all the account users is returned.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/get%20user%20entitlements?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "User Entitlements - Add",
+        "Method": "POST",
+        "Uri": "ttps://vsaex.dev.azure.com/{organization}/_apis/userentitlements?api-version=6.0-preview.3",
+        "Description": "Add a user, assign license and extensions and make them a member of a project group in an account.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/add?view=azure-devops-rest-6.0"
       }
     ],
     "Permissions Report": [
