@@ -807,7 +807,7 @@
       {
         "Operation": "User Entitlements - Add",
         "Method": "POST",
-        "Uri": "ttps://vsaex.dev.azure.com/{organization}/_apis/userentitlements?api-version=6.0-preview.3",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements?api-version=6.0-preview.3",
         "Description": "Add a user, assign license and extensions and make them a member of a project group in an account.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/add?view=azure-devops-rest-6.0"
       }
