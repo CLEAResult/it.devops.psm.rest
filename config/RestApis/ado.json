@@ -810,6 +810,13 @@
         "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements?api-version=6.0-preview.3",
         "Description": "Add a user, assign license and extensions and make them a member of a project group in an account.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/add?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "User Entitlements - Update User Entitlement",
+        "Method": "PATCH",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements/{userId}?api-version=6.0-preview.3",
+        "Description": "Edit the entitlements (License, Extensions, Projects, Teams etc) for a user.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/update%20user%20entitlement?view=azure-devops-rest-6.0"
       }
     ],
     "Permissions Report": [
