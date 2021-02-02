@@ -171,7 +171,7 @@ function Invoke-crRestMethod{
          if( $Uri -notlike '*{*}*'){
             if( $Body ){
                Write-Verbose "Making the Rest call with a Body now."
-               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json) -ContentType $ContentType
+               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType
             }
             elseif( $BodyJson ){
                Write-Verbose "Making the Rest call with a JSON Body now."
