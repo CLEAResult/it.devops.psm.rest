@@ -839,7 +839,35 @@
         "Method": "PUT",
         "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/memberships/{subjectDescriptor}/{containerDescriptor}?api-version=6.0-preview.1",
         "Description": "Create a new membership between a container and subject.",
-        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships/add?view=azure-devops-rest-6.0"
+        "Do,cs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships/add?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Memberships - Check Membership Existence",
+        "Method": "HEAD",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/memberships/{subjectDescriptor}/{containerDescriptor}?api-version=6.0-preview.1",
+        "Description": "Check to see if a membership relationship between a container and subject exists.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships/check%20membership%20existence?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Memberships - Get",
+        "Method": "GET",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/memberships/{subjectDescriptor}/{containerDescriptor}?api-version=6.0-preview.1",
+        "Description": "Get a membership relationship between a container and subject.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships/get?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Memberships - List",
+        "Method": "GET",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/Memberships/{subjectDescriptor}?api-version=6.0-preview.1",
+        "Description": "Get all the memberships where this descriptor is a member in the relationship. The default value for direction is 'up' meaning return all memberships where the subject is a member (e.g. all groups the subject is a member of). Alternatively, passing the direction as 'down' will return all memberships where the subject is a container (e.g. all members of the subject group).",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships/list?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Memberships - Remove Membership",
+        "Method": "DELETE",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/memberships/{subjectDescriptor}/{containerDescriptor}?api-version=6.0-preview.1",
+        "Description": "Deletes a membership between a container and subject.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships/remove%20membership?view=azure-devops-rest-6.0"
       }
     ],
     "Permissions Report": [
