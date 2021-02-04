@@ -833,6 +833,15 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/update%20user%20entitlements?view=azure-devops-rest-6.0"
       }
     ],
+    "Memberships": [
+      {
+        "Operation": "Memberships - Add",
+        "Method": "PUT",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/memberships/{subjectDescriptor}/{containerDescriptor}?api-version=6.0-preview.1",
+        "Description": "Create a new membership between a container and subject.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships/add?view=azure-devops-rest-6.0"
+      }
+    ],
     "Permissions Report": [
       {
         "Operation": "Permissions Report - Create",
