@@ -784,6 +784,13 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/group%20entitlements/list?view=azure-devops-rest-6.1"
       },
       {
+        "Operation": "Members - Add",
+        "Method": "PUT",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/GroupEntitlements/{groupId}/members/{memberId}?api-version=6.0-preview.1",
+        "Description": "Add a member to a Group.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/members/add?view=azure-devops-rest-6.0"
+      },
+      {
         "Operation": "Members - Get",
         "Method": "GET",
         "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/GroupEntitlements/{groupId}/members?api-version=6.1-preview.1",
@@ -1187,7 +1194,7 @@
         "Method": "POST",
         "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?api-version=6.0-preview.1",
         "Description": "NOT VALIDATED!!!  Materialize an existing AAD or MSA user into the VSTS account.",
-        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/delete",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/create?view=azure-devops-rest-6.0",
         "Body": "$Example = @{ principalName = 'ado.test.svc@clearesult.com' } | ConvertTo-JSon"
       },
       {
