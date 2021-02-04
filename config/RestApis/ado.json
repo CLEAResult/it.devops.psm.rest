@@ -800,14 +800,14 @@
       {
         "Operation": "Get User Entitlement",
         "Method": "GET",
-        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements/{userId}?api-version={version}-preview.2",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements/{userId}?api-version=5.1-preview.2",
         "Description": "Get User Entitlement for a user.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/get%20user%20entitlement?view=azure-devops-rest-5.1"
       },
       {
         "Operation": "Get User Entitlements",
         "Method": "GET",
-        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements?api-version={version}-preview.2",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements?api-version=5.1-preview.2",
         "Description": "Get a paged set of user entitlements matching the filter criteria. If no filter is is passed, a page from all the account users is returned.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/get%20user%20entitlements?view=azure-devops-rest-5.1"
       },
@@ -1208,21 +1208,21 @@
       {
         "Operation": "Delete",
         "Method": "DELETE",
-        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users/{userDescriptor}?api-version={version}-preview.1",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users/{userDescriptor}?api-version=6.0-preview.1",
         "Description": "Disables a user. The user will still be visible, but membership checks for the user will return false.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/delete"
       },
       {
         "Operation": "Get",
         "Method": "GET",
-        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users/{userDescriptor}?api-version={version}-preview.1",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users/{userDescriptor}?api-version=6.0-preview.1",
         "Description": "Get a user by its descriptor.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/get"
       },
       {
         "Operation": "List",
         "Method": "GET",
-        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?api-version={version}-preview.1",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?api-version=6.0-preview.1",
         "Description": "Get a list of all users in a given scope.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/list"
       }
