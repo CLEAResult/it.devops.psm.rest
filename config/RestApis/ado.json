@@ -826,6 +826,13 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/delete?view=azure-devops-rest-5.1"
       },
       {
+        "Operation": "User Entitlements - Get User Entitlements",
+        "Method": "GET",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements?api-version=5.0-preview.2",
+        "Description": "Get a paged set of user entitlements matching the filter criteria. If no filter is is passed, a page from all the account users is returned.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/get%20user%20entitlements?view=azure-devops-rest-5.0"
+      },
+      {
         "Operation": "User Entitlements - Search User Entitlements",
         "Method": "GET",
         "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements?api-version=6.0-preview.3",
