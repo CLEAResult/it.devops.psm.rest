@@ -826,6 +826,20 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/delete?view=azure-devops-rest-5.1"
       },
       {
+        "Operation": "User Entitlements - Search User Entitlements",
+        "Method": "GET",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements?api-version=6.0-preview.3",
+        "Description": "Get a paged set of user entitlements matching the filter and sort criteria built with properties that match the select input.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/search%20user%20entitlements?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "User Entitlements - Search User Entitlements (by filter)",
+        "Method": "GET",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements?select={select}&$filter={$filter}&api-version=6.0-preview.3",
+        "Description": "Get a paged set of user entitlements matching the filter and sort criteria built with properties that match the select input.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/search%20user%20entitlements?view=azure-devops-rest-6.0"
+      },
+      {
         "Operation": "User Entitlements - Update User Entitlement",
         "Method": "PATCH",
         "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements/{userId}?api-version=6.0-preview.3",
