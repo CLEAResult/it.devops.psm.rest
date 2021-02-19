@@ -15,6 +15,11 @@ function Invoke-crRestMethod{
 
       $Params = @{ RestApi = "ADO"; Service = "Users"; Operation = "List"; organization = "$organization" }
 
+      You can also add additional parameters to the URI by simply creating an AdditionalParams string in the $Params variable.
+      For example:
+
+      $Params = @{ RestApi = "ADO"; Service = "Users"; Operation = "List"; organization = "$organization"; AdditionalParams = "number=123245&user=john.doe" }
+
       The name of the RestApi, the name of the Rest Service, and the method or Operation to execute (these are required).
       For this Rest API the name of the target ADO Organization is also required.
 
@@ -169,6 +174,16 @@ function Invoke-crRestMethod{
          Write-Verbose "URI (with replacements)= $Uri"
 
          if( $Uri -notlike '*{*}*'){
+
+            if( $Params["AdditionalParams"] ){
+               if( $Uri.Contains('?') ){
+                  $Uri += "&" + $Params["AdditionalParams"]
+               }
+               else{
+                  $Uri += "?" + $Params["AdditionalParams"]
+               }
+            }
+
             if( $Body ){
                Write-Verbose "Making the Rest call with a Body now."
                $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType
