@@ -779,6 +779,13 @@
     ],
     "Member Entitlement Management": [
       {
+        "Operation": "Group Entitlements - Get",
+        "Method": "GET",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/groupentitlements/{groupId}?api-version=6.0-preview.1",
+        "Description": "Get a group entitlement.  If the group entitlement does not exist, returns null.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/group%20entitlements/get?view=azure-devops-rest-6.0"
+      },
+      {
         "Operation": "Group Entitlements - Delete",
         "Method": "DELETE",
         "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements/{userId}?api-version=6.0-preview.3",
