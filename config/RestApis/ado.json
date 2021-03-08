@@ -1299,6 +1299,13 @@
         "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?api-version=6.0-preview.1",
         "Description": "Get a list of all users in a given scope.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/list"
+      },
+      {
+        "Operation": "List by Scope",
+        "Method": "GET",
+        "Uri": "GET https://vssps.dev.azure.com/{organization}/_apis/graph/users?&scopeDescriptor={scopeDescriptor}&api-version=6.0-preview.1",
+        "Description": "Get a list of all users in a given scope.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/list"
       }
     ],
     "Work Item Tracking": [
