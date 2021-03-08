@@ -699,6 +699,15 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/build/timeline/get?view=azure-devops-rest-6.1"
       }
     ],
+    "Descriptors": [
+      {
+        "Operation": "Descriptors - Get",
+        "Method": "GET",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/descriptors/{storageKey}?api-version=6.0-preview.1",
+        "Description": "Resolve a storage key to a descriptor",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/descriptors/get?view=azure-devops-rest-6.0"
+      }
+    ],
     "Git": [
       {
         "Operation": "Policy Configurations - Get",
