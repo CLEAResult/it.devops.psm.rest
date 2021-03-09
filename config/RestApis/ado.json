@@ -1195,6 +1195,50 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/update%20release%20resource?view=azure-devops-rest-6.1"
       }
     ],
+    "Service Hooks": [
+      {
+        "Operation": "Subscriptions - Create",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/_apis/hooks/subscriptions?api-version=6.0",
+        "Description": "Create a subscription.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/hooks/subscriptions/create?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Subscriptions - Create Subscriptions Query",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/_apis/hooks/subscriptionsquery?api-version=6.0",
+        "Description": "Query for service hook subscriptions.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/hooks/subscriptions/create%20subscriptions%20query?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Subscriptions - Delete",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/_apis/hooks/subscriptions/{subscriptionId}?api-version=6.0",
+        "Description": "Delete a specific service hooks subscription.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/hooks/subscriptions/delete?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Subscriptions - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/hooks/subscriptions/{subscriptionId}?api-version=6.0",
+        "Description": "Get a specific service hooks subscription.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/hooks/subscriptions/get?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "https://docs.microsoft.com/en-us/rest/api/azure/devops/hooks/subscriptions/list?view=azure-devops-rest-6.0",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/hooks/subscriptions?api-version=6.0",
+        "Description": "Get a list of subscriptions.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/hooks/subscriptions/list?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Subscriptions - Replace Subscription",
+        "Method": "PUT",
+        "Uri": "https://dev.azure.com/{organization}/_apis/hooks/subscriptions/{subscriptionId}?api-version=6.0",
+        "Description": "Update a subscription. ID for a subscription that you wish to update.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/hooks/subscriptions/replace%20subscription?view=azure-devops-rest-6.0"
+      }
+    ],
     "Task Agent": [
       {
         "Operation": "Agents - List",
