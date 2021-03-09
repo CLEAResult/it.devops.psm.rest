@@ -1197,6 +1197,34 @@
     ],
     "Service Hooks": [
       {
+        "Operation": "Consumers - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/hooks/consumers/{consumerId}?api-version=6.0",
+        "Description": "Get a specific consumer service. Optionally filter out consumer actions that do not support any event types for the specified publisher.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/hooks/consumers/get?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Consumers - Get Consumer Action",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/hooks/consumers/{consumerId}/actions/{consumerActionId}?api-version=6.0",
+        "Description": "Get details about a specific consumer action.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/hooks/consumers/get%20consumer%20action?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Consumers - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/hooks/consumers?api-version=6.0",
+        "Description": "Get a list of available service hook consumer services. Optionally filter by consumers that support at least one event type from the specific publisher.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/hooks/consumers/list?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Consumers - List Consumer Actions",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/hooks/consumers/{consumerId}/actions?api-version=6.0",
+        "Description": "Get a list of consumer actions for a specific consumer.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/hooks/consumers/list%20consumer%20actions?view=azure-devops-rest-6.0"
+      },
+      {
         "Operation": "Subscriptions - Create",
         "Method": "POST",
         "Uri": "https://dev.azure.com/{organization}/_apis/hooks/subscriptions?api-version=6.0",
