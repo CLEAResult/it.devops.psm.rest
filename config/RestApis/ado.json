@@ -1225,7 +1225,7 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/hooks/subscriptions/get?view=azure-devops-rest-6.0"
       },
       {
-        "Operation": "https://docs.microsoft.com/en-us/rest/api/azure/devops/hooks/subscriptions/list?view=azure-devops-rest-6.0",
+        "Operation": "Subscriptions - List",
         "Method": "GET",
         "Uri": "https://dev.azure.com/{organization}/_apis/hooks/subscriptions?api-version=6.0",
         "Description": "Get a list of subscriptions.",
