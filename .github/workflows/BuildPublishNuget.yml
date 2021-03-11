@@ -43,8 +43,8 @@ jobs:
           sudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list
           sudo apt-get install -y apt-transport-https
           sudo apt-get update
-          sudo apt-get install -y aspnetcore-runtime-2.2
-          sudo apt-get install -y dotnet-runtime-2.2
+          sudo apt-get install -y aspnetcore-runtime
+          sudo apt-get install -y dotnet-runtime
           sudo apt-get install dotnet-sdk-2.2      
       - name: Install Nuget  
         uses: nuget/setup-nuget@v1
