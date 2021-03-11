@@ -708,6 +708,176 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/descriptors/get?view=azure-devops-rest-6.0"
       }
     ],
+    "Distributed Task": [
+      {
+        "Operation": "Agents - Add",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools/{poolId}/agents?api-version=6.1-preview.1",
+        "Description": "Adds an agent to a pool. You probably don't want to call this endpoint directly. Instead, configure an agent using the agent download package.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/agents/add?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Agents - Delete",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools/{poolId}/agents/{agentId}?api-version=6.1-preview.1",
+        "Description": "Delete an agent. You probably don't want to call this endpoint directly. Instead, use the agent configuration script to remove an agent from your organization.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/agents/delete?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Agents - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools/{poolId}/agents/{agentId}?api-version=6.1-preview.1",
+        "Description": "Get information about an agent.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/agents/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Agents - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools/{poolId}/agents?api-version=6.1-preview.1",
+        "Description": "Get a list of agents.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/agents/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Agents - Replace Agent",
+        "Method": "PUT",
+        "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools/{poolId}/agents/{agentId}?api-version=6.1-preview.1",
+        "Description": "Replace an agent. You probably don't want to call this endpoint directly. Instead, use the agent configuration script to remove and reconfigure an agent from your organization.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/agents/replace%20agent?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Agents - Update",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools/{poolId}/agents/{agentId}?api-version=6.1-preview.1",
+        "Description": "Update agent details.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/agents/update?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Deploymentgroups - Add",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/deploymentgroups?api-version=6.1-preview.1",
+        "Description": "Create a deployment group.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/deploymentgroups/add?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Deploymentgroups - Delete",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/deploymentgroups/{deploymentGroupId}?api-version=6.1-preview.1",
+        "Description": "Delete a deployment group.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/deploymentgroups/delete?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Deploymentgroups - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/deploymentgroups/{deploymentGroupId}?api-version=6.1-preview.1",
+        "Description": "Get a deployment group by its ID.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/deploymentgroups/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Deploymentgroups - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/deploymentgroups?api-version=6.1-preview.1",
+        "Description": "Get a list of deployment groups by name or IDs.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/deploymentgroups/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Deploymentgroups - Update",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/deploymentgroups/{deploymentGroupId}?api-version=6.1-preview.1",
+        "Description": "Update a deployment group.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/deploymentgroups/update?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Environments - Add",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/environments?api-version=6.1-preview.1",
+        "Description": "Create an environment.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments/add?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Environments - Delete",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/environments/{environmentId}?api-version=6.1-preview.1",
+        "Description": "Delete the specified environment.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments/delete?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Environments - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/environments/{environmentId}?api-version=6.1-preview.1",
+        "Description": "Get an environment by its ID.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Environments - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/environments?api-version=6.1-preview.1",
+        "Description": "Get all environments.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Environments - Update",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/environments/{environmentId}?api-version=6.1-preview.1",
+        "Description": "Update the specified environment.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments/update?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Pools - Add",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools?api-version=6.1-preview.1",
+        "Description": "Create an agent pool.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/add?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Pools - Delete",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools/{poolId}?api-version=6.1-preview.1",
+        "Description": "Delete an agent pool.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/delete?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Pools - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools/{poolId}?api-version=6.1-preview.1",
+        "Description": "Get information about an agent pool.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Pools - Get Agent Pools",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools?api-version=6.1-preview.1",
+        "Description": "Get a list of agent pools.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get%20agent%20pools?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Pools - Get Agent Pools By Ids",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools?poolIds={poolIds}&api-version=6.1-preview.1",
+        "Description": "Get a list of agent pools.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get%20agent%20pools%20by%20ids?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Pools - Update",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools/{poolId}?api-version=6.1-preview.1",
+        "Description": "Update properties on an agent pool",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/update?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Virtualmachines - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/environments/{environmentId}/providers/virtualmachinegroups/{resourceId}/virtualmachines?api-version=6.1-preview.1",
+        "Description": "",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/virtualmachines/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Virtualmachines - Update",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/environments/{environmentId}/providers/virtualmachinegroups/{resourceId}/virtualmachines?api-version=6.1-preview.1",
+        "Description": "",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/virtualmachines/update?view=azure-devops-rest-6.1"
+      }
+    ],
     "Git": [
       {
         "Operation": "Policy Configurations - Get",
