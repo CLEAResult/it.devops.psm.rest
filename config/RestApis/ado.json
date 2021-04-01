@@ -1465,6 +1465,55 @@
         "Uri": "https://dev.azure.com/{organization}/_apis/distributedtask/pools?api-version={version}",
         "Description": "Get a list of agent pools.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get%20agent%20pools?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Queues - Add",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/queues?api-version=6.0-preview.1",
+        "Description": "reate a new agent queue to connect a project to an agent pool.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/add?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Queues - Delete",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/queues/{queueId}?api-version=6.0-preview.1",
+        "Description": "Removes an agent queue from a project.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/delete?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Queues - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/queues/{queueId}?api-version=6.0-preview.1",
+        "Description": "Get information about an agent queue.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Queues - Get Agent Queues",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/queues?api-version=6.0-preview.1",
+        "Description": "Get a list of agent queues.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get%20agent%20queues?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Queues - Get Agent Queues By Ids",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/queues?queueIds={queueIds}&api-version=6.0-preview.1",
+        "Description": "Get a list of agent queues by their IDs",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get%20agent%20queues%20by%20ids?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Queues - Get Agent Queues By Names",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/queues?queueNames={queueNames}&api-version=6.0-preview.1",
+        "Description": "Get a list of agent queues by their names",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get%20agent%20queues%20by%20names?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Queues - Get Agent Queues For Pools",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/distributedtask/queues?poolIds={poolIds}&api-version=6.0-preview.1",
+        "Description": "Get a list of agent queues by pool ids",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get%20agent%20queues%20for%20pools?view=azure-devops-rest-6.0"
       }
     ],
     "Teams": [
