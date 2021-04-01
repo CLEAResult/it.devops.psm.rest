@@ -1339,7 +1339,7 @@
       {
         "Operation": "Releases - List",
         "Method": "GET",
-        "Uri": "GET https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases?api-version=6.1-preview.8",
+        "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases?api-version=6.1-preview.8",
         "Description": "Get a list of releases.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/list?view=azure-devops-rest-6.1"
       },
