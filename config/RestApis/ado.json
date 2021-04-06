@@ -1358,7 +1358,7 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/update%20release%20environment?view=azure-devops-rest-6.1"
       },
       {
-        "Operation": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/update%20release%20resource?view=azure-devops-rest-6.1",
+        "Operation": "Releases - Update Release Resource",
         "Method": "PATCH",
         "Uri": "https://vsrm.dev.azure.com/{organization}/{project}/_apis/release/releases/{releaseId}?api-version=6.1-preview.8",
         "Description": "Update few properties of a release.",
