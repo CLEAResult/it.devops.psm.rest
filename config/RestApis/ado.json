@@ -1455,7 +1455,7 @@
       {
         "Operation": "Job Requests - Get",
         "Method": "GET",
-        "Uri": "https://dev.azure.com//{organization}/_apis/distributedtask/pools/{poolId}/jobrequests?agentId={agentId}",
+        "Uri": "https://dev.azure.com//{organization}/_apis/distributedtask/pools/{poolId}/jobrequests?agentId={agentId}&?api-version=6.0",
         "Description": "Get all job requests related to a build agent and pool.",
         "Docs": "No documentation available."
       },
