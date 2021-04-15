@@ -86,5 +86,5 @@ jobs:
           $URL = New-AzStorageBlobSASToken -Container '${{ secrets.BlobContainer }}' -Blob '${{secrets.ModuleName}}.zip' -Permission "rwd" -context $SAC -FullUri -ExpiryTime ((Get-Date).AddMinutes(15)) -StartTime ((Get-Date).AddMinutes(-1))
           Remove-AzAutomationModule -AutomationAccountName '${{ secrets.AutomationAccountName }}' -Name '${{ secrets.ModuleName }}' -ResourceGroupName '${{ secrets.AutomationRgName }}' -Force -ErrorAction Ignore
           Start-Sleep 10
-          
+          New-AzAutomationModule -AutomationAccountName '${{ secrets.AutomationAccountName }}' -Name '${{ secrets.ModuleName }}' -ContentLink "$URL" -ResourceGroupName '${{ secrets.AutomationRgName }}'
 
