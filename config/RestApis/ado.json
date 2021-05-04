@@ -1116,6 +1116,78 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/tokenadmin/personal%20access%20tokens"
       }
     ],
+    "Pipelines": [
+      {
+        "Operation": "Artifacts - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/pipelines/{pipelineId}/runs/{runId}/artifacts?artifactName={artifactName}&api-version=6.1-preview.1",
+        "Description": "Get a specific artifact from a pipeline run",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/artifacts/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Logs - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/pipelines/{pipelineId}/runs/{runId}/logs/{logId}?api-version=6.1-preview.1",
+        "Description": "Get a specific log from a pipeline run",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/logs/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Logs - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/pipelines/{pipelineId}/runs/{runId}/logs?api-version=6.1-preview.1",
+        "Description": "Get a list of logs from a pipeline run.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/logs/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Pipelines - Create",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/pipelines?api-version=6.1-preview.1",
+        "Description": "Create a pipeline.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/pipelines/create?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Pipelines - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/pipelines/{pipelineId}?api-version=6.1-preview.1",
+        "Description": "Gets a pipeline, optionally at the specified version",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/pipelines/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Pipelines - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/pipelines?api-version=6.1-preview.1",
+        "Description": "Get a list of pipelines.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/pipelines/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Preview - Preview",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/pipelines/{pipelineId}/preview?api-version=6.1-preview.1",
+        "Description": "Queues a dry run of the pipeline and returns an object containing the final yaml.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/preview/preview?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Runs - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/pipelines/{pipelineId}/runs/{runId}?api-version=6.1-preview.1",
+        "Description": "Gets a run for a particular pipeline.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/runs/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Runs - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/pipelines/{pipelineId}/runs?api-version=6.1-preview.1",
+        "Description": "Gets top 10000 runs for a particular pipeline.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/runs/list?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Runs - Run Pipeline",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/pipelines/{pipelineId}/runs?api-version=6.1-preview.1",
+        "Description": "Runs a pipeline.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/runs/run%20pipeline?view=azure-devops-rest-6.1"
+      }
+    ],
     "Projects": [
       {
         "Operation": "Get",
