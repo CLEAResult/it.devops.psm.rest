@@ -880,6 +880,27 @@
     ],
     "Git": [
       {
+        "Operation": "Items - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/items?path={path}&api-version=6.0",
+        "Description": "Get Item Metadata and/or Content for a single item. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content, which is always returned as a download.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/items/get?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Items - Get Items Batch",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/itemsbatch?api-version=6.0",
+        "Description": "Post for retrieving a creating a batch out of a set of items in a repo / project given a list of paths or a long path",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/items/get%20items%20batch?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Items - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/items?api-version=6.0",
+        "Description": "Get Item Metadata and/or Content for a collection of items. The download parameter is to indicate whether the content should be available as a download or just sent as a stream in the response. Doesn't apply to zipped content which is always returned as a download.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/items/list?view=azure-devops-rest-6.0"
+      },
+      {
         "Operation": "Policy Configurations - Get",
         "Method": "GET",
         "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/policy/configurations?repositoryId={repositoryId}&api-version=6.1-preview.1",
@@ -1153,7 +1174,7 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/pipelines/get?view=azure-devops-rest-6.1"
       },
       {
-        "Operation": "Pipelines - List",
+        "Operation": "`Pipelines - List`",
         "Method": "GET",
         "Uri": "https://dev.azure.com/{organization}/{project}/_apis/pipelines?api-version=6.1-preview.1",
         "Description": "Get a list of pipelines.",
