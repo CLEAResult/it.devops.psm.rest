@@ -1365,6 +1365,71 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/update%20release%20resource?view=azure-devops-rest-6.1"
       }
     ],
+    "Service Endpoint": [
+      {
+        "Operation": "Endpoints - Create",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/_apis/serviceendpoint/endpoints?api-version=6.1-preview.4",
+        "Description": "Creates a new service endpoint",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints/create?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Endpoints - Delete",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/_apis/serviceendpoint/endpoints/{endpointId}?projectIds={projectIds}&api-version=6.1-preview.4",
+        "Description": "Delete a service endpoint",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints/delete?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Endpoints - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/serviceendpoint/endpoints/{endpointId}?api-version=6.1-preview.4",
+        "Description": "Get the service endpoint details.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints/get?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Endpoints - Get Service Endpoints",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/serviceendpoint/endpoints?api-version=6.1-preview.4",
+        "Description": "Get the service endpoints.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints/get%20service%20endpoints?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Endpoints - Get Service Endpoints By Names",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/serviceendpoint/endpoints?endpointNames={endpointNames}&api-version=6.1-preview.4",
+        "Description": "Get the service endpoints by name.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints/get%20service%20endpoints%20by%20names?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Endpoints - Get Service Endpoints With Refreshed Authentication",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/serviceendpoint/endpoints?endpointIds={endpointIds}&api-version=6.1-preview.4",
+        "Description": "Gets the service endpoints and patch new authorization parameters",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints/get%20service%20endpoints%20with%20refreshed%20authentication?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Endpoints - Share Service Endpoint",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/_apis/serviceendpoint/endpoints/{endpointId}?api-version=6.1-preview.4",
+        "Description": "Share service endpoint across projects",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints/share%20service%20endpoint?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Endpoints - Update Service Endpoint",
+        "Method": "PUT",
+        "Uri": "https://dev.azure.com/{organization}/_apis/serviceendpoint/endpoints/{endpointId}?api-version=6.1-preview.4",
+        "Description": "Update the service endpoint",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints/update%20service%20endpoint?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Endpoints - Update Service Endpoints",
+        "Method": "PUT",
+        "Uri": "https://dev.azure.com/{organization}/_apis/serviceendpoint/endpoints?api-version=6.1-preview.4",
+        "Description": "Update the service endpoints.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints/update%20service%20endpoints?view=azure-devops-rest-6.1"
+      }
+    ],
     "Service Hooks": [
       {
         "Operation": "Consumers - Get",
