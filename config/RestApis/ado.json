@@ -938,6 +938,20 @@
     ],
     "Groups": [
       {
+        "Operation": "Groups - Create",
+        "Method": "POST",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/groups?api-version=6.0-preview.1",
+        "Description": "Create a new Azure DevOps group or materialize an existing AAD group.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/create?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Groups - Delete",
+        "Method": "DELETE",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/groups/{groupDescriptor}?api-version=6.0-preview.1",
+        "Description": "Removes an Azure DevOps group from all of its parent groups.  The group will still be visible, but membership checks for the group, and all descendants which derive membership through it, will return false.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/delete?view=azure-devops-rest-6.0"
+      },
+      {
         "Operation": "Groups - Get",
         "Method": "GET",
         "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/groups/{groupDescriptor}?api-version=6.0-preview.1",
