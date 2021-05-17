@@ -198,7 +198,7 @@ function Invoke-crRestMethod{
             }
 
             if( $ResponseHeadersVariable ){
-               $Global:ResponseHeadersVariable
+               $Global:ResponseHeadersVariable = $ResponseHeadersVariable
             }
 
             Write-Verbose "Ensuring the result is a [System.Array] object."
