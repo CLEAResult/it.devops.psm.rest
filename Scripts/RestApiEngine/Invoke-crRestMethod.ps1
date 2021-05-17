@@ -197,6 +197,10 @@ function Invoke-crRestMethod{
                $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -ResponseHeadersVariable ResponseHeadersVariable
             }
 
+            if( $ResponseHeadersVariable ){
+               $Global:ResponseHeadersVariable
+            }
+
             Write-Verbose "Ensuring the result is a [System.Array] object."
             if( $RelevantApi.Method -ne "DELETE"){
                if( $RestResult.PSobject.Properties.name -eq "Value" ){
