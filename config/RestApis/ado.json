@@ -964,6 +964,13 @@
         "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/groups?api-version=6.0-preview.1",
         "Description": "Gets a list of all groups in the current scope (usually organization or account). The optional parameters are used to filter down the returned results. Returned results are in no guaranteed order. Since the list of groups may be large, results are returned in pages of groups. If there are more results than can be returned in a single page, the result set will contain a continuation token for retrieval of the next set of results.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Groups - List with Continuation Token",
+        "Method": "GET",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/groups?continuationToken={continuationToken}&api-version=6.0-preview.1",
+        "Description": "Gets a list of all groups in the current scope (usually organization or account). The optional parameters are used to filter down the returned results. Returned results are in no guaranteed order. Since the list of groups may be large, results are returned in pages of groups. If there are more results than can be returned in a single page, the result set will contain a continuation token for retrieval of the next set of results.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-6.0"
       }
     ],
     "Iterations": [
