@@ -186,15 +186,15 @@ function Invoke-crRestMethod{
 
             if( $Body ){
                Write-Verbose "Making the Rest call with a Body now."
-               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType
+               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType -ResponseHeadersVariable ResponseHeadersVariable
             }
             elseif( $BodyJson ){
                Write-Verbose "Making the Rest call with a JSON Body now."
-               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType
+               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType -ResponseHeadersVariable ResponseHeadersVariable
             }
             else{
                Write-Verbose "Making the Rest call now."
-               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType
+               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -ResponseHeadersVariable ResponseHeadersVariable
             }
 
             Write-Verbose "Ensuring the result is a [System.Array] object."
