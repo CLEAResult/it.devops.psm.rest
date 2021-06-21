@@ -87,7 +87,7 @@ function Invoke-crRestMethod{
       [System.String] $ContentType = 'application/json',
 
       [Parameter( Mandatory = $false )]
-      [validateset("CustomHeaders","BearerToken","sso-key","Basic", IgnoreCase = $true)]
+      [validateset("CustomHeaders","BearerToken","sso-key","Basic","EncryptBasicToken", IgnoreCase = $true)]
       [System.String] $AuthorizationType = $null # Grok, update notes, use to override default behavior in the .json file
    )
 
@@ -118,12 +118,18 @@ function Invoke-crRestMethod{
                   }
                }
             }
-            "BearerToken" {
+            "EncryptBasicToken" {
                Write-Verbose "Using Bearer Token authentication."
                if( $BearerToken ){
                   Write-Verbose "Generating the Base64 token and creating the Rest call's Header."
                   $HeaderTokenBase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes(":$($BearerToken)"))
                   $Headers += @{authorization = "Basic $HeaderTokenBase64"}
+               }
+            }
+            "BearerToken" {
+               Write-Verbose "Using Bearer Token authentication."
+               if( $BearerToken ){
+                  $Headers += @{authorization = "Bearer $BearerToken"}
                }
             }
             "Basic" {

@@ -2,7 +2,7 @@
   "GeneralInfo": {
     "Name": "ADO",
     "Description": "Azure DevOps Rest API",
-    "AuthorizationType": "BearerToken",
+    "AuthorizationType": "EncryptBasicToken",
     "version": "5.1",
     "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/?view=azure-devops-rest-5.1"
   },
