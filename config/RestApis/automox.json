@@ -1,0 +1,34 @@
+{
+  "GeneralInfo": {
+    "Name": "Automox",
+    "Description": "Automox Rest API",
+    "AuthorizationType": "BearerToken",
+    "version": "",
+    "Docs": "https://docs.automox.com/api/"
+  },
+  "Services": {
+    "Servers": [
+      {
+        "Operation": "Servers - List All",
+        "Method": "GET",
+        "Uri": "https://console.automox.com/api/servers/?o={OrganizationId}",
+        "Description": "Retrieve details for all devices",
+        "Docs": "https://docs.automox.com/api/endpoints/get-servers"
+      },
+      {
+        "Operation": "Server - Get",
+        "Method": "GET",
+        "Uri": "https://console.automox.com/api/servers/{ServerId}?o={OrganizationId}",
+        "Description": "Returns a specific device (server object) for the authenticated user.",
+        "Docs": "https://docs.automox.com/api/endpoints/return-device-details"
+      },
+      {
+        "Operation": "Server - Modify",
+        "Method": "GET",
+        "Uri": "https://console.automox.com/api/servers/{ServerId}?o={OrganizationId}",
+        "Description": "https://docs.automox.com/api/endpoints/modify-a-device",
+        "Docs": "Update a device (server object)."
+      }
+    ]
+  }
+}
