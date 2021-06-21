@@ -11,21 +11,21 @@
       {
         "Operation": "Servers - List All",
         "Method": "GET",
-        "Uri": "https://console.automox.com/api/servers/?o={OrganizationId}",
+        "Uri": "https://console.automox.com/api/servers",
         "Description": "Retrieve details for all devices",
         "Docs": "https://docs.automox.com/api/endpoints/get-servers"
       },
       {
         "Operation": "Server - Get",
         "Method": "GET",
-        "Uri": "https://console.automox.com/api/servers/{ServerId}?o={OrganizationId}",
+        "Uri": "https://console.automox.com/api/servers/{ServerId}",
         "Description": "Returns a specific device (server object) for the authenticated user.",
         "Docs": "https://docs.automox.com/api/endpoints/return-device-details"
       },
       {
         "Operation": "Server - Modify",
         "Method": "GET",
-        "Uri": "https://console.automox.com/api/servers/{ServerId}?o={OrganizationId}",
+        "Uri": "https://console.automox.com/api/servers/{ServerId}",
         "Description": "https://docs.automox.com/api/endpoints/modify-a-device",
         "Docs": "Update a device (server object)."
       }
