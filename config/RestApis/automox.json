@@ -3,7 +3,7 @@
     "Name": "Automox",
     "Description": "Automox Rest API",
     "AuthorizationType": "BearerToken",
-    "version": "",
+    "version": "1",
     "Docs": "https://docs.automox.com/api/"
   },
   "Services": {
@@ -11,7 +11,7 @@
       {
         "Operation": "Servers - List All",
         "Method": "GET",
-        "Uri": "https://console.automox.com/api/servers",
+        "Uri": "https://console.automox.com/api/servers/",
         "Description": "Retrieve details for all devices",
         "Docs": "https://docs.automox.com/api/endpoints/get-servers"
       },
