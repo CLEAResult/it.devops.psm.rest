@@ -24,7 +24,7 @@
       },
       {
         "Operation": "Server - Modify",
-        "Method": "GET",
+        "Method": "PUT",
         "Uri": "https://console.automox.com/api/servers/{ServerId}",
         "Description": "https://docs.automox.com/api/endpoints/modify-a-device",
         "Docs": "Update a device (server object)."
