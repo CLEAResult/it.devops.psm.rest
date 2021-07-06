@@ -7,6 +7,15 @@
     "Docs": "https://docs.automox.com/api/"
   },
   "Services": {
+    "Groups": [
+      {
+        "Operation": "Groups - List All",
+        "Method": "GET",
+        "Uri": "https://console.automox.com/api/servergroups/",
+        "Description": "Retrieves all server group objects for the authenticated user.",
+        "Docs": "https://docs.automox.com/api/groups/list-details-for-all-groups"
+      }
+    ],
     "Servers": [
       {
         "Operation": "Servers - List All",
