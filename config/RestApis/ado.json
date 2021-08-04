@@ -957,6 +957,13 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull%20requests/update?view=azure-devops-rest-6.1"
       },
       {
+        "Operation": "Pull Request Work Items - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/workitems?api-version=6.1-preview.1",
+        "Description": "Retrieve a list of work items associated with a pull request.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull%20request%20work%20items/list?view=azure-devops-rest-6.1"
+      },
+      {
         "Operation": "Repositories - Create",
         "Method": "POST",
         "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories?api-version=5.1{version}",
