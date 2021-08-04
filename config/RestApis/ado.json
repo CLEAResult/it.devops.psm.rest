@@ -915,6 +915,48 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/policy%20configurations/get?view=azure-devops-rest-6.1"
       },
       {
+        "Operation": "Pull Requests - Create",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullrequests?api-version=6.1-preview.1",
+        "Description": "Create a pull request.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull%20requests/create?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Pull Requests - Get Pull Request",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullrequests/{pullRequestId}?api-version=6.1-preview.1",
+        "Description": "Retrieve a pull request.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull%20requests/get%20pull%20request?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Pull Requests - Get Pull Request By Id",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/pullrequests/{pullRequestId}?api-version=6.1-preview.1",
+        "Description": "Retrieve a pull request.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull%20requests/get%20pull%20request%20by%20id?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Pull Requests - Get Pull Requests",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullrequests?api-version=6.1-preview.1",
+        "Description": "Retrieve all pull requests matching a specified criteria.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull%20requests/get%20pull%20requests?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Pull Requests - Get Pull Requests By Project",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/pullrequests?api-version=6.1-preview.1",
+        "Description": "Retrieve all pull requests matching a specified criteria.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull%20requests/get%20pull%20requests%20by%20project?view=azure-devops-rest-6.1"
+      },
+      {
+        "Operation": "Pull Requests - Update",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullrequests/{pullRequestId}?api-version=6.1-preview.1",
+        "Description": "Update a pull request",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull%20requests/update?view=azure-devops-rest-6.1"
+      },
+      {
         "Operation": "Repositories - Create",
         "Method": "POST",
         "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories?api-version=5.1{version}",
