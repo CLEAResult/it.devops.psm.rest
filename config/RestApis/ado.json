@@ -1244,7 +1244,7 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/pipelines/pipelines/get?view=azure-devops-rest-6.1"
       },
       {
-        "Operation": "`Pipelines - List`",
+        "Operation": "Pipelines - List",
         "Method": "GET",
         "Uri": "https://dev.azure.com/{organization}/{project}/_apis/pipelines?api-version=6.1-preview.1",
         "Description": "Get a list of pipelines.",
