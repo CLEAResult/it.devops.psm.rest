@@ -983,6 +983,62 @@
         "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories?api-version={version}",
         "Description": "Retrieve git repositories.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories/list?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Pull Request Reviewers - Create Pull Request Reviewer",
+        "Method": "PUT",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/reviewers/{reviewerId}?api-version=6.0",
+        "Description": "Add a reviewer to a pull request or cast a vote.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull-request-reviewers/create-pull-request-reviewer?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Pull Request Reviewers - Create Pull Request Reviewers",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/reviewers?api-version=6.0",
+        "Description": "Add reviewers to a pull request.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull-request-reviewers/create-pull-request-reviewers?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Pull Request Reviewers - Create Unmaterialized Pull Request Reviewer",
+        "Method": "PUT",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/reviewers?api-version=6.0",
+        "Description": "Add an unmaterialized identity to the reviewers of a pull request.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull-request-reviewers/create-unmaterialized-pull-request-reviewer?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Pull Request Reviewers - Delete",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/reviewers/{reviewerId}?api-version=6.0",
+        "Description": "Remove a reviewer from a pull request.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull-request-reviewers/delete?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Pull Request Reviewers - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/reviewers/{reviewerId}?api-version=6.0",
+        "Description": "Retrieve information about a particular reviewer on a pull request",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull-request-reviewers/get?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Pull Request Reviewers - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/reviewers?api-version=6.0",
+        "Description": "Retrieve the reviewers for a pull request",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull-request-reviewers/list?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Pull Request Reviewers - Update Pull Request Reviewer",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/reviewers/{reviewerId}?api-version=6.0",
+        "Description": "Edit a reviewer entry. These fields are patchable: isFlagged, hasDeclined",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull-request-reviewers/update-pull-request-reviewer?view=azure-devops-rest-6.0"
+      },
+      {
+        "Operation": "Pull Request Reviewers - Update Pull Request Reviewers",
+        "Method": "PATCH",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/pullRequests/{pullRequestId}/reviewers?api-version=6.0",
+        "Description": "Reset the votes of multiple reviewers on a pull request. NOTE: This endpoint only supports updating votes, but does not support updating required reviewers (use policy) or display names.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull-request-reviewers/update-pull-request-reviewers?view=azure-devops-rest-6.0"
       }
     ],
     "Groups": [
