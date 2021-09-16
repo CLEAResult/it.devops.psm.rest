@@ -2,7 +2,7 @@
   "GeneralInfo": {
     "Name": "ZenGrc",
     "Description": "ZenGRC Rest API",
-    "AuthorizationType": "EncryptBasicToken",
+    "AuthorizationType": "Basic",
     "version": "v2",
     "Docs": "https://docs.api.zengrc.com/"
   },
