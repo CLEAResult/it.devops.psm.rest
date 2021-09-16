@@ -1,0 +1,41 @@
+{
+  "GeneralInfo": {
+    "Name": "ZenGrc",
+    "Description": "ZenGRC Rest API",
+    "AuthorizationType": "EncryptBasicToken",
+    "version": "v2",
+    "Docs": "https://docs.api.zengrc.com/"
+  },
+  "Services": {
+    "Requests": [
+      {
+        "Operation": "Requests - List",
+        "Method": "GET",
+        "Uri": "https://{organization}.api.zengrc.com/api/{version}/requests",
+        "Description": "Get all requests.",
+        "Docs": "https://docs.api.zengrc.com/#/Requests/RequestList"
+      },
+      {
+        "Operation": "Requests - Get",
+        "Method": "GET",
+        "Uri": "https://{organization}.api.zengrc.com/api/{version}/requests/{requestId}",
+        "Description": "Get the details of the indicated request.",
+        "Docs": "https://docs.api.zengrc.com/#/Requests/RequestDetails"
+      },
+      {
+        "Operation": "Requests - Create Comment",
+        "Method": "POST",
+        "Uri": "https://{organization}.api.zengrc.com/api/{version}/requests/{requestId}/comments",
+        "Description": "Adds a comment to request.",
+        "Docs": "https://docs.api.zengrc.com/#/Requests/RequestCreateComment"
+      },
+      {
+        "Operation": "Requests - Upload File",
+        "Method": "POST",
+        "Uri": "https://{organization}.api.zengrc.com/api/{version}/requests/{requestId}/files",
+        "Description": "Uploads files for requests.",
+        "Docs": "https://docs.api.zengrc.com/#/Requests/FilesUpload"
+      }
+    ]
+  }
+}
