@@ -42,7 +42,7 @@ function Invoke-crRestMethod{
 
    .EXAMPLE
       C:\PS> $Params = @{ RestApi = "ADO"; Service = "Users"; Operation = "List"; organization = "$organization" }
-      C:\PS> Invoke-crRestMethod -Params $Params -BearerToken $AdoPAT
+      C:\PS> Invoke-crRestMethod -Params $Params -API_SECRET $AdoPat
 #>
 
    [CmdletBinding()]
@@ -123,10 +123,10 @@ function Invoke-crRestMethod{
                }
             }
             "EncryptBasicToken" {
-               Write-Verbose "Using Bearer Token authentication."
+               Write-Verbose "Usic basic authentication with encryption."
                if( $BearerToken ){
                   Write-Verbose "Generating the Base64 token and creating the Rest call's Header."
-                  $HeaderTokenBase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes(":$($BearerToken)"))
+                  $HeaderTokenBase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes("$($API_KEY):$($API_SECRET)"))
                   $Headers += @{authorization = "Basic $HeaderTokenBase64"}
                }
             }
