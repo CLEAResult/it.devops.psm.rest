@@ -84,6 +84,10 @@ function Invoke-crRestMethod{
       [System.String] $BodyJson,
 
       [Parameter( Mandatory = $false )]
+      [System.String] $UploadFile,
+
+      [Parameter( Mandatory = $false )]
+      [validateset("application/json", "multipart/form-data" )]
       [System.String] $ContentType = 'application/json',
 
       [Parameter( Mandatory = $false )]
@@ -202,6 +206,20 @@ function Invoke-crRestMethod{
                Write-Verbose "Making the Rest call with a JSON Body now."
                $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType #-ResponseHeadersVariable ResponseHeadersVariable
                $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType
+            }
+            elseif ( $UploadFile ){
+               Write-Verbose "Making the Rest call with upload file now."
+
+               if( Test-Path $UploadFile ){
+                  $FileContents = [IO.File]::ReadAllText( $UploadFile );
+                  $Fields = @{'uploadFile' = $FileContents };
+               }
+               else{
+                  Write-Warning "$UploadFile not found, skipping!"
+               }
+
+               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $Fields -ContentType $ContentType #-ResponseHeadersVariable ResponseHeadersVariable
+               $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $Fields -ContentType $ContentType
             }
             else{
                Write-Verbose "Making the Rest call now."
