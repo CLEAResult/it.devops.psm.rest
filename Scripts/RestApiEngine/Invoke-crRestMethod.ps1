@@ -42,7 +42,7 @@ function Invoke-crRestMethod{
 
    .EXAMPLE
       C:\PS> $Params = @{ RestApi = "ADO"; Service = "Users"; Operation = "List"; organization = "$organization" }
-      C:\PS> Invoke-crRestMethod -Params $Params -BearerToken $AdoPAT
+      C:\PS> Invoke-crRestMethod -Params $Params -API_SECRET $AdoPat
 #>
 
    [CmdletBinding()]
