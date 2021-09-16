@@ -197,14 +197,15 @@ function Invoke-crRestMethod{
             # Grok - Adding lines for getting the response headers is a kludge.  ResponseHeadersVariable is supported in PowerShell 7.x not 5.1, hence the commented out code
             # won't work on Azure Automation Hybrid workers which can't yet run against PowerShell 7.  Hoping MS will get this fixed soon as it's a huge pain point!
 
+            $WebResult = $Null
             if( $Body ){
                Write-Verbose "Making the Rest call with a Body now."
-               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType #-ResponseHeadersVariable ResponseHeadersVariable
+               #$RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType #-ResponseHeadersVariable ResponseHeadersVariable
                $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType
             }
             elseif( $BodyJson ){
                Write-Verbose "Making the Rest call with a JSON Body now."
-               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType #-ResponseHeadersVariable ResponseHeadersVariable
+               #$RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType #-ResponseHeadersVariable ResponseHeadersVariable
                $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType
             }
             elseif ( $UploadFile ){
@@ -218,12 +219,12 @@ function Invoke-crRestMethod{
                   Write-Warning "$UploadFile not found, skipping!"
                }
 
-               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $Fields -ContentType $ContentType #-ResponseHeadersVariable ResponseHeadersVariable
+               #$RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $Fields -ContentType $ContentType #-ResponseHeadersVariable ResponseHeadersVariable
                $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $Fields -ContentType $ContentType
             }
             else{
                Write-Verbose "Making the Rest call now."
-               $RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType # -ResponseHeadersVariable ResponseHeadersVariable
+               #$RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType # -ResponseHeadersVariable ResponseHeadersVariable
                $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType
             }
 
@@ -233,6 +234,8 @@ function Invoke-crRestMethod{
             catch{
                $Global:ResponseHeadersVariable = $null
             }
+
+            if( $WebResult ){ $RestResult = ($WebResult.content | convertfrom-json) }
 
             Write-Verbose "Ensuring the result is a [System.Array] object."
             if( $RelevantApi.Method -ne "DELETE"){
