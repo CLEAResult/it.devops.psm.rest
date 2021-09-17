@@ -1,5 +1,5 @@
-function Invoke-crRestMethod{
-<#
+function Invoke-crRestMethod {
+   <#
    .SYNOPSIS
       Calls a Rest API method defined in one of the CLEAResult Rest API configuration files.
 
@@ -91,7 +91,7 @@ function Invoke-crRestMethod{
       [System.String] $ContentType = 'application/json',
 
       [Parameter( Mandatory = $false )]
-      [validateset("CustomHeaders","BearerToken","sso-key","Basic","EncryptBasicToken", IgnoreCase = $true)]
+      [validateset("CustomHeaders", "BearerToken", "sso-key", "Basic", "EncryptBasicToken", IgnoreCase = $true)]
       [System.String] $AuthorizationType = $null # Grok, update notes, use to override default behavior in the .json file
    )
 
@@ -100,23 +100,26 @@ function Invoke-crRestMethod{
       Write-Verbose -Message "[$($MyInvocation.MyCommand.Name)] - Entering 'begin' block"
 
       $Result = $null
+      $RestResult = $null
+
       [Bool] $RequirementsCheckSucceeded = $true
+      [Object] $GLobal:WebRequestResult = $null
 
       Write-Verbose "Username          = $Username"
       Write-Verbose "AuthorizationType = $AuthorizationType"
 
-      try{
-         if( -not $AuthorizationType ){
+      try {
+         if ( -not $AuthorizationType ) {
             $AuthorizationType = $Global:crRestApis[$Params["RestApi"]].GeneralInfo.AuthorizationType
          }
 
-         switch( $AuthorizationType ){
+         switch ( $AuthorizationType ) {
             "CustomHeaders" {
                $ValidateHeadersKeys = $Global:crRestApis[$Params["RestApi"]].Requirements.Headers[0]
                $ValidateHeadersKeys | Get-Member -MemberType Properties | ForEach-Object {
                   $CheckForHeader = $ValidateHeadersKeys."$($_.Name)"
                   Write-Verbose $("Checking for header: " + $CheckForHeader)
-                  if( -not $Headers[ $CheckForHeader ]){
+                  if ( -not $Headers[ $CheckForHeader ]) {
                      Write-Warning $("Header missing:  $CheckForHeader.  Please include pass a header key/value pair for this call to function correctly." )
                      $RequirementsCheckSucceeded = $false
                   }
@@ -124,36 +127,36 @@ function Invoke-crRestMethod{
             }
             "EncryptBasicToken" {
                Write-Verbose "Usic basic authentication with encryption."
-               if( $BearerToken ){
+               if ( $API_SECRET ) {
                   Write-Verbose "Generating the Base64 token and creating the Rest call's Header."
                   $HeaderTokenBase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes("$($API_KEY):$($API_SECRET)"))
-                  $Headers += @{authorization = "Basic $HeaderTokenBase64"}
+                  $Headers += @{authorization = "Basic $HeaderTokenBase64" }
                }
             }
             "BearerToken" {
                Write-Verbose "Using Bearer Token authentication."
-               if( $BearerToken ){
-                  $Headers += @{authorization = "Bearer $BearerToken"}
+               if ( $BearerToken ) {
+                  $Headers += @{authorization = "Bearer $BearerToken" }
                }
             }
             "Basic" {
                Write-Verbose "Using Basic Token authentication."
-               if( $Password -and $Username ){
+               if ( $Password -and $Username ) {
                   Write-Verbose "Generating header for basic authentication using the Username and Password parameters"
                   $HeaderTokenBase64 = [System.Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($Username + ':' + $Password))
                   $Headers += @{ "Authorization" = "Basic $HeaderTokenBase64" }
                }
             }
-            "sso-key"{
+            "sso-key" {
                Write-Verbose "Using sso-key authentication."
-               if( $API_KEY -and $API_SECRET ){
-                  $Headers += @{authorization = "sso-key " + $API_KEY + ":" + $API_SECRET}
+               if ( $API_KEY -and $API_SECRET ) {
+                  $Headers += @{authorization = "sso-key " + $API_KEY + ":" + $API_SECRET }
                }
             }
          }
 
          Write-Verbose "Loading the request API configuration."
-         $RelevantApi = $Global:crRestApis[$Params["RestApi"]].Services | Select-Object -ExpandProperty $Params["Service"] | Where-Object {$_.Operation -eq $Params["Operation"]}
+         $RelevantApi = $Global:crRestApis[$Params["RestApi"]].Services | Select-Object -ExpandProperty $Params["Service"] | Where-Object { $_.Operation -eq $Params["Operation"] }
       }
       catch {
          Write-Warning "Error encountered while trying to setup authorization or query the api, returning null: $_"
@@ -165,89 +168,97 @@ function Invoke-crRestMethod{
    process {
       Write-Verbose -Message "[$($MyInvocation.MyCommand.Name)] - Entering 'process' block"
 
-      if( -not $RequirementsCheckSucceeded ){
+      if ( -not $RequirementsCheckSucceeded ) {
          Write-Warning "All requirements were not met, please try again."
       }
-      elseif( -not $RelevantApi ){
+      elseif ( -not $RelevantApi ) {
          Write-Warning "The API configuration was not found, please try again."
       }
-      else{
+      else {
          $Uri = $RelevantApi.Uri
          Write-Verbose "URI (without replacements)= $Uri"
 
          Write-Verbose "Replacing variables found in the Rest Uri."
-         foreach( $key in $Params.GetEnumerator()){
+         foreach ( $key in $Params.GetEnumerator()) {
             $Uri = $Uri.Replace( "{$($key.Key)}", $key.Value )
          }
          $Uri = $Uri.Replace( "{version}", $Global:crRestApis[$Params["RestApi"]].GeneralInfo.Version )
 
          Write-Verbose "URI (with replacements)= $Uri"
 
-         if( $Uri -notlike '*{*}*'){
+         if ( $Uri -notlike '*{*}*') {
 
-            if( $Params["AdditionalParams"] ){
-               if( $Uri.Contains('?') ){
+            if ( $Params["AdditionalParams"] ) {
+               if ( $Uri.Contains('?') ) {
                   $Uri += "&" + $Params["AdditionalParams"]
                }
-               else{
+               else {
                   $Uri += "?" + $Params["AdditionalParams"]
                }
             }
 
             $WebResult = $Null
-            if( $Body ){
+            if ( $Body ) {
                Write-Verbose "Making the Rest call with a Body now."
                #$RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType #-ResponseHeadersVariable ResponseHeadersVariable
                $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType
             }
-            elseif( $BodyJson ){
+            elseif ( $BodyJson ) {
                Write-Verbose "Making the Rest call with a JSON Body now."
                #$RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType #-ResponseHeadersVariable ResponseHeadersVariable
                $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType
             }
-            elseif ( $UploadFile ){
+            elseif ( $UploadFile ) {
                Write-Verbose "Making the Rest call with upload file now."
 
-               if( Test-Path $UploadFile ){
+               if ( Test-Path $UploadFile ) {
                   $Fields = @{ 'file' = Get-Item $UploadFile }
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -form $Fields -ContentType $ContentType
                }
-               else{
+               else {
                   Write-Warning "$UploadFile not found, skipping!"
                }
             }
-            else{
+            else {
                Write-Verbose "Making the Rest call now."
                #$RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType # -ResponseHeadersVariable ResponseHeadersVariable
                $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType
             }
 
-            try {
-               $Global:ResponseHeadersVariable = $WebResult.Headers
-            }
-            catch{
-               $Global:ResponseHeadersVariable = $null
+            if ( $WebResult ) {
+               Write-Verbose "Invoke-WebRequest Status Code: $($WebResult.StatusCode)"
+
+               Write-Verbose 'Storing the full results in the $Global:WebRequestResult'
+               $Global:WebRequestResult = $WebResult
+
+               if ( $WebResult.StatusCode -eq "200" ) {
+                  Write-Verbose "Status code is 200, getting contents and converting into an object"
+                  $RestResult = ($WebResult.content | convertfrom-json)
+               }
+               else {
+                  Write-Verbose 'Status code was not 200, returning $null'
+                  $RestResult = $Null
+               }
             }
 
-            if( $WebResult ){ $RestResult = ($WebResult.content | convertfrom-json) }
-
-            Write-Verbose "Ensuring the result is a [System.Array] object."
-            if( $RelevantApi.Method -ne "DELETE"){
-               if( $RestResult.PSobject.Properties.name -eq "Value" ){`
-                  $Result = $RestResult.Value
+            if ( $RestResult ) {
+               if ( $RelevantApi.Method -ne "DELETE") {
+                  if ( $RestResult.PSobject.Properties.name -eq "Value" ) {
+                        $Result = $RestResult.Value
+                  }
+                  elseif ( $RestResult.PSobject.Properties.name -eq "Result" ) {
+                     $Result = $RestResult.Result
+                  }
+                  else {
+                     $Result = @($RestResult)
+                  }
                }
-               elseif( $RestResult.PSobject.Properties.name -eq "Result" ){
-                  $Result = $RestResult.Result
+               else {
+                  $Result = $RestResult
                }
-               else{
-                  $Result = @($RestResult)
-               }
-            }
-            else{
-               $Result = $RestResult
             }
          }
-         else{
+         else {
             Write-Warning "Parameters for the ADO Rest API call were missing!"
             Write-Warning "Built URI = $Uri"
             Write-Warning "Run Get-crHelpRestApis for more information about the Rest call you're attempting to make."
@@ -261,7 +272,7 @@ function Invoke-crRestMethod{
       Write-Verbose -Message "[$($MyInvocation.MyCommand.Name)] - Entering 'end' block"
 
       Write-Verbose "Returning the final result."
-      if( -not $Result ) { Write-Verbose "A null value is being returned in this case."}
+      if ( -not $Result ) { Write-Verbose "A null value is being returned in this case." }
       return $Result
 
       Write-Verbose -Message "[$($MyInvocation.MyCommand.Name)] - Exiting 'end' block"
