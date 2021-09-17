@@ -87,7 +87,7 @@ function Invoke-crRestMethod {
       [System.String] $UploadFile,
 
       [Parameter( Mandatory = $false )]
-      [validateset("application/json", "multipart/form-data" )]
+      [validateset("application/json", "application/json-patch+json", "multipart / form-data" )]
       [System.String] $ContentType = 'application/json',
 
       [Parameter( Mandatory = $false )]
@@ -231,20 +231,25 @@ function Invoke-crRestMethod {
                Write-Verbose 'Storing the full results in the $Global:WebRequestResult'
                $Global:WebRequestResult = $WebResult
 
-               if ( $WebResult.StatusCode -eq "200" ) {
-                  Write-Verbose "Status code is 200, getting contents and converting into an object"
+               #               if ( $WebResult.StatusCode -eq "200" ) {
+               Write-Verbose "Status code is 200, getting contents and converting into an object"
+               try {
                   $RestResult = ($WebResult.content | convertfrom-json)
                }
-               else {
-                  Write-Verbose 'Status code was not 200, returning $null'
-                  $RestResult = $Null
+               catch {
+                  $ResultResult = $Null
                }
+               #              }
+               # else {
+               #    Write-Verbose 'Status code was not 200, returning $null'
+               #    $RestResult = $Null
+               # }
             }
 
             if ( $RestResult ) {
                if ( $RelevantApi.Method -ne "DELETE") {
                   if ( $RestResult.PSobject.Properties.name -eq "Value" ) {
-                        $Result = $RestResult.Value
+                     $Result = $RestResult.Value
                   }
                   elseif ( $RestResult.PSobject.Properties.name -eq "Result" ) {
                      $Result = $RestResult.Result
