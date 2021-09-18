@@ -251,6 +251,9 @@ function Invoke-crRestMethod {
                   if ( $RestResult.PSobject.Properties.name -eq "Value" ) {
                      $Result = $RestResult.Value
                   }
+                  elseif ( $RestResult.PSobject.Properties.name -eq "Data" ) {
+                     $Result = $RestResult.Data
+                  }
                   elseif ( $RestResult.PSobject.Properties.name -eq "Result" ) {
                      $Result = $RestResult.Result
                   }
