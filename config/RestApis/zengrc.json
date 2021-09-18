@@ -13,7 +13,8 @@
         "Method": "GET",
         "Uri": "https://{organization}.api.zengrc.com/api/{version}/requests",
         "Description": "Get all requests.",
-        "Docs": "https://docs.api.zengrc.com/#/Requests/RequestList"
+        "Docs": "https://docs.api.zengrc.com/#/Requests/RequestList",
+        "GetProperty": "Data"
       },
       {
         "Operation": "Requests - Get",

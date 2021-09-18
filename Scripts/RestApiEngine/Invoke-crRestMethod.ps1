@@ -231,28 +231,23 @@ function Invoke-crRestMethod {
                Write-Verbose 'Storing the full results in the $Global:WebRequestResult'
                $Global:WebRequestResult = $WebResult
 
-               #               if ( $WebResult.StatusCode -eq "200" ) {
-               Write-Verbose "Status code is 200, getting contents and converting into an object"
                try {
                   $RestResult = ($WebResult.content | convertfrom-json)
                }
                catch {
                   $ResultResult = $Null
                }
-               #              }
-               # else {
-               #    Write-Verbose 'Status code was not 200, returning $null'
-               #    $RestResult = $Null
-               # }
             }
+
+            $GetProperty = ($Global:crRestApis[$Params["RestApi"]].Services."$($Params["Service"])" | Where-Object { $_.Operation -eq "Requests - List" }).GetProperty
 
             if ( $RestResult ) {
                if ( $RelevantApi.Method -ne "DELETE") {
-                  if ( $RestResult.PSobject.Properties.name -eq "Value" ) {
-                     $Result = $RestResult.Value
+                  if ( $GetProperty ) {
+                     $Result = $RestResult."$GetProperty"
                   }
-                  elseif ( $RestResult.PSobject.Properties.name -eq "Data" ) {
-                     $Result = $RestResult.Data
+                  elseif ( $RestResult.PSobject.Properties.name -eq "Value" ) {
+                     $Result = $RestResult.Value
                   }
                   elseif ( $RestResult.PSobject.Properties.name -eq "Result" ) {
                      $Result = $RestResult.Result
