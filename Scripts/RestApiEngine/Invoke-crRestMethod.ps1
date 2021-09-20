@@ -239,7 +239,12 @@ function Invoke-crRestMethod {
                }
             }
 
-            $GetProperty = ($Global:crRestApis[$Params["RestApi"]].Services."$($Params["Service"])" | Where-Object { $_.Operation -eq "Requests - List" }).GetProperty
+            try{
+               $GetProperty = ($Global:crRestApis[$Params["RestApi"]].Services."$($Params["Service"])" | Where-Object { $_.Operation -eq $($Params["Operation"]) }).GetProperty
+            }
+            catch{
+               $GetProperty = $Null
+            }
 
             if ( $RestResult ) {
                if ( $RelevantApi.Method -ne "DELETE") {
