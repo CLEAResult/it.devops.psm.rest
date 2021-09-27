@@ -197,6 +197,10 @@ function Invoke-crRestMethod {
                }
             }
 
+            if ( $RelevantApi.BodyJson -and -not $Body ){
+               $Body = $RelevantApi.BodyJson | ConvertFrom-Json
+            }
+
             $WebResult = $Null
             if ( $Body ) {
                Write-Verbose "Making the Rest call with a Body now."
