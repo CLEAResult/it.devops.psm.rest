@@ -201,7 +201,7 @@ function Invoke-crRestMethod {
             }
 
             if ( $RelevantApi.BodyJson -and -not $BodyJson ) {
-               $BodyJson = $RelevantApi.BodyJson
+               $BodyJson = $RelevantApi.BodyJson | ConvertTo-Json
             }
 
             $WebResult = $Null
