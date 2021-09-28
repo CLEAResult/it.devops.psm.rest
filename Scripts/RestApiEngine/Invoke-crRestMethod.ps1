@@ -92,10 +92,10 @@ function Invoke-crRestMethod {
 
       [Parameter( Mandatory = $false )]
       [validateset("CustomHeaders", "BearerToken", "sso-key", "Basic", "EncryptBasicToken", IgnoreCase = $true)]
-      [System.String] $AuthorizationType = $null    # Grok, update notes, use to override default behavior in the .json file,
+      [System.String] $AuthorizationType = $null, # Grok, update notes, use to override default behavior in the .json file,
 
-      # [Parameter( Mandatory = $false )]           # Requires PowerShell 7, removing until such time it's supported on Azure Hybrid Workers via Runbooks
-      # [Switch] $SkipCertificateCheck
+      [Parameter( Mandatory = $false )]
+      [Switch] $SkipCertificateCheck
    )
 
 
@@ -112,6 +112,37 @@ function Invoke-crRestMethod {
       Write-Verbose "AuthorizationType = $AuthorizationType"
 
       try {
+         $PowershellVersion7OrLater = $False
+         Write-Verbose "Running checks for PowerShell 5.1 vs 7.0+"
+         if ( $(Get-Host).Version -lt ([Version] "7.0")) {
+            Write-Verbose "The current PowerShell version is less than v7.0, running the appropriate setup steps"
+            if ( $SkipCertificateCheck ) {
+               Write-Verbose "Certificate check is to be ingored, setting up the TrustAllCertsPolicy class for the call to Invoke-WebRequest via PowerShell < 7.x"
+               try{
+                  Write-Verbose "Attempting to add custom class TrustAllCertsPolicy"
+                  Add-Type @"
+                     using System.Net;
+                     using System.Security.Cryptography.X509Certificates;
+                     public class TrustAllCertsPolicy : ICertificatePolicy {
+                        public bool CheckValidationResult(
+                              ServicePoint srvPoint, X509Certificate certificate,
+                              WebRequest request, int certificateProblem) {
+                              return true;
+                        }
+                     }
+"@
+                  [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
+               }
+               catch{
+                  Write-Verbose "The policy already exists, skipping"
+               }
+            }
+         }
+         else {
+            Write-Verbose "The current PowerShell version is equal to or greater than v7.0, running the appropriate setup steps"
+            $PowershellVersion7OrLater = $True
+         }
+
          if ( -not $AuthorizationType ) {
             $AuthorizationType = $Global:crRestApis[$Params["RestApi"]].GeneralInfo.AuthorizationType
          }
@@ -214,21 +245,34 @@ function Invoke-crRestMethod {
             if ( $Body ) {
                Write-Verbose "Making the Rest call with a Body now."
                Write-Verbose "Body set to $Body"
-               #$RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType #-ResponseHeadersVariable ResponseHeadersVariable
-               $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType #-SkipCertificateCheck:$SkipCertificateCheck
+               if( $PowershellVersion7OrLater -and $SkipCertificateCheck ){
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+               }
+               else{
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType
+               }
             }
             elseif ( $BodyJson ) {
                Write-Verbose "Making the Rest call with a JSON Body now."
                Write-Verbose "BodyJson set to $BodyJson"
-               #$RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType #-ResponseHeadersVariable ResponseHeadersVariable
-               $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType #-SkipCertificateCheck:$SkipCertificateCheck
+               if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+               }
+               else{
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType
+               }
             }
             elseif ( $UploadFile ) {
                Write-Verbose "Making the Rest call with upload file now."
 
                if ( Test-Path $UploadFile ) {
                   $Fields = @{ 'file' = Get-Item $UploadFile }
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -form $Fields -ContentType $ContentType #-SkipCertificateCheck:$SkipCertificateCheck
+                  if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
+                     $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -form $Fields -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+                  }
+                  else{
+                     $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -form $Fields -ContentType $ContentType
+                  }
                }
                else {
                   Write-Warning "$UploadFile not found, skipping!"
@@ -236,8 +280,12 @@ function Invoke-crRestMethod {
             }
             else {
                Write-Verbose "Making the Rest call now."
-               #$RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType # -ResponseHeadersVariable ResponseHeadersVariable
-               $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType #-SkipCertificateCheck:$SkipCertificateCheck
+               if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+               }
+               else{
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType
+               }
             }
 
             if ( $WebResult ) {
