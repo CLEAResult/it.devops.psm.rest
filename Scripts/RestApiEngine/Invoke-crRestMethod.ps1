@@ -92,10 +92,10 @@ function Invoke-crRestMethod {
 
       [Parameter( Mandatory = $false )]
       [validateset("CustomHeaders", "BearerToken", "sso-key", "Basic", "EncryptBasicToken", IgnoreCase = $true)]
-      [System.String] $AuthorizationType = $null, # Grok, update notes, use to override default behavior in the .json file,
+      [System.String] $AuthorizationType = $null    # Grok, update notes, use to override default behavior in the .json file,
 
-      [Parameter( Mandatory = $false )]
-      [Switch] $SkipCertificateCheck
+      # [Parameter( Mandatory = $false )]           # Requires PowerShell 7, removing until such time it's supported on Azure Hybrid Workers via Runbooks
+      # [Switch] $SkipCertificateCheck
    )
 
 
@@ -215,20 +215,20 @@ function Invoke-crRestMethod {
                Write-Verbose "Making the Rest call with a Body now."
                Write-Verbose "Body set to $Body"
                #$RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType #-ResponseHeadersVariable ResponseHeadersVariable
-               $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+               $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType #-SkipCertificateCheck:$SkipCertificateCheck
             }
             elseif ( $BodyJson ) {
                Write-Verbose "Making the Rest call with a JSON Body now."
                Write-Verbose "BodyJson set to $BodyJson"
                #$RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType #-ResponseHeadersVariable ResponseHeadersVariable
-               $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+               $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType #-SkipCertificateCheck:$SkipCertificateCheck
             }
             elseif ( $UploadFile ) {
                Write-Verbose "Making the Rest call with upload file now."
 
                if ( Test-Path $UploadFile ) {
                   $Fields = @{ 'file' = Get-Item $UploadFile }
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -form $Fields -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -form $Fields -ContentType $ContentType #-SkipCertificateCheck:$SkipCertificateCheck
                }
                else {
                   Write-Warning "$UploadFile not found, skipping!"
@@ -237,7 +237,7 @@ function Invoke-crRestMethod {
             else {
                Write-Verbose "Making the Rest call now."
                #$RestResult = Invoke-RestMethod -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType # -ResponseHeadersVariable ResponseHeadersVariable
-               $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+               $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType #-SkipCertificateCheck:$SkipCertificateCheck
             }
 
             if ( $WebResult ) {
