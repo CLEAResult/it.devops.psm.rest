@@ -200,8 +200,14 @@ function Invoke-crRestMethod {
                }
             }
 
-            if ( $RelevantApi.BodyJson -and -not $BodyJson ) {
-               $BodyJson = $RelevantApi.BodyJson
+            try {
+               if ( $RelevantApi.BodyJson -and -not $BodyJson ) {
+                  Write-Verbose "BodyJson property found for the endpoint, setting!"
+                  $BodyJson = $RelevantApi.BodyJson
+               }
+            }
+            catch {
+               Write-Verbose "BodyJson property not found for the endpoint, skipping"
             }
 
             $WebResult = $Null
@@ -248,10 +254,10 @@ function Invoke-crRestMethod {
                }
             }
 
-            try{
+            try {
                $GetProperty = ($Global:crRestApis[$Params["RestApi"]].Services."$($Params["Service"])" | Where-Object { $_.Operation -eq $($Params["Operation"]) }).GetProperty
             }
-            catch{
+            catch {
                $GetProperty = $Null
             }
 
