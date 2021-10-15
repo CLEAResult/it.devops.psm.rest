@@ -1927,6 +1927,20 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/queries/list?view=azure-devops-rest-5.1"
       },
       {
+        "Operation": "Updates - Get",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/wit/workItems/{id}/updates/{updateNumber}?api-version=5.1",
+        "Description": "Returns a single update for a work item",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/updates/get?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Updates - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/wit/workItems/{id}/updates?api-version=5.1",
+        "Description": "Returns a the deltas between work item revisions",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/updates/list?view=azure-devops-rest-5.1"
+      },
+      {
         "Operation": "Wiql - Query By Id",
         "Method": "GET",
         "Uri": "https://dev.azure.com/{organization}/{project}/{team}/_apis/wit/wiql/{id}?api-version={version}",
