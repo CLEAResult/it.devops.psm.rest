@@ -87,7 +87,7 @@ function Invoke-crRestMethod {
       [System.String] $UploadFile,
 
       [Parameter( Mandatory = $false )]
-      [validateset("application/json", "application/json-patch+json", "multipart / form-data" )]
+      [validateset("application/json", "application/json-patch+json", "multipart/form-data" )]
       [System.String] $ContentType = 'application/json',
 
       [Parameter( Mandatory = $false )]
