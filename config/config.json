@@ -6,5 +6,18 @@
     "MinimumPowerShellVersion": "4",
     "compatibleWithPowershellCore": "false"
   },
-  "Settings": {}
+  "Settings": {
+    "PowerShellPaths": {
+      "v5":{
+        "MacOS": "",
+        "Linux": "",
+        "Windows": "C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\powershell.exe"
+      },
+      "v7":{
+        "MacOS": "/usr/local/microsoft/powershell/7/pwsh",
+        "Linux": "",
+        "Windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe"
+      }
+    }
+  }
 }
