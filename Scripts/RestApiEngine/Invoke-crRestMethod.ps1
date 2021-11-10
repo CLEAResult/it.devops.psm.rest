@@ -87,6 +87,9 @@ function Invoke-crRestMethod {
       [System.String] $UploadFile,
 
       [Parameter( Mandatory = $false )]
+      [System.String] $DownloadFile,
+
+      [Parameter( Mandatory = $false )]
       [validateset("application/json", "application/json-patch+json", "multipart/form-data" )]
       [System.String] $ContentType = 'application/json',
 
@@ -260,6 +263,16 @@ function Invoke-crRestMethod {
                }
                else {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType
+               }
+            }
+            elseif ( $DownloadFile ) {
+               Write-Verbose "Making the Rest call with download file now."
+
+               if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -OutFile $DownloadFile -SkipCertificateCheck:$SkipCertificateCheck
+               }
+               else {
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -OutFile $DownloadFile
                }
             }
             elseif ( $UploadFile ) {
