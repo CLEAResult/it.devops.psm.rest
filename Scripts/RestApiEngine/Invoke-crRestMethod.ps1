@@ -289,10 +289,6 @@ function Invoke-crRestMethod {
                      # The solution was to create a script block as a wrapper to start a PowerShell 7 instance with the same parameters.  If anyone can provide the correct solution for doing this natively in
                      # PowerShell 5.1 or lower that would be awesome!  NOTE:  This currently only functions on Windows machines!
 
-                     if ( $Global:IsMacOs ) { $Ps7Path = $Global:crDevOpsRestConfig.Settings.PowerShellPaths.v7.IsMacOs }
-                     if ( $Global:Windows ) { $Ps7Path = $Global:crDevOpsRestConfig.Settings.PowerShellPaths.v7.Windows }
-                     if ( $Global:Linux ) { $Ps7Path = $Global:crDevOpsRestConfig.Settings.PowerShellPaths.v7.Linux }
-
                      $ScriptBlock = {
                         function Test([System.String] $InputStrings ) {
                            $Split = $InputStrings.Split(';')
