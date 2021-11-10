@@ -118,7 +118,7 @@ function Invoke-crRestMethod {
             Write-Verbose "The current PowerShell version is less than v7.0, running the appropriate setup steps"
             if ( $SkipCertificateCheck ) {
                Write-Verbose "Certificate check is to be ingored, setting up the TrustAllCertsPolicy class for the call to Invoke-WebRequest via PowerShell < 7.x"
-               try{
+               try {
                   Write-Verbose "Attempting to add custom class TrustAllCertsPolicy"
                   Add-Type @"
                      using System.Net;
@@ -133,7 +133,7 @@ function Invoke-crRestMethod {
 "@
                   [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
                }
-               catch{
+               catch {
                   Write-Verbose "The policy already exists, skipping"
                }
             }
@@ -245,13 +245,11 @@ function Invoke-crRestMethod {
             if ( $Body ) {
                Write-Verbose "Making the Rest call with a Body now."
                Write-Verbose "Body set to $Body"
-               if( $PowershellVersion7OrLater -and $SkipCertificateCheck ){
+               if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
                }
-               else{
-                  Write-verbose "GOT HERE BABY"
+               else {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10)  -ContentType $ContentType
-                  #$WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType
                }
             }
             elseif ( $BodyJson ) {
@@ -260,7 +258,7 @@ function Invoke-crRestMethod {
                if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
                }
-               else{
+               else {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType
                }
             }
@@ -272,8 +270,34 @@ function Invoke-crRestMethod {
                   if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
                      $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -form $Fields -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
                   }
-                  else{
-                     $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -form $Fields -ContentType $ContentType
+                  else {
+                     # GROK - This solution is admittedly terrible...i.e. this is the most beautiful kludge I've ever been forced to write.  Long story short, I was not able to get Invoke-WebRequest to upload
+                     # files in PowerShell 5.x or lower and unfortunately due to issues with Azure Automation Runbooks not being able to run in PowerShell 7 (now there's a preview, but it has it's own limitations).
+                     # The solution was to create a script block as a wrapper to start a PowerShell 7 instance with the same parameters.  If anyone can provide the correct solution for doing this natively in
+                     # PowerShell 5.1 or lower that would be awesome!  NOTE:  This currently only functions on Windows machines!
+
+                     if ( $Global:IsMacOs ) { $Ps7Path = $Global:crDevOpsRestConfig.Settings.PowerShellPaths.v7.IsMacOs }
+                     if ( $Global:Windows ) { $Ps7Path = $Global:crDevOpsRestConfig.Settings.PowerShellPaths.v7.Windows }
+                     if ( $Global:Linux ) { $Ps7Path = $Global:crDevOpsRestConfig.Settings.PowerShellPaths.v7.Linux }
+
+                     $ScriptBlock = {
+                        function Test([System.String] $InputStrings ) {
+                           $Split = $InputStrings.Split(';')
+
+                           [hashtable] $Parameters = $Split[4] | ConvertFrom-StringData
+
+                           if ( $Split[0] -eq 'USERNAME_PASSWORD' ) { $WebResult = Invoke-crRestMethod -Username $Split[1] -Password $Split[2] -UploadFile $Split[3] -Params $Parameters -ContentType "multipart/form-data" }
+                           elseif ( $Split[0] -eq 'KEY_SECRET' ) { $WebResult = Invoke-crRestMethod -API_KEY $Split[1] -API_SECRET $Split[2] -UploadFile $Split[3] -Params $Parameters -ContentType "multipart/form-data" }
+
+                           return $WebResult
+                        }
+                     }
+
+                     [System.String] $ParameterString = ""
+                     foreach ($Key in $Params.Keys) { $ParameterString += "$Key = $($Params[$Key])`n" }
+                     if ( -not [System.String]::IsNullOrEmpty( $Username) ) { $MyVars = @( "USERNAME_PASSWORD;$Username;$Password;$UploadFile;$ParameterString" ) }
+                     elseif ( -not [System.String]::IsNullOrEmpty( $API_KEY)  ) { $MyVars = @( "KEY_SECRET;$Username;$Password;$UploadFile;$Params" ) }
+                     $WebResult = Start-Process "C:\Program Files\PowerShell\7\pwsh.exe" -ArgumentList "-Command & {$ScriptBlock Test('$MyVars') }" -Wait -NoNewWindow
                   }
                }
                else {
@@ -285,7 +309,7 @@ function Invoke-crRestMethod {
                if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
                }
-               else{
+               else {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType
                }
             }
