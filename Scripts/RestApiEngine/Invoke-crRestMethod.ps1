@@ -104,7 +104,6 @@ function Invoke-crRestMethod {
 
    begin {
       Write-Verbose -Message "[$($MyInvocation.MyCommand.Name)] - Entering 'begin' block"
-
       $Result = $null
       $RestResult = $null
 
@@ -290,23 +289,22 @@ function Invoke-crRestMethod {
                      # PowerShell 5.1 or lower that would be awesome!  NOTE:  This currently only functions on Windows machines!
 
                      $ScriptBlock = {
-                        function Test([System.String] $InputStrings ) {
+                        function Test([System.String[]] $InputStrings ) {
                            $Split = $InputStrings.Split(';')
 
-                           [hashtable] $Parameters = $Split[4] | ConvertFrom-StringData
+                           [hashtable] $Headers = $Split[1] | ConvertFrom-StringData
+                           [hashtable] $Fields = @{ 'file' = Get-Item $Split[3] }
 
-                           if ( $Split[0] -eq 'USERNAME_PASSWORD' ) { $WebResult = Invoke-crRestMethod -Username $Split[1] -Password $Split[2] -UploadFile $Split[3] -Params $Parameters -ContentType "multipart/form-data" }
-                           elseif ( $Split[0] -eq 'KEY_SECRET' ) { $WebResult = Invoke-crRestMethod -API_KEY $Split[1] -API_SECRET $Split[2] -UploadFile $Split[3] -Params $Parameters -ContentType "multipart/form-data" }
-
-                           return $WebResult
+                           Invoke-WebRequest -Method $Split[0] -Headers $Headers -Uri $Split[2] -ContentType $Split[4] -form $Fields -UseBasicParsing -SkipCertificateCheck:$SkipCertificateCheck | Export-Clixml "temp.xml" -Force
                         }
                      }
 
-                     [System.String] $ParameterString = ""
-                     foreach ($Key in $Params.Keys) { $ParameterString += "$Key = $($Params[$Key])`n" }
-                     if ( -not [System.String]::IsNullOrEmpty( $Username) ) { $MyVars = @( "USERNAME_PASSWORD;$Username;$Password;$UploadFile;$ParameterString" ) }
-                     elseif ( -not [System.String]::IsNullOrEmpty( $API_KEY)  ) { $MyVars = @( "KEY_SECRET;$Username;$Password;$UploadFile;$Params" ) }
-                     $WebResult = Start-Process "C:\Program Files\PowerShell\7\pwsh.exe" -ArgumentList "-Command & {$ScriptBlock Test('$MyVars') }" -Wait -NoNewWindow
+                     [System.String] $HeadersString = ""
+                     foreach ( $Key in $Headers.Keys) { $HeadersString += "$Key = $($Headers[$Key])`n"}
+
+                     $MyVars = @( "$($RelevantApi.Method);$HeadersString;$Uri;$UploadFile;$ContentType" )
+                     Start-Process "C:\Program Files\PowerShell\7\pwsh.exe" -ArgumentList "-NoProfile -Command & {$ScriptBlock test('$MyVars') }" -Wait -NoNewWindow
+                     Start-Sleep 1; $WebResult = (Import-Clixml "temp.xml")
                   }
                }
                else {
