@@ -7,12 +7,12 @@
     "Docs": ""
   },
   "Services": {
-    "Users": [
+    "All": [
       {
-        "Operation": "List",
-        "Method": "Post",
+        "Operation": "All",
+        "Method": "POST",
         "Uri": "https://lastpass.com/enterpriseapi.php",
-        "Description": "Get list of all LastPass users.  Note:  The doc link is to a different endpoint than we're writing against, more research still needed.",
+        "Description": "This needs some massive love, but it's working right now for refactoring purposes.  Will revisit soon.",
         "Docs": "https://mfa-developer.lastpass.com/index.html"
       }
     ]
