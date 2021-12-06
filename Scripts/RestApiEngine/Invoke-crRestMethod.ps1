@@ -94,7 +94,7 @@ function Invoke-crRestMethod {
       [System.String] $ContentType = 'application/json',
 
       [Parameter( Mandatory = $false )]
-      [validateset("CustomHeaders", "BearerToken", "sso-key", "Basic", "EncryptBasicToken", IgnoreCase = $true)]
+      [validateset("None", "CustomHeaders", "BearerToken", "sso-key", "Basic", "EncryptBasicToken", IgnoreCase = $true)]
       [System.String] $AuthorizationType = $null, # Grok, update notes, use to override default behavior in the .json file,
 
       [Parameter( Mandatory = $false )]

@@ -1,0 +1,20 @@
+{
+  "GeneralInfo": {
+    "Name": "LastPass",
+    "Description": "LastPass Enterprise Rest API",
+    "AuthorizationType": "None",
+    "version": "v1",
+    "Docs": ""
+  },
+  "Services": {
+    "Users": [
+      {
+        "Operation": "List",
+        "Method": "Post",
+        "Uri": "https://lastpass.com/enterpriseapi.php",
+        "Description": "Get list of all LastPass users.  Note:  The doc link is to a different endpoint than we're writing against, more research still needed.",
+        "Docs": "https://mfa-developer.lastpass.com/index.html"
+      }
+    ]
+  }
+}
