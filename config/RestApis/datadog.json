@@ -6,6 +6,14 @@
     "version": "v1",
     "Docs": "https://docs.datadoghq.com/api/latest/"
   },
+  "Requirements": {
+    "Headers": [
+      {
+        "Item1": "DD-API-KEY",
+        "Item2": "DD-APPLICATION-KEY"
+      }
+    ]
+  },
   "Services": {
     "Synthetics": [
       {
