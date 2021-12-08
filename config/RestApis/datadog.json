@@ -19,7 +19,7 @@
       {
         "Operation": "Get the list of all tests",
         "Method": "GET",
-        "Uri": "https://api.datadoghq.com/api/{version}/synthetics/tests?API-APPLICATION-KEY={ApiApplicationKey}",
+        "Uri": "https://api.datadoghq.com/api/{version}/synthetics/tests?API-APPLICATION-KEY={DD-APPLICATION-KEY}",
         "Description": "Get the list of all Synthetic tests.",
         "Docs": "https://docs.datadoghq.com/api/latest/synthetics/#get-the-list-of-all-tests"
       }
