@@ -1584,6 +1584,71 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/release/releases/update%20release%20resource?view=azure-devops-rest-6.1"
       }
     ],
+    "Security": [
+      {
+        "Operation": "Access Control Entries - Remove Access Control Entries",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/_apis/accesscontrolentries/{securityNamespaceId}?api-version=7.1-preview.1",
+        "Description": "Remove the specified ACEs from the ACL belonging to the specified token.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/security/access-control-entries/remove-access-control-entries?view=azure-devops-rest-7.1"
+      },
+      {
+        "Operation": "Access Control Entries - Set Access Control Entries",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/_apis/accesscontrolentries/{securityNamespaceId}?api-version=7.1-preview.1",
+        "Description": "Add or update ACEs in the ACL for the provided token. The request body contains the target token, a list of ACEs and a optional merge parameter. In the case of a collision (by identity descriptor) with an existing ACE in the ACL, the 'merge' parameter determines the behavior. If set, the existing ACE has its allow and deny merged with the incoming ACE's allow and deny. If unset, the existing ACE is displaced.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/security/access-control-entries/set-access-control-entries?view=azure-devops-rest-7.1"
+      },
+      {
+        "Operation": "Access Control Lists - Query",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/accesscontrollists/{securityNamespaceId}?api-version=7.1-preview.1",
+        "Description": "Return a list of access control lists for the specified security namespace and token. All ACLs in the security namespace will be retrieved if no optional parameters are provided.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/security/access-control-lists/query?view=azure-devops-rest-7.1"
+      },
+      {
+        "Operation": "Access Control Lists - Remove Access Control Lists",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/_apis/accesscontrollists/{securityNamespaceId}?api-version=7.1-preview.1",
+        "Description": "Remove access control lists under the specfied security namespace.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/security/access-control-lists/remove-access-control-lists?view=azure-devops-rest-7.1"
+      },
+      {
+        "Operation": "Access Control Lists - Set Access Control Lists",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/_apis/accesscontrollists/{securityNamespaceId}?api-version=7.1-preview.1",
+        "Description": "Create or update one or more access control lists. All data that currently exists for the ACLs supplied will be overwritten.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/security/access-control-lists/set-access-control-lists?view=azure-devops-rest-7.1"
+      },
+      {
+        "Operation": "Permissions - Has Permissions",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/permissions/{securityNamespaceId}/{permissions}?api-version=7.1-preview.2",
+        "Description": "Evaluates whether the caller has the specified permissions on the specified set of security tokens.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/security/permissions/has-permissions?view=azure-devops-rest-7.1"
+      },
+      {
+        "Operation": "Permissions - Has Permissions Batch",
+        "Method": "POST",
+        "Uri": "https://dev.azure.com/{organization}/_apis/security/permissionevaluationbatch?api-version=7.1-preview.1",
+        "Description": "Evaluates multiple permissions for the calling user. Note: This method does not aggregate the results, nor does it short-circuit if one of the permissions evaluates to false.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/security/permissions/has-permissions-batch?view=azure-devops-rest-7.1"
+      },
+      {
+        "Operation": "Permissions - Remove Permission",
+        "Method": "DELETE",
+        "Uri": "https://dev.azure.com/{organization}/_apis/permissions/{securityNamespaceId}/{permissions}?descriptor={descriptor}&api-version=7.1-preview.2",
+        "Description": "Removes the specified permissions on a security token for a user or group.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/security/permissions/remove-permission?view=azure-devops-rest-7.1"
+      },
+      {
+        "Operation": "Security Namespaces - Query",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/_apis/securitynamespaces/{securityNamespaceId}?api-version=7.1-preview.1",
+        "Description": "List all security namespaces or just the specified namespace.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/security/security-namespaces/query?view=azure-devops-rest-7.1"
+      }
+    ],
     "Service Endpoint": [
       {
         "Operation": "Endpoints - Create",
