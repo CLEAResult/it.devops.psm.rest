@@ -1078,6 +1078,15 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-6.0"
       }
     ],
+    "Identities": [
+      {
+        "Operation": "Identities - Read Identities",
+        "Method": "GET",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/identities?api-version=7.1-preview.1",
+        "Description": "Resolve legacy identity information for use with older APIs such as the Security APIs",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/ims/identities/read-identities?view=azure-devops-rest-7.1"
+      }
+    ],
     "Iterations": [
       {
         "Operation": "List",
