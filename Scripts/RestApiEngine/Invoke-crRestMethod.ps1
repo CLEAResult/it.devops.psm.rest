@@ -231,6 +231,7 @@ function Invoke-crRestMethod {
                else {
                   $Uri += "?" + $Params["AdditionalParams"]
                }
+               Write-Verbose "URI (with additional params)= $Uri"
             }
 
             try {
