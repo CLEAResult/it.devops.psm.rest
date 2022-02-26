@@ -1,0 +1,21 @@
+{
+  "GeneralInfo": {
+    "Name": "Azure",
+    "Description": "Microsoft Azure Rest API(s)",
+    "AuthorizationType": "BearerToken",
+    "version": "",
+    "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/"
+  },
+  "Services": {
+    "Authorization": [
+      {
+        "Operation": "Get Access Token",
+        "Method": "GET",
+        "Uri": "https://login.microsoftonline.com/{tenant_id}/oauth2/token",
+        "Description": "Get all requests.",
+        "Docs": "https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow",
+        "GetProperty": "Data"
+      }
+    ]
+  }
+}
