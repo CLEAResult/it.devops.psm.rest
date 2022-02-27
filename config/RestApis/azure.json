@@ -7,13 +7,20 @@
     "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/"
   },
   "Services": {
-    "Authorization": [
+    "Consumption": [
       {
-        "Operation": "Get Access Token",
-        "Method": "POST",
-        "Uri": "https://login.microsoftonline.com/{tenant_id}/oauth2/token",
-        "Description": "Get all requests.",
-        "Docs": "https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-auth-code-flow"
+        "Operation": "Usage Details - List",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2021-10-01",
+        "Description": "Lists the usage details for the defined scope. Usage details are available via this API only for May 1, 2014 or later.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/usage-details/list"
+      },
+      {
+        "Operation": "Usage Details - List by Month",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2021-10-01&startDate={StartDate}&endDate={EndDate}",
+        "Description": "Lists the usage details for the defined scope. Usage details are available via this API only for May 1, 2014 or later.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/usage-details/list"
       }
     ]
   }
