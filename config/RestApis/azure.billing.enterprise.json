@@ -1,0 +1,104 @@
+{
+  "GeneralInfo": {
+    "Name": "Azure.Billing",
+    "Description": "Microsoft Azure.Billing.Enterprise Rest API",
+    "AuthorizationType": "BearerToken",
+    "version": "v3",
+    "Docs": "https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/enterprise-api"
+  },
+  "Services": {
+    "Enterprise": [
+      {
+        "Operation": "Get - Balance and Summary",
+        "Method": "GET",
+        "Uri": "https://consumption.azure.com/{version}/enrollments/{enrollmentNumber}/balancesummary",
+        "Description": "The Balance and Summary API offers a monthly summary of information on balances, new purchases, Azure Marketplace service charges, adjustments, and overage charges.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/billing/enterprise/billing-enterprise-api-balance-summary"
+      },
+      {
+        "Operation": "Get - Balance and Summary by Billing Period",
+        "Method": "GET",
+        "Uri": "https://consumption.azure.com/{version}/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/balancesummary",
+        "Description": "The Balance and Summary API offers a monthly summary of information on balances, new purchases, Azure Marketplace service charges, adjustments, and overage charges.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/billing/enterprise/billing-enterprise-api-balance-summary"
+      },
+      {
+        "Operation": "Get - Usage Details",
+        "Method": "GET",
+        "Uri": "https://consumption.azure.com/{version}/enrollments/{enrollmentNumber}/usagedetails/download?billingPeriod={billingPeriod}",
+        "Description": "The Usage Detail API offers a daily breakdown of consumed quantities and estimated charges by an Enrollment. The result also includes information on instances, meters, and departments. The API can be queried by Billing period or by a specified start and end date.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/billing/enterprise/billing-enterprise-api-usage-detail"
+      },
+      {
+        "Operation": "Get - Usage Details by Start and End Date",
+        "Method": "GET",
+        "Uri": "https://consumption.azure.com/{version}/enrollments/{enrollmentNumber}/usagedetails/download?startTime=2017-01-01&endTime=2017-01-10",
+        "Description": "The Usage Detail API offers a daily breakdown of consumed quantities and estimated charges by an Enrollment. The result also includes information on instances, meters, and departments. The API can be queried by Billing period or by a specified start and end date.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/billing/enterprise/billing-enterprise-api-usage-detail"
+      },
+      {
+        "Operation": "Get - Marketplace Store Charge",
+        "Method": "GET",
+        "Uri": "https://consumption.azure.com/{version}/enrollments/{enrollmentNumber}/marketplacecharges",
+        "Description": "The Marketplace Store Charge API returns the usage-based marketplace charges breakdown by day for the specified Billing Period or start and end dates. Recurring Charges are returned as a part of the API response.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge"
+      },
+      {
+        "Operation": "Get - Marketplace Store Charge by Billing Period",
+        "Method": "GET",
+        "Uri": "https://consumption.azure.com/{version}/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/marketplacecharges",
+        "Description": "The Marketplace Store Charge API returns the usage-based marketplace charges breakdown by day for the specified Billing Period or start and end dates. Recurring Charges are returned as a part of the API response.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge"
+      },
+      {
+        "Operation": "Get - Marketplace Store Charge by Start and End Date",
+        "Method": "GET",
+        "Uri": "https://consumption.azure.com/{version}/enrollments/{enrollmentNumber}/marketplacechargesbycustomdate?startTime=2017-01-01&endTime=2017-01-10",
+        "Description": "The Marketplace Store Charge API returns the usage-based marketplace charges breakdown by day for the specified Billing Period or start and end dates. Recurring Charges are returned as a part of the API response.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge"
+      },
+      {
+        "Operation": "Get - Price Sheet",
+        "Method": "GET",
+        "Uri": "https://consumption.azure.com/{version}/enrollments/{enrollmentNumber}/pricesheet",
+        "Description": "The Price Sheet API provides the applicable rate for each Meter for the given Enrollment and Billing Period.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/billing/enterprise/billing-enterprise-api-pricesheet"
+      },
+      {
+        "Operation": "Get - Price Sheet by Billing Period",
+        "Method": "GET",
+        "Uri": "https://consumption.azure.com/{version}/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet",
+        "Description": "The Price Sheet API provides the applicable rate for each Meter for the given Enrollment and Billing Period.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/billing/enterprise/billing-enterprise-api-pricesheet"
+      },
+      {
+        "Operation": "Get - Billing Periods",
+        "Method": "GET",
+        "Uri": "https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingperiods",
+        "Description": "The Billing Periods API returns a list of billing periods that have consumption data for the specified Enrollment in reverse chronological order. Each Period contains a property pointing to the API route for the four sets of data - BalanceSummary, UsageDetails, Marketplace Charges, and PriceSheet. If the period does not have data, the corresponding property is null.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/billing/enterprise/billing-enterprise-api-billing-periods"
+      },
+      {
+        "Operation": "Get - Reserved instance purchase recommendation",
+        "Method": "GET",
+        "Uri": "https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/SharedReservationRecommendations?lookBackPeriod=7",
+        "Description": "The Reserved Instance recommendations API looks at Customer's 7, 30 or 60 days virtual machine usage and offers Single and Shared Purchase recommendations.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation"
+      },
+      {
+        "Operation": "Get - Reserved Instance transaction charges",
+        "Method": "GET",
+        "Uri": "https://consumption.azure.com/v4/enrollments/{enrollmentNumber}/reservationcharges?startDate={yyyy-mm-dd}&endDate={yyyy-mm-dd}",
+        "Description": "Reserved Instance charges API shows the billing transactions made on the Enterprise enrollment. If the reservation has been moved from the purchasing enrollment to a different enrollment, it will show the purchasing and the current enrollment of the reservation.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges"
+      },
+      {
+        "Operation": "Get - Reserved Instance usage ",
+        "Method": "GET",
+        "Uri": "https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/reservationdetails?startDate={yyyy-mm-dd}&endDate={yyyy-mm-dd}",
+        "Description": "The Reserved Instance usage API returns the usage of the Reserved Instance purchases within an enrollment. If there are more than one Reserved Instances in an enrollment, you can get the usage of all the Reserved Instance purchases using this API.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage"
+      }
+    ]
+  }
+}
