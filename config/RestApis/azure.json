@@ -9,6 +9,20 @@
   "Services": {
     "Consumption": [
       {
+        "Operation": "Charges Details - List",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountId}/providers/Microsoft.Consumption/charges?api-version=2021-10-01",
+        "Description": "Lists the charges based for the defined scope.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/charges/list"
+      },
+      {
+        "Operation": "Charges Details - List by Date",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountId}/providers/Microsoft.Consumption/charges?api-version=2021-10-01&startDate={startDate}&endDate={endDate}",
+        "Description": "Lists the charges based for the defined scope.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/charges/list"
+      },
+      {
         "Operation": "Usage Details - List",
         "Method": "GET",
         "Uri": "https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2021-10-01",
