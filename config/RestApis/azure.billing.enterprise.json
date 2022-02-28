@@ -2,7 +2,7 @@
   "GeneralInfo": {
     "Name": "Azure.Billing",
     "Description": "Microsoft Azure.Billing.Enterprise Rest API",
-    "AuthorizationType": "BearerToken",
+    "AuthorizationType": "None",
     "version": "v3",
     "Docs": "https://docs.microsoft.com/en-us/azure/cost-management-billing/manage/enterprise-api"
   },
