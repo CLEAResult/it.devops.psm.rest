@@ -270,7 +270,7 @@ function Invoke-crRestMethod {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
                else {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10)  -ContentType $ContentType -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType
                }
             }
             elseif ( $BodyJson ) {
@@ -280,7 +280,7 @@ function Invoke-crRestMethod {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
                else {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType
                }
             }
             elseif ( $DownloadFile ) {
@@ -290,7 +290,7 @@ function Invoke-crRestMethod {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -OutFile $DownloadFile -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
                else {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -OutFile $DownloadFile -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -OutFile $DownloadFile
                }
             }
             elseif ( $UploadFile ) {
@@ -314,7 +314,7 @@ function Invoke-crRestMethod {
                            [hashtable] $Headers = $Split[1] | ConvertFrom-StringData
                            [hashtable] $Fields = @{ 'file' = Get-Item $Split[3] }
 
-                           Invoke-WebRequest -Method $Split[0] -Headers $Headers -Uri $Split[2] -ContentType $Split[4] -form $Fields -UseBasicParsing -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec | Export-Clixml "temp.xml" -Force
+                           Invoke-WebRequest -Method $Split[0] -Headers $Headers -Uri $Split[2] -ContentType $Split[4] -form $Fields -UseBasicParsing -SkipCertificateCheck:$SkipCertificateCheck | Export-Clixml "temp.xml" -Force
                         }
                      }
 
@@ -336,7 +336,7 @@ function Invoke-crRestMethod {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
                else {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType
                }
             }
 
