@@ -32,7 +32,7 @@
       {
         "Operation": "Get - Usage Details (next page)",
         "Method": "GET",
-        "Uri": " https://consumption.azure.com/v3/enrollments/{enrollmentNumber}/usagedetails/nextpage?sessiontoken={sessionToken}&skiptoken={skipToken}&skiptokenver={skipTokenVer}&id={id}",
+        "Uri": " https://consumption.azure.com/v3/enrollments/{enrollmentNumber}/usagedetails/nextpage?{sessionToken}&{skipToken}&{skipTokenVer}&id={id}",
         "Description": "Use this when paging urls are returned from Get - Usage Details",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/billing/enterprise/billing-enterprise-api-usage-detail"
       },

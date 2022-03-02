@@ -33,9 +33,21 @@ function Invoke-crRestMethod {
       [Hashtable] Params = Parameters necessary for calling the desired Rest API.
       [System.String] Username (optional) - Not yet implemented.
       [System.String] Password (optional) - Not yet implemented.
-      [System.String] Token (optional) - The authentication associated with the Rest API when using Bearer Token authorization.
+      [System.String] BearerToken (optional) - The authentication associated with the Rest API when using Bearer Token authorization.
       [HashTable] $Body (optional) - A hashtable representing the Body of the Rest call, if required.
-      [System.String] AuthorizationType - Rest API authorization type.  Do not use, only BearerToken authentication has been implemented.
+      [System.String] AuthorizationType - Rest API authorization type.  Do not use, only BearerToken authentication has been implemented.  Valid values are "None", "CustomHeaders", "BearerToken", "sso-key", "Basic", "EncryptBasicToken"
+      [Parameter( Mandatory = $true )]
+      [Hashtable] $Params,
+      [System.String] $API_KEY (optional)
+      [System.String] $API_SECRET (optional)
+      [HashTable] $Headers = (optional) Hash table of headers to pass in the call.
+      [System.String] $BodyJson (optional)
+      [System.String] $UploadFile (optional)
+      [System.String] $DownloadFile (optional)
+      [System.String] $ContentType -  (optional) - Default is 'application/json'; valid values are "application/json", "application/json-patch+json", "multipart/form-data"
+      [Switch] $SkipCertificateCheck - (optional)
+      [Int] $MaximumRetryCount - (optional) Default is 7.
+      [Int] $RetryIntervalSec - (optional) Default is 1.
 
    .OUTPUTS
       [System.Array] $An array of objects returned by the Rest call, $null if nothing was returned.
@@ -98,8 +110,14 @@ function Invoke-crRestMethod {
       [System.String] $AuthorizationType = $null, # Grok, update notes, use to override default behavior in the .json file,
 
       [Parameter( Mandatory = $false )]
-      [Switch] $SkipCertificateCheck
-   )
+      [Switch] $SkipCertificateCheck,
+
+      [Parameter( Mandatory = $false )]
+      [Int] $MaximumRetryCount = 7,
+
+      [Parameter( Mandatory = $false )]
+      [Int] $RetryIntervalSec = 1
+)
 
 
    begin {
@@ -249,30 +267,30 @@ function Invoke-crRestMethod {
                Write-Verbose "Making the Rest call with a Body now."
                Write-Verbose "Body set to $Body"
                if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
                else {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10)  -ContentType $ContentType
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10)  -ContentType $ContentType -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
             }
             elseif ( $BodyJson ) {
                Write-Verbose "Making the Rest call with a JSON Body now."
                Write-Verbose "BodyJson set to $BodyJson"
                if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
                else {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
             }
             elseif ( $DownloadFile ) {
                Write-Verbose "Making the Rest call with download file now."
 
                if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -OutFile $DownloadFile -SkipCertificateCheck:$SkipCertificateCheck
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -OutFile $DownloadFile -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
                else {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -OutFile $DownloadFile
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -OutFile $DownloadFile -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
             }
             elseif ( $UploadFile ) {
@@ -281,7 +299,7 @@ function Invoke-crRestMethod {
                if ( Test-Path $UploadFile ) {
                   $Fields = @{ 'file' = Get-Item $UploadFile }
                   if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
-                     $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -form $Fields -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+                     $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -form $Fields -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                   }
                   else {
                      # GROK - This solution is admittedly terrible...i.e. this is the most beautiful kludge I've ever been forced to write.  Long story short, I was not able to get Invoke-WebRequest to upload
@@ -296,7 +314,7 @@ function Invoke-crRestMethod {
                            [hashtable] $Headers = $Split[1] | ConvertFrom-StringData
                            [hashtable] $Fields = @{ 'file' = Get-Item $Split[3] }
 
-                           Invoke-WebRequest -Method $Split[0] -Headers $Headers -Uri $Split[2] -ContentType $Split[4] -form $Fields -UseBasicParsing -SkipCertificateCheck:$SkipCertificateCheck | Export-Clixml "temp.xml" -Force
+                           Invoke-WebRequest -Method $Split[0] -Headers $Headers -Uri $Split[2] -ContentType $Split[4] -form $Fields -UseBasicParsing -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec | Export-Clixml "temp.xml" -Force
                         }
                      }
 
@@ -315,10 +333,10 @@ function Invoke-crRestMethod {
             else {
                Write-Verbose "Making the Rest call now."
                if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
                else {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
             }
 
