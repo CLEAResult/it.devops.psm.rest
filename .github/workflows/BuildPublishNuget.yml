@@ -22,7 +22,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Spitup output
+      - name: Write Out Build Number
         run: |
           echo "Heres some output"
           echo $GITHUB_RUN_NUMBER
@@ -49,19 +49,19 @@ jobs:
         with:
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
           nuget-version: '5.x'
-      - name: Build  
+      - name: Build the Nuget Package
         run: nuget pack ./cr-devops-rest.nuspec -Version 20.12.$GITHUB_RUN_NUMBER
-      - name: AddGithubSource
+      - name: Add the ADO Nuget Repo to the Nuget Sources File
         run: nuget sources Add -UserName Ryan.Phay@clearesult.com -Password ${{secrets.NUGET_API_KEY}} -Name CrDevOpsModules -Source https://clearesultdev.pkgs.visualstudio.com/_packaging/DevOps-PowerShell-Modules/nuget/v3/index.json
       - name: Push Nuget Package to Azure DevOps
         run: nuget push ./cr-devops-rest.20.12.$GITHUB_RUN_NUMBER.nupkg -apikey ${{secrets.NUGET_API_KEY}} -source https://clearesultdev.pkgs.visualstudio.com/_packaging/DevOps-PowerShell-Modules/nuget/v3/index.json
       - name: Create Zip Folder
         run: mkdir ./zip
-      - name: Zip
+      - name: Zip the files
         uses: montudor/action-zip@v0.1.1
         with:
           args: zip -qq -r ./zip/cr-devops-rest.zip ./
-      - name: Deploy to Azure
+      - name: Deploy the Zipped Package to Azure
         uses: TravisSpomer/deploy-to-azure-storage@v1.3.0
         with:
           source-path: ./zip/
