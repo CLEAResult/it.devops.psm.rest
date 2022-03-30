@@ -382,7 +382,7 @@ function Invoke-crRestMethod {
             }
          }
          else {
-            Write-Warning "Parameters for the ADO Rest API call were missing!"
+            Write-Warning "Parameters for the '$($Global:crRestApis[$Params["RestApi"]].GeneralInfo.Name)' Rest API call were missing!"
             Write-Warning "Built URI = $Uri"
             Write-Warning "Run Get-crHelpRestApis for more information about the Rest call you're attempting to make."
          }
