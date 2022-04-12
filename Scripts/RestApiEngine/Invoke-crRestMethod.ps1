@@ -93,6 +93,9 @@ function Invoke-crRestMethod {
       [HashTable] $Body,
 
       [Parameter( Mandatory = $false )]
+      [System.String] $BodyRaw,
+
+      [Parameter( Mandatory = $false )]
       [System.String] $BodyJson,
 
       [Parameter( Mandatory = $false )]
@@ -271,6 +274,16 @@ function Invoke-crRestMethod {
                }
                else {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType
+               }
+            }
+            if ( $BodyRaw ) {
+               Write-Verbose "Making the Rest call with a Body now."
+               Write-Verbose "Body set to $BodyRaw"
+               if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyRaw -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
+               }
+               else {
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyRaw -ContentType $ContentType
                }
             }
             elseif ( $BodyJson ) {
