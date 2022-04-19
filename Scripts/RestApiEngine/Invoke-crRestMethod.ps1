@@ -276,8 +276,8 @@ function Invoke-crRestMethod {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType
                }
             }
-            if ( $BodyRaw ) {
-               Write-Verbose "Making the Rest call with a Body now."
+            elseif ( $BodyRaw ) {
+               Write-Verbose "Making the Rest call with a Raw Body now."
                Write-Verbose "Body set to $BodyRaw"
                if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyRaw -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
