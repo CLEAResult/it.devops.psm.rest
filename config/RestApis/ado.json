@@ -1929,7 +1929,7 @@
       {
         "Operation": "Create",
         "Method": "POST",
-        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?api-version=7.1-preview.1",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?api-version=6.0-preview.1",
         "Description": "NOT VALIDATED!!!  Materialize an existing AAD or MSA user into the VSTS account.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/create?view=azure-devops-rest-7.1",
         "Body": "$Example = @{ principalName = 'ado.test.svc@clearesult.com' } | ConvertTo-JSon"
@@ -1937,7 +1937,7 @@
       {
         "Operation": "Create with Group Membership",
         "Method": "POST",
-        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?groupDescriptors={groupDescriptors}&api-version=7.1-preview.1",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?groupDescriptors={groupDescriptors}&api-version=6.0-preview.1",
         "Description": "NOT VALIDATED!!!  Materialize an existing AAD or MSA user into the VSTS account and put in group.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/create?view=azure-devops-rest-7.1",
         "Body": "$Example = @{ principalName = 'ado.test.svc@clearesult.com' } | ConvertTo-JSon"
