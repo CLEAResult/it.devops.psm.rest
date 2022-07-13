@@ -1,0 +1,216 @@
+{
+  "GeneralInfo": {
+    "Name": "Azure.Consumption",
+    "Description": "Microsoft Azure.Consumption Rest API",
+    "AuthorizationType": "BearerToken",
+    "version": "",
+    "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/"
+  },
+  "Services": {
+    "Consumption": [
+      {
+        "Operation": "Aggregated Cost - Get By Management Group",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Consumption/aggregatedcost?api-version=2021-10-01",
+        "Description": "Provides the aggregate cost of a management group and all child management groups by current billing period.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/aggregated-cost/get-by-management-group"
+      },
+      {
+        "Operation": "Aggregated Cost - Get For Billing Period By Management Group",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/aggregatedCost?api-version=2021-10-01",
+        "Description": "Provides the aggregate cost of a management group and all child management groups by specified billing period.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/aggregated-cost/get-for-billing-period-by-management-group"
+      },
+      {
+        "Operation": "Balances - Get By Billing Account",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.Consumption/balances?api-version=2021-10-01",
+        "Description": "Gets the balances for a scope by billingAccountId. Balances are available via this API only for May 1, 2014 or later.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/balances/get-by-billing-account"
+      },
+      {
+        "Operation": "Balances - Get For Billing Period By Billing Account",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/balances?api-version=2021-10-01",
+        "Description": "Gets the balances for a scope by billing period and billingAccountId. Balances are available via this API only for May 1, 2014 or later.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/balances/get-for-billing-period-by-billing-account"
+      },
+      {
+        "Operation": "Budgets - Get",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/{scope}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2021-10-01",
+        "Description": "Gets the budget for the scope by budget name.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/budgets/get"
+      },
+      {
+        "Operation": "Budgets - List",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/{scope}/providers/Microsoft.Consumption/budgets?api-version=2021-10-01",
+        "Description": "Lists all budgets for the defined scope.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/budgets/list"
+      },
+      {
+        "Operation": "Charges Details - List",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountId}/providers/Microsoft.Consumption/charges?api-version=2021-10-01",
+        "Description": "Lists the charges based for the defined scope.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/charges/list"
+      },
+      {
+        "Operation": "Charges Details - List by Date",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountId}/providers/Microsoft.Consumption/charges?api-version=2021-10-01&startDate={startDate}&endDate={endDate}",
+        "Description": "Lists the charges based for the defined scope.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/charges/list"
+      },
+      {
+        "Operation": "Credits - Get",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/providers/Microsoft.Consumption/credits/balanceSummary?api-version=2021-10-01",
+        "Description": "The credit summary by billingAccountId and billingProfileId.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/credits/get"
+      },
+      {
+        "Operation": "Events - List By Billing Account",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.Consumption/events?api-version=2021-10-01",
+        "Description": "Lists the events that decrements Azure credits or Microsoft Azure consumption commitment for a billing account or a billing profile for a given start and end date.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/events/list-by-billing-account"
+      },
+      {
+        "Operation": "Events - List By Billing Profile",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/providers/Microsoft.Consumption/events?api-version=2021-10-01&startDate={startDate}&endDate={endDate}",
+        "Description": "Lists the events that decrements Azure credits or Microsoft Azure consumption commitment for a billing account or a billing profile for a given start and end date.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/events/list-by-billing-profile"
+      },
+      {
+        "Operation": "Lots - List By Billing Account",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.Consumption/lots?api-version=2021-10-01",
+        "Description": "Lists all Azure credits and Microsoft Azure consumption commitments for a billing account or a billing profile. Microsoft Azure consumption commitments are only supported for the billing account scope.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/lots/list-by-billing-account"
+      },
+      {
+        "Operation": "Lots - List By Billing Profile",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/providers/Microsoft.Consumption/lots?api-version=2021-10-01",
+        "Description": "Lists all Azure credits and Microsoft Azure consumption commitments for a billing account or a billing profile. Microsoft Azure consumption commitments are only supported for the billing account scope.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/lots/list-by-billing-profile"
+      },
+      {
+        "Operation": "Marketplaces - List",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/{scope}/providers/Microsoft.Consumption/marketplaces?api-version=2021-10-01",
+        "Description": "Lists the marketplaces for a scope at the defined scope. Marketplaces are available via this API only for May 1, 2014 or later.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/marketplaces/list"
+      },
+      {
+        "Operation": "Operations - List",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Consumption/operations?api-version=2021-10-01",
+        "Description": "Lists all of the available consumption REST API operations.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/operations/list"
+      },
+      {
+        "Operation": "Price Sheet - Get",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/pricesheets/default?api-version=2021-10-01",
+        "Description": "Gets the price sheet for a subscription. Price sheet is available via this API only for May 1, 2014 or later.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/price-sheet/get"
+      },
+      {
+        "Operation": "Price Sheet - Get By Billing Period",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/pricesheets/default?api-version=2021-10-01",
+        "Description": "Get the price sheet for a scope by subscriptionId and billing period. Price sheet is available via this API only for May 1, 2014 or later.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/price-sheet/get-by-billing-period"
+      },
+      {
+        "Operation": "Reservations Details - List",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/{scope}/providers/Microsoft.Consumption/reservationDetails?api-version=2021-10-01",
+        "Description": "Lists the reservations details for the defined scope and provided date range.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/reservations-details/list"
+      },
+      {
+        "Operation": "Reservations Details - List By Reservation Order",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Capacity/reservationorders/{reservationOrderId}/providers/Microsoft.Consumption/reservationDetails?$filter={$filter}&api-version=2021-10-01",
+        "Description": "Lists the reservations details for provided date range.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/reservations-details/list-by-reservation-order"
+      },
+      {
+        "Operation": "Reservations Details - List By Reservation Order And Reservation",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Capacity/reservationorders/{reservationOrderId}/reservations/{reservationId}/providers/Microsoft.Consumption/reservationDetails?$filter={$filter}&api-version=2021-10-01",
+        "Description": "Lists the reservations details for provided date range.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/reservations-details/list-by-reservation-order-and-reservation"
+      },
+      {
+        "Operation": "Reservation Recommendation Details - Get",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/{scope}/providers/Microsoft.Consumption/reservationRecommendationDetails?api-version=2021-10-01&region={region}&term={term}&lookBackPeriod={lookBackPeriod}&product={product}",
+        "Description": "Details of a reservation recommendation for what-if analysis of reserved instances.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/reservation-recommendation-details/get"
+      },
+      {
+        "Operation": "Reservation Recommendations - List",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/{scope}/providers/Microsoft.Consumption/reservationRecommendations?api-version=2021-10-01",
+        "Description": "List of recommendations for purchasing reserved instances.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/reservation-recommendations/list"
+      },
+      {
+        "Operation": "Reservations Summaries - List",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/{scope}/providers/Microsoft.Consumption/reservationSummaries?grain={grain}&api-version=2021-10-01",
+        "Description": "Lists the reservations summaries for the defined scope daily or monthly grain.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/reservations-summaries/list"
+      },
+      {
+        "Operation": "Reservations Summaries - List By Reservation Order",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Capacity/reservationorders/{reservationOrderId}/providers/Microsoft.Consumption/reservationSummaries?grain={grain}&api-version=2021-10-01",
+        "Description": "Lists the reservations summaries for daily or monthly grain.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/reservations-summaries/list-by-reservation-order"
+      },
+      {
+        "Operation": "Reservations Summaries - List By Reservation Order And Reservation",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Capacity/reservationorders/{reservationOrderId}/reservations/{reservationId}/providers/Microsoft.Consumption/reservationSummaries?grain={grain}&api-version=2021-10-01",
+        "Description": "Lists the reservations summaries for daily or monthly grain.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/reservations-summaries/list-by-reservation-order-and-reservation"
+      },
+      {
+        "Operation": "Reservation Transactions - List By Billing Profile",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/providers/Microsoft.Consumption/reservationTransactions?api-version=2021-10-01",
+        "Description": "List of transactions for reserved instances on billing account scope.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/reservation-transactions/list-by-billing-profile"
+      },
+      {
+        "Operation": "Tags - Get",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/{scope}/providers/Microsoft.Consumption/tags?api-version=2021-10-01",
+        "Description": "Get all available tag keys for the defined scope.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/tags/get"
+      },
+      {
+        "Operation": "Usage Details - List",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2021-10-01",
+        "Description": "Lists the usage details for the defined scope. Usage details are available via this API only for May 1, 2014 or later.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/usage-details/list"
+      },
+      {
+        "Operation": "Usage Details - List by Month",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2021-10-01&startDate={StartDate}&endDate={EndDate}",
+        "Description": "Lists the usage details for the defined scope. Usage details are available via this API only for May 1, 2014 or later.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/consumption/usage-details/list"
+      }
+    ]
+  }
+}

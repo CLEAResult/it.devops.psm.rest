@@ -1,0 +1,42 @@
+{
+  "GeneralInfo": {
+    "Name": "Datadog",
+    "Description": "Datadog Rest API",
+    "AuthorizationType": "CustomHeaders",
+    "version": "v1",
+    "Docs": "https://docs.datadoghq.com/api/latest/"
+  },
+  "Requirements": {
+    "Headers": [
+      {
+        "Item1": "DD-API-KEY",
+        "Item2": "DD-APPLICATION-KEY"
+      }
+    ]
+  },
+  "Services": {
+    "Synthetics": [
+      {
+        "Operation": "Get the list of all tests",
+        "Method": "GET",
+        "Uri": "https://api.datadoghq.com/api/{version}/synthetics/tests?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Description": "Get the list of all Synthetic tests.",
+        "Docs": "https://docs.datadoghq.com/api/latest/synthetics/#get-the-list-of-all-tests"
+      },
+      {
+        "Operation": "Trigger Synthetics tests",
+        "Method": "POST",
+        "Uri": "https://api.datadoghq.com/api/{version}/synthetics/tests/trigger?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Description": "Trigger a set of Synthetics tests.",
+        "Docs": "https://docs.datadoghq.com/api/latest/synthetics/#trigger-synthetics-tests"
+      },
+      {
+        "Operation": "Get an API test result",
+        "Method": "GET",
+        "Uri": "https://api.datadoghq.com/api/v1/synthetics/tests/{public_id}/results/{result_id}?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Description": "Get a specific full result from a given (API) Synthetic test. This endpoint requires the synthetics_read authorization scope.",
+        "Docs": "https://docs.datadoghq.com/api/latest/synthetics/#get-an-api-test-result"
+      }
+    ]
+  }
+}

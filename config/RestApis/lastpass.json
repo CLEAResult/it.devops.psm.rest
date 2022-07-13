@@ -1,0 +1,20 @@
+{
+  "GeneralInfo": {
+    "Name": "LastPass",
+    "Description": "LastPass Enterprise Rest API",
+    "AuthorizationType": "None",
+    "version": "v1",
+    "Docs": ""
+  },
+  "Services": {
+    "All": [
+      {
+        "Operation": "All",
+        "Method": "POST",
+        "Uri": "https://lastpass.com/enterpriseapi.php",
+        "Description": "This needs some massive love, but it's working right now for refactoring purposes.  Will revisit soon.",
+        "Docs": "https://mfa-developer.lastpass.com/index.html"
+      }
+    ]
+  }
+}

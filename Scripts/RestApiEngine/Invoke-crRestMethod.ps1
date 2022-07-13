@@ -33,9 +33,21 @@ function Invoke-crRestMethod {
       [Hashtable] Params = Parameters necessary for calling the desired Rest API.
       [System.String] Username (optional) - Not yet implemented.
       [System.String] Password (optional) - Not yet implemented.
-      [System.String] Token (optional) - The authentication associated with the Rest API when using Bearer Token authorization.
+      [System.String] BearerToken (optional) - The authentication associated with the Rest API when using Bearer Token authorization.
       [HashTable] $Body (optional) - A hashtable representing the Body of the Rest call, if required.
-      [System.String] AuthorizationType - Rest API authorization type.  Do not use, only BearerToken authentication has been implemented.
+      [System.String] AuthorizationType - Rest API authorization type.  Do not use, only BearerToken authentication has been implemented.  Valid values are "None", "CustomHeaders", "BearerToken", "sso-key", "Basic", "EncryptBasicToken"
+      [Parameter( Mandatory = $true )]
+      [Hashtable] $Params,
+      [System.String] $API_KEY (optional)
+      [System.String] $API_SECRET (optional)
+      [HashTable] $Headers = (optional) Hash table of headers to pass in the call.
+      [System.String] $BodyJson (optional)
+      [System.String] $UploadFile (optional)
+      [System.String] $DownloadFile (optional)
+      [System.String] $ContentType -  (optional) - Default is 'application/json'; valid values are "application/json", "application/json-patch+json", "multipart/form-data"
+      [Switch] $SkipCertificateCheck - (optional)
+      [Int] $MaximumRetryCount - (optional) Default is 7.
+      [Int] $RetryIntervalSec - (optional) Default is 1.
 
    .OUTPUTS
       [System.Array] $An array of objects returned by the Rest call, $null if nothing was returned.
@@ -81,6 +93,9 @@ function Invoke-crRestMethod {
       [HashTable] $Body,
 
       [Parameter( Mandatory = $false )]
+      [System.String] $BodyRaw,
+
+      [Parameter( Mandatory = $false )]
       [System.String] $BodyJson,
 
       [Parameter( Mandatory = $false )]
@@ -94,12 +109,18 @@ function Invoke-crRestMethod {
       [System.String] $ContentType = 'application/json',
 
       [Parameter( Mandatory = $false )]
-      [validateset("CustomHeaders", "BearerToken", "sso-key", "Basic", "EncryptBasicToken", IgnoreCase = $true)]
+      [validateset("None", "CustomHeaders", "BearerToken", "sso-key", "Basic", "EncryptBasicToken", IgnoreCase = $true)]
       [System.String] $AuthorizationType = $null, # Grok, update notes, use to override default behavior in the .json file,
 
       [Parameter( Mandatory = $false )]
-      [Switch] $SkipCertificateCheck
-   )
+      [Switch] $SkipCertificateCheck,
+
+      [Parameter( Mandatory = $false )]
+      [Int] $MaximumRetryCount = 7,
+
+      [Parameter( Mandatory = $false )]
+      [Int] $RetryIntervalSec = 1
+)
 
 
    begin {
@@ -231,6 +252,7 @@ function Invoke-crRestMethod {
                else {
                   $Uri += "?" + $Params["AdditionalParams"]
                }
+               Write-Verbose "URI (with additional params)= $Uri"
             }
 
             try {
@@ -248,17 +270,27 @@ function Invoke-crRestMethod {
                Write-Verbose "Making the Rest call with a Body now."
                Write-Verbose "Body set to $Body"
                if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
                else {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10)  -ContentType $ContentType
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body ($Body | ConvertTo-Json -Depth 10) -ContentType $ContentType
+               }
+            }
+            elseif ( $BodyRaw ) {
+               Write-Verbose "Making the Rest call with a Raw Body now."
+               Write-Verbose "Body set to $BodyRaw"
+               if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyRaw -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
+               }
+               else {
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyRaw -ContentType $ContentType
                }
             }
             elseif ( $BodyJson ) {
                Write-Verbose "Making the Rest call with a JSON Body now."
                Write-Verbose "BodyJson set to $BodyJson"
                if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
                else {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -Body $BodyJson -ContentType $ContentType
@@ -268,7 +300,7 @@ function Invoke-crRestMethod {
                Write-Verbose "Making the Rest call with download file now."
 
                if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -OutFile $DownloadFile -SkipCertificateCheck:$SkipCertificateCheck
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -OutFile $DownloadFile -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
                else {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -OutFile $DownloadFile
@@ -280,7 +312,7 @@ function Invoke-crRestMethod {
                if ( Test-Path $UploadFile ) {
                   $Fields = @{ 'file' = Get-Item $UploadFile }
                   if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
-                     $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -form $Fields -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+                     $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -form $Fields -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                   }
                   else {
                      # GROK - This solution is admittedly terrible...i.e. this is the most beautiful kludge I've ever been forced to write.  Long story short, I was not able to get Invoke-WebRequest to upload
@@ -314,7 +346,7 @@ function Invoke-crRestMethod {
             else {
                Write-Verbose "Making the Rest call now."
                if ( $PowershellVersion7OrLater -and $SkipCertificateCheck ) {
-                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck
+                  $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType -SkipCertificateCheck:$SkipCertificateCheck -MaximumRetryCount $MaximumRetryCount -RetryIntervalSec $RetryIntervalSec
                }
                else {
                   $WebResult = Invoke-WebRequest -Method $RelevantApi.Method -Uri $uri -Headers $Headers -UseBasicParsing -ContentType $ContentType
@@ -363,7 +395,7 @@ function Invoke-crRestMethod {
             }
          }
          else {
-            Write-Warning "Parameters for the ADO Rest API call were missing!"
+            Write-Warning "Parameters for the '$($Global:crRestApis[$Params["RestApi"]].GeneralInfo.Name)' Rest API call were missing!"
             Write-Warning "Built URI = $Uri"
             Write-Warning "Run Get-crHelpRestApis for more information about the Rest call you're attempting to make."
          }
