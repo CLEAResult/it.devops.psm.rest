@@ -24,7 +24,7 @@
         "Docs": "https://api.cloudflare.com/#zone-settings-get-web-application-firewall-waf-setting"
       },
       {
-        "Operation": "List - DSN Records",
+        "Operation": "List - DNS Records",
         "Method": "GET",
         "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/dns_records",
         "Description": "List, search, sort, and filter a zones' DNS records.",
