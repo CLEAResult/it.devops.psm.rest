@@ -40,7 +40,7 @@
       {
         "Operation": "Update DNS Record",
         "Method": "Put",
-        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/dns_records/{recordid}?type={recordtype}&name={recordname}&content={target}&ttl={TtlSeconds}",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/dns_records/{recordid}",
         "Description": "Updates a specific DNS record for a zone. See the record object definitions for required attributes for each record type.",
         "Docs": "https://api.cloudflare.com/#dns-records-for-a-zone-update-dns-record"
       }
