@@ -28,7 +28,7 @@
         "Method": "DELETE",
         "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/dns_records/{recordid}",
         "Description": "Deletes a specific DNS record for a zone. See the record object definitions for required attributes for each record type.",
-        "Docs": "https://api.cloudflare.com/#dns-records-for-a-zone-delete-dns-recordd"
+        "Docs": "https://api.cloudflare.com/#dns-records-for-a-zone-delete-dns-record"
       },
       {
         "Operation": "List DNS Records",
@@ -36,6 +36,13 @@
         "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/dns_records",
         "Description": "List, search, sort, and filter a zones' DNS records.",
         "Docs": "https://api.cloudflare.com/#dns-records-for-a-zone-list-dns-records"
+      },
+      {
+        "Operation": "Update DNS Record",
+        "Method": "Put",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/dns_records/{recordid}",
+        "Description": "Updates a specific DNS record for a zone. See the record object definitions for required attributes for each record type.",
+        "Docs": "https://api.cloudflare.com/#dns-records-for-a-zone-update-dns-record"
       }
     ],
     "Page Rules": [
