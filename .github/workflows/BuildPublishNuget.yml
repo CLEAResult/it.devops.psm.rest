@@ -2,7 +2,7 @@
 
 name: CI
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
 #  push:
@@ -26,11 +26,16 @@ jobs:
         run: |
           echo "Heres some output"
           echo $GITHUB_RUN_NUMBER
-      - uses: actions/checkout@v2  
-      - name: Setup .NET Core  
-        uses: actions/setup-dotnet@v1  
-        with:  
-          dotnet-version: 3.1.101  
+      - uses: actions/checkout@v2
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.1.101
+      - name: Update the ModuleVersion
+        shell: pwsh
+        run: |
+          $Parms = @{  ModuleVersion = "22.1.$GITHUB_RUN_NUMBER" }
+          Update-ModuleManifest @Parms -path "./cr-devops-rest.psd1"
       - name: Update .NET Core SDK
         shell: pwsh
         run: |
@@ -43,18 +48,18 @@ jobs:
           sudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list
           sudo apt-get install -y apt-transport-https
           sudo apt-get update
-          sudo apt-get install dotnet-sdk-5.0  
-      - name: Install Nuget  
+          sudo apt-get install dotnet-sdk-5.0
+      - name: Install Nuget
         uses: nuget/setup-nuget@v1
         with:
           nuget-api-key: ${{ secrets.NUGET_API_KEY }}
           nuget-version: '5.x'
       - name: Build the Nuget Package
-        run: nuget pack ./cr-devops-rest.nuspec -Version 20.12.$GITHUB_RUN_NUMBER
+        run: nuget pack ./cr-devops-rest.nuspec -Version 22.1.$GITHUB_RUN_NUMBER
       - name: Add the ADO Nuget Repo to the Nuget Sources File
         run: nuget sources Add -UserName Ryan.Phay@clearesult.com -Password ${{secrets.NUGET_API_KEY}} -Name CrDevOpsModules -Source https://clearesultdev.pkgs.visualstudio.com/_packaging/DevOps-PowerShell-Modules/nuget/v3/index.json
       - name: Push Nuget Package to Azure DevOps
-        run: nuget push ./cr-devops-rest.20.12.$GITHUB_RUN_NUMBER.nupkg -apikey ${{secrets.NUGET_API_KEY}} -source https://clearesultdev.pkgs.visualstudio.com/_packaging/DevOps-PowerShell-Modules/nuget/v3/index.json
+        run: nuget push ./cr-devops-rest.22.1.$GITHUB_RUN_NUMBER.nupkg -apikey ${{secrets.NUGET_API_KEY}} -source https://clearesultdev.pkgs.visualstudio.com/_packaging/DevOps-PowerShell-Modules/nuget/v3/index.json
       - name: Create Zip Folder
         run: mkdir ./zip
       - name: Zip the files
@@ -68,7 +73,7 @@ jobs:
           sas-url: ${{ secrets.DEPLOY_SAS_URL }}
           container: devopsmodules
           require-index: false
-          cleanup: false  
+          cleanup: false
       - name: Install Azure PowerShell Module
         shell: pwsh
         run: Install-Module -Name Az -AllowClobber -Scope CurrentUser -Force
@@ -79,7 +84,7 @@ jobs:
           $azureTenantId= '${{ secrets.AZURE_TENANTID }}'
           $azurePassword = ConvertTo-SecureString '${{ secrets.AZURE_ACCESSTOKEN }}' -AsPlainText -Force
           $psCred = New-Object System.Management.Automation.PSCredential($azureAplicationId , $azurePassword)
-          Connect-AzAccount -Credential $psCred -TenantId $azureTenantId  -ServicePrincipal 
+          Connect-AzAccount -Credential $psCred -TenantId $azureTenantId  -ServicePrincipal
           # Connect-AzAccount -CertificateThumbprint '${{ secrets.AZURE_THUMBPRINT }}' -ApplicationId '${{ secrets.AZURE_APPLICATION_ID }}' -Tenant '${{ secrets.AZURE_TENANTID }}' -Subscription '${{ secrets.AZURE_SUBSCRIPTION }}' -ServicePrincipal
           Set-AzContext -SubscriptionId '${{ secrets.PRODUCTIONSUBSCRIPTIONID }}'
           $SAC = New-AzStorageContext -StorageAccountName '${{ secrets.StorageAccountName }}' -StorageAccountKey '${{ secrets.StorageAccountAccessKey }}'
