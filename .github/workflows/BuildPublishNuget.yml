@@ -34,7 +34,7 @@ jobs:
       - name: Update the ModuleVersion
         shell: pwsh
         run: |
-          $ModuleVersion = $("22.1." + $ENV:GITHUB_RUN_NUMBER )
+          $ModuleVersion = $((get-date).Year.ToString() +"." + (get-date).Month.ToString() + "." + $ENV:GITHUB_RUN_NUMBER )
           Write-Output "ModuleVersion = $ModuleVersion"
           $Params = @{  ModuleVersion = $ModuleVersion }
           Update-ModuleManifest @Params -path "./cr-devops-rest.psd1"
