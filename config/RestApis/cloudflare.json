@@ -33,7 +33,7 @@
       {
         "Operation": "List DNS Records",
         "Method": "GET",
-        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/dns_records",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/dns_records?per_page=5000",
         "Description": "List, search, sort, and filter a zones' DNS records.",
         "Docs": "https://api.cloudflare.com/#dns-records-for-a-zone-list-dns-records"
       },
