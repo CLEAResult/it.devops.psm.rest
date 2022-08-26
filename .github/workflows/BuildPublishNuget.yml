@@ -35,6 +35,7 @@ jobs:
         shell: pwsh
         run: |
           $ModuleVersion = $("22.1." + $ENV:GITHUB_RUN_NUMBER )
+          Write-Output "ModuleVersion = $ModuleVersion"
           $Params = @{  ModuleVersion = $ModuleVersion }
           Update-ModuleManifest @Params -path "./cr-devops-rest.psd1"
       - name: Update .NET Core SDK
