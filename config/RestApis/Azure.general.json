@@ -1,0 +1,20 @@
+{
+  "GeneralInfo": {
+    "Name": "Azure.General",
+    "Description": "Microsoft Azure API General Bucket",
+    "AuthorizationType": "None",
+    "version": "",
+    "Docs": "https://learn.microsoft.com/en-us/rest/api/"
+  },
+  "Services": {
+    "Oath2": [
+      {
+        "Operation": "Get Oath2 Token",
+        "Method": "POST",
+        "Uri": "https://login.microsoftonline.com/{tenant_id}/oauth2/token",
+        "Description": "Returns a Microsoft Oath2 Token",
+        "Docs": "TBD"
+      }
+    ]
+  }
+}
