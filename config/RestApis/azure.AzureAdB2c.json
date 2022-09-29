@@ -1,0 +1,62 @@
+{
+  "GeneralInfo": {
+    "Name": "Azure.AzureAdB2C",
+    "Description": "Microsoft Azure.AzureAdB2C Rest API",
+    "AuthorizationType": "None",
+    "version": "",
+    "Docs": "https://learn.microsoft.com/en-us/rest/api/activedirectory/"
+  },
+  "Services": {
+    "B2CTenants": [
+      {
+        "Operation": "B2C Tenants - Check Name Availability",
+        "Method": "POST",
+        "Uri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.AzureActiveDirectory/checkNameAvailability?api-version=2019-01-01-preview",
+        "Description": "Checks the availability and validity of a domain name for the tenant.",
+        "Docs": "https://learn.microsoft.com/en-us/rest/api/activedirectory/b2c-tenants/check-name-availability?tabs=HTTP"
+      },
+      {
+        "Operation": "B2C Tenants - Create",
+        "Method": "PUT",
+        "Uri": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureActiveDirectory/b2cDirectories/{resourceName}?api-version=2019-01-01-preview",
+        "Description": "Initiates an async request to create both the Azure AD B2C tenant and the corresponding Azure resource linked to a subscription.",
+        "Docs": "https://learn.microsoft.com/en-us/rest/api/activedirectory/b2c-tenants/create?tabs=HTTP"
+      },
+      {
+        "Operation": "B2C Tenants - Delete",
+        "Method": "DELETE",
+        "Uri": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureActiveDirectory/b2cDirectories/{resourceName}?api-version=2019-01-01-preview",
+        "Description": "Initiates an async operation to delete the Azure AD B2C tenant and Azure resource. The resource deletion can only happen as the last step in the tenant deletion process.",
+        "Docs": "https://learn.microsoft.com/en-us/rest/api/activedirectory/b2c-tenants/delete?tabs=HTTP"
+      },
+      {
+        "Operation": "B2C Tenants - Get",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureActiveDirectory/b2cDirectories/{resourceName}?api-version=2019-01-01-preview",
+        "Description": "Get the Azure AD B2C tenant resource.",
+        "Docs": "https://learn.microsoft.com/en-us/rest/api/activedirectory/b2c-tenants/get?tabs=HTTP"
+      },
+      {
+        "Operation": "B2C Tenants - List By Resource Group",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureActiveDirectory/b2cDirectories?api-version=2019-01-01-preview",
+        "Description": "Get all the Azure AD B2C tenant resources in a resource group.",
+        "Docs": "https://learn.microsoft.com/en-us/rest/api/activedirectory/b2c-tenants/list-by-resource-group?tabs=HTTP"
+      },
+      {
+        "Operation": "B2C Tenants - List By Subscription",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.AzureActiveDirectory/b2cDirectories?api-version=2019-01-01-preview",
+        "Description": "Get all the Azure AD B2C tenant resources in a subscription.",
+        "Docs": "https://learn.microsoft.com/en-us/rest/api/activedirectory/b2c-tenants/list-by-subscription?tabs=HTTP"
+      },
+      {
+        "Operation": "B2C Tenants - Update",
+        "Method": "PATCH",
+        "Uri": "https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AzureActiveDirectory/b2cDirectories/{resourceName}?api-version=2019-01-01-preview",
+        "Description": "Update the Azure AD B2C tenant resource.",
+        "Docs": "https://learn.microsoft.com/en-us/rest/api/activedirectory/b2c-tenants/update?tabs=HTTP"
+      }
+    ]
+  }
+}
