@@ -1,0 +1,34 @@
+{
+  "GeneralInfo": {
+    "Name": "Tenable",
+    "Description": "Tenable Rest API",
+    "AuthorizationType": "CustomHeaders",
+    "version": "",
+    "Docs": "https://developer.tenable.com/reference/navigate"
+  },
+  "Services": {
+    "Scans": [
+      {
+        "Operation": "List Scans",
+        "Method": "GET",
+        "Uri": "https://cloud.tenable.com/scans",
+        "Description": "Returns a list of scans where you have at least CAN VIEW [16] scan permissions.",
+        "Docs": "https://developer.tenable.com/reference/scans-list"
+      },
+      {
+        "Operation": "Get scan details",
+        "Method": "GET",
+        "Uri": "https://cloud.tenable.com/scans/{scan_id}",
+        "Description": "Returns scan results for a specific scan. If you submit a request without query parameters, Tenable.io returns results from the latest run of the specified scan. If you submit a request using the query parameters to specify a historical run of the scan, Tenable.io returns the scan results for the specified run.",
+        "Docs": "https://developer.tenable.com/reference/scans-details"
+      },
+      {
+        "Operation": "Get host details",
+        "Method": "GET",
+        "Uri": "https://cloud.tenable.com/scans/{scan_id]/hosts/{host_id}",
+        "Description": "Returns details for the specified host.",
+        "Docs": "https://developer.tenable.com/reference/scans-host-details"
+      }
+    ]
+  }
+}
