@@ -9,7 +9,7 @@
   "Requirements": {
     "Headers": [
       {
-        "Item1": "x-auth-X-ApiKeys"
+        "Item1": "X-ApiKeys"
       }
     ]
   },
