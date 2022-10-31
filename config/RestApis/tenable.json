@@ -6,6 +6,13 @@
     "version": "",
     "Docs": "https://developer.tenable.com/reference/navigate"
   },
+  "Requirements": {
+    "Headers": [
+      {
+        "Item1": "x-auth-X-ApiKeys"
+      }
+    ]
+  },
   "Services": {
     "Scans": [
       {
