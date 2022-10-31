@@ -32,7 +32,7 @@
       {
         "Operation": "Get host details",
         "Method": "GET",
-        "Uri": "https://cloud.tenable.com/scans/{scan_id]/hosts/{host_id}",
+        "Uri": "https://cloud.tenable.com/scans/{scan_id}/hosts/{host_id}",
         "Description": "Returns details for the specified host.",
         "Docs": "https://developer.tenable.com/reference/scans-host-details"
       }
