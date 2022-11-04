@@ -63,6 +63,15 @@
         "Docs": "https://api.cloudflare.com/#zone-list-zones"
       }
     ],
+    "Zone Rulesets": [
+      {
+        "Operation": "Get a zone entry point ruleset",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/rulesets/phases/{ruleset_phase}/entrypoint",
+        "Description": "Fetches the latest version of a zone entry point ruleset for a given phase..",
+        "Docs": "https://api.cloudflare.com/#zone-rulesets-get-a-zone-entry-point-ruleset"
+      }
+    ],
     "Zone Settings": [
       {
         "Operation": "Get Web Application Firewall (WAF) setting",
