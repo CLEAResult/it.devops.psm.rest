@@ -44,7 +44,7 @@ jobs:
           Copy-Item "./" "./devops-rest" 
           Import-Module "./devops-rest.psm1"
           get-module
-          Publish-Module -Name "devops-rest" -Path "./" -NuGetApiKey ${{ secrets.POWERSHELLGALLERY_API_KEY }}
+          Publish-Module -Name "devops-rest" -Path "./devops-rest/" -NuGetApiKey ${{ secrets.POWERSHELLGALLERY_API_KEY }}
           Remove-Item "./devops-rest/" -Recurse -Force
       - name: Update .NET Core SDK
         shell: pwsh
