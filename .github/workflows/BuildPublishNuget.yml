@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CIBuild
 
 # Controls when the action will run.
 on:
@@ -41,11 +41,11 @@ jobs:
       - name: Publish Module to PowerShellGet
         shell: pwsh
         run: |
+          Copy-Item "./" "./devops-rest" 
           Import-Module "./devops-rest.psm1"
           get-module
-          $Env:PSModulePath
-          Copy-Item "./" "/home/runner/.local/share/powershell/Modules" 
-          Publish-Module -Name "devops-rest" -NuGetApiKey ${{ secrets.POWERSHELLGALLERY_API_KEY }}
+          Publish-Module -Name "devops-rest" Path "./" -NuGetApiKey ${{ secrets.POWERSHELLGALLERY_API_KEY }}
+          Remove-Item "./devops-rest/" -Recurse -Force
       - name: Update .NET Core SDK
         shell: pwsh
         run: |
