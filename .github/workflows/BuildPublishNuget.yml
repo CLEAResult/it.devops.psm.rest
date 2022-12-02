@@ -44,6 +44,7 @@ jobs:
           Import-Module "./devops-rest.psm1"
           get-module
           $Env:PSModulePath
+          Copy-Item "./" "/usr/local/share/powershell/Modules/cr-devops-rest" 
           Publish-Module -Name "devops-rest" -NuGetApiKey ${{ secrets.POWERSHELLGALLERY_API_KEY }}
       - name: Update .NET Core SDK
         shell: pwsh
