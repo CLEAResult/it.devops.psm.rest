@@ -41,11 +41,11 @@ jobs:
       - name: Publish Module to PowerShellGet
         shell: pwsh
         run: |
-          Copy-Item "./" "./devops-rest" 
-          Import-Module "./devops-rest.psm1"
+          Copy-Item "./" "./cr-devops-rest" 
+          Import-Module "./cr-devops-rest.psd1"
           get-module
-          Publish-Module -Name "devops-rest" -Path "./devops-rest/" -NuGetApiKey ${{ secrets.POWERSHELLGALLERY_API_KEY }}
-          Remove-Item "./devops-rest/" -Recurse -Force
+          Publish-Module -Path "./cr-devops-rest/" -NuGetApiKey ${{ secrets.POWERSHELLGALLERY_API_KEY }}
+          Remove-Item "./cr-devops-rest/" -Recurse -Force
       - name: Update .NET Core SDK
         shell: pwsh
         run: |
