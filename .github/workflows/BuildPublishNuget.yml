@@ -43,7 +43,7 @@ jobs:
         run: |
           Import-Module "./devops-rest.psm1"
           get-module
-          Publish-Module -Name "cr-devops-rest" -NuGetApiKey ${{ secrets.POWERSHELLGALLERY_API_KEY }}
+          Publish-Module -Name "devops-rest" -NuGetApiKey ${{ secrets.POWERSHELLGALLERY_API_KEY }}
       - name: Update .NET Core SDK
         shell: pwsh
         run: |
