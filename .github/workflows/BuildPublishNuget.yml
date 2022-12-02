@@ -38,6 +38,12 @@ jobs:
           Write-Output "ModuleVersion = $ModuleVersion"
           $Params = @{  ModuleVersion = $ModuleVersion }
           Update-ModuleManifest @Params -path "./cr-devops-rest.psd1"
+      - name: Publish Module to PowerShellGet
+        shell: pwsh
+        run: |
+          Import-Module "./devops-rest.psm1"
+          get-module
+          Publish-Module -Name "cr-devops-rest" -NuGetApiKey ${{ secrets.POWERSHELLGALLERY_API_KEY }}
       - name: Update .NET Core SDK
         shell: pwsh
         run: |
@@ -94,6 +100,3 @@ jobs:
           Remove-AzAutomationModule -AutomationAccountName '${{ secrets.AutomationAccountName }}' -Name '${{ secrets.ModuleName }}' -ResourceGroupName '${{ secrets.AutomationRgName }}' -Force -ErrorAction Ignore
           Start-Sleep 10
           New-AzAutomationModule -AutomationAccountName '${{ secrets.AutomationAccountName }}' -Name '${{ secrets.ModuleName }}' -ContentLink "$URL" -ResourceGroupName '${{ secrets.AutomationRgName }}'
-      - name: Publish Module to PowerShellGet
-        shell: pwsh
-        run: Import-Module ./devops-rest.psm1; Publish-Module -Name cr-devops-rest -NuGetApiKey ${{ secrets.POWERSHELLGALLERY_API_KEY }}
