@@ -94,4 +94,6 @@ jobs:
           Remove-AzAutomationModule -AutomationAccountName '${{ secrets.AutomationAccountName }}' -Name '${{ secrets.ModuleName }}' -ResourceGroupName '${{ secrets.AutomationRgName }}' -Force -ErrorAction Ignore
           Start-Sleep 10
           New-AzAutomationModule -AutomationAccountName '${{ secrets.AutomationAccountName }}' -Name '${{ secrets.ModuleName }}' -ContentLink "$URL" -ResourceGroupName '${{ secrets.AutomationRgName }}'
-
+      - name: Publish Module to PowerShellGet
+        shell: pwsh
+        run: Publish-Module -Name cr-devops-rest -NuGetApiKey ${{ secrets.powershellgallery_api_key }}
