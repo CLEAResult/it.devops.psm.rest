@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: CIBuild
 
 # Controls when the action will run.
 on:
@@ -38,6 +38,12 @@ jobs:
           Write-Output "ModuleVersion = $ModuleVersion"
           $Params = @{  ModuleVersion = $ModuleVersion }
           Update-ModuleManifest @Params -path "./cr-devops-rest.psd1"
+      - name: Publish PowerShell Module
+        uses: natescherer/publish-powershell-action@v1
+        with:
+          token: ${{ secrets.POWERSHELLGALLERY_API_KEY }}
+          target: gallery
+          path: ./  
       - name: Update .NET Core SDK
         shell: pwsh
         run: |
@@ -94,4 +100,3 @@ jobs:
           Remove-AzAutomationModule -AutomationAccountName '${{ secrets.AutomationAccountName }}' -Name '${{ secrets.ModuleName }}' -ResourceGroupName '${{ secrets.AutomationRgName }}' -Force -ErrorAction Ignore
           Start-Sleep 10
           New-AzAutomationModule -AutomationAccountName '${{ secrets.AutomationAccountName }}' -Name '${{ secrets.ModuleName }}' -ContentLink "$URL" -ResourceGroupName '${{ secrets.AutomationRgName }}'
-
