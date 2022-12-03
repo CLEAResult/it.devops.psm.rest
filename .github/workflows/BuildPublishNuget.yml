@@ -39,7 +39,7 @@ jobs:
           $Params = @{  ModuleVersion = $ModuleVersion }
           Update-ModuleManifest @Params -path "./cr-devops-rest.psd1"
       - name: Publish PowerShell Module
-        uses: natescherer/update-powershell-metadata-action@v1
+        uses: natescherer/publish-powershell-action@v1
         with:
           token: ${{ secrets.POWERSHELLGALLERY_API_KEY }}
           target: gallery
