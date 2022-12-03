@@ -103,7 +103,7 @@
          # LicenseUri = ''
 
          # A URL to the main website for this project.
-         ProjectUri = 'XXXXXXX'
+         ProjectUri = 'https://github.com/CLEAResult/it.devops.psm.rest'
 
          # A URL to an icon representing this module.
          # IconUri = ''
