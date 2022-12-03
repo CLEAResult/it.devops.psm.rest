@@ -26,7 +26,7 @@
    CompanyName          = 'CLEAResult'
 
    # Copyright statement for this module
-   Copyright            = '2020 (c) CLEAResult.'
+   Copyright            = '2023 (c) CLEAResult Consulting Inc.  MIT Licensed.'
 
    # Description of the functionality provided by this module
    Description          = 'CLEAResult Core DevOps Rest Library.'
