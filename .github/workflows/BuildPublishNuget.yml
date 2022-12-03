@@ -38,15 +38,12 @@ jobs:
           Write-Output "ModuleVersion = $ModuleVersion"
           $Params = @{  ModuleVersion = $ModuleVersion }
           Update-ModuleManifest @Params -path "./cr-devops-rest.psd1"
-      - name: Publish Module to PowerShellGet
-        shell: pwsh
-        run: |
-          # Copy-Item "./" "./devops-rest" 
-          Import-Module "./devops-rest.psm1"
-          get-module
-          ls .
-          Publish-Module -Path . -NuGetApiKey ${{ secrets.POWERSHELLGALLERY_API_KEY }}
-          # Remove-Item "./devops-rest/" -Recurse -Force
+      - name: Publish PowerShell Module
+        uses: natescherer/update-powershell-metadata-action@v1
+        with:
+          token: ${{ secrets.POWERSHELLGALLERY_API_KEY }}
+          target: gallery
+          path: ./  
       - name: Update .NET Core SDK
         shell: pwsh
         run: |
