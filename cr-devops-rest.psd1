@@ -29,7 +29,7 @@
    Copyright            = '2023 (c) CLEAResult Consulting Inc.  MIT Licensed.'
 
    # Description of the functionality provided by this module
-   Description          = 'CLEAResult PowerShell Rest Library'
+   Description          = 'CLEAResult PowerShell Rest Library:  Create straight forward REST calls in PowerShell based on API endpoints defined in .json files.  Add our own REST API endpoints by simply creating new .json files.'
 
    # Minimum version of the PowerShell engine required by this module
    PowerShellVersion    = '5.1'
