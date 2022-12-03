@@ -29,7 +29,7 @@
    Copyright            = '2023 (c) CLEAResult Consulting Inc.  MIT Licensed.'
 
    # Description of the functionality provided by this module
-   Description          = 'CLEAResult Core DevOps Rest Library.'
+   Description          = 'CLEAResult PowerShell Rest Library'
 
    # Minimum version of the PowerShell engine required by this module
    PowerShellVersion    = '5.1'
