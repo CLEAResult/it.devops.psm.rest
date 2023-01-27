@@ -16,6 +16,13 @@
   "Services": {
     "Projects": [
       {
+        "Operation": "Get Project Count",
+        "Method": "Get",
+        "Uri": "https://{base_url}/attask/api/{version}/project/count",
+        "Description": "Get Project Total.",
+        "Docs": "https://experienceleague.adobe.com/docs/workfront/using/adobe-workfront-api/api-general-information/api-basics.html?lang=en"
+      },
+      {
         "Operation": "List Projects",
         "Method": "Get",
         "Uri": "https://{base_url}/attask/api/{version}/project/search?fields=*",
@@ -31,6 +38,13 @@
       }
     ],
     "Programs": [
+      {
+        "Operation": "Get Program Count",
+        "Method": "Get",
+        "Uri": "https://{base_url}/attask/api/{version}/program/count",
+        "Description": "Get Program Total.",
+        "Docs": "https://experienceleague.adobe.com/docs/workfront/using/adobe-workfront-api/api-general-information/api-basics.html?lang=en"
+      },
       {
         "Operation": "List Programs",
         "Method": "Get",
