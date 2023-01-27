@@ -1,0 +1,50 @@
+{
+  "GeneralInfo": {
+    "Name": "Workfront",
+    "Description": "Workfront Rest API",
+    "AuthorizationType": "CustomHeaders",
+    "version": "v11.0",
+    "Docs": ""
+  },
+  "Requirements": {
+    "Headers": [
+      {
+        "Item1": "apiKey"
+      }
+    ]
+  },
+  "Services": {
+    "Projects": [
+      {
+        "Operation": "List Projects",
+        "Method": "Get",
+        "Uri": "https://{base_url}/attask/api/{version}/project/search?fields=*",
+        "Description": "Get list of Projects.",
+        "Docs": "https://experienceleague.adobe.com/docs/workfront/using/adobe-workfront-api/api-general-information/api-basics.html?lang=en"
+      },
+      {
+        "Operation": "List Projects Using Pagination",
+        "Method": "Get",
+        "Uri": "https://{base_url}/attask/api/{version}/project/search?fields=*&$$FIRST={start_index}&$$LIMIT={total_count}",
+        "Description": "Get list of Projects.",
+        "Docs": "https://experienceleague.adobe.com/docs/workfront/using/adobe-workfront-api/api-general-information/api-basics.html?lang=en"
+      }
+    ],
+    "Programs": [
+      {
+        "Operation": "List Programs",
+        "Method": "Get",
+        "Uri": "https://{base_url}/attask/api/{version}/program/search?fields=*",
+        "Description": "Get list of Programs.",
+        "Docs": "https://experienceleague.adobe.com/docs/workfront/using/adobe-workfront-api/api-general-information/api-basics.html?lang=en"
+      },
+      {
+        "Operation": "List Programs Using Pagination",
+        "Method": "Get",
+        "Uri": "https://{base_url}/attask/api/{version}/program/search?fields=*&$$FIRST={start_index}&$$LIMIT={total_count}",
+        "Description": "Get list of Programs.",
+        "Docs": "https://experienceleague.adobe.com/docs/workfront/using/adobe-workfront-api/api-general-information/api-basics.html?lang=en"
+      }
+    ]
+  }
+}
