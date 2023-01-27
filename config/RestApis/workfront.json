@@ -14,6 +14,29 @@
     ]
   },
   "Services": {
+    "Generic": [
+      {
+        "Operation": "Get {wf_obj} Count",
+        "Method": "Get",
+        "Uri": "https://{base_url}/attask/api/{version}/{wf_obj}/count",
+        "Description": "Get wf_obj Total.",
+        "Docs": "https://experienceleague.adobe.com/docs/workfront/using/adobe-workfront-api/api-general-information/api-basics.html?lang=en"
+      },
+      {
+        "Operation": "List {wf_obj}'s",
+        "Method": "Get",
+        "Uri": "https://{base_url}/attask/api/{version}/{wf_obj}/search?fields=*",
+        "Description": "Get list of {wf_obj}'s.",
+        "Docs": "https://experienceleague.adobe.com/docs/workfront/using/adobe-workfront-api/api-general-information/api-basics.html?lang=en"
+      },
+      {
+        "Operation": "List {wf_obj} Using Pagination",
+        "Method": "Get",
+        "Uri": "https://{base_url}/attask/api/{version}/{wf_obj}/search?fields=*&$$FIRST={start_index}&$$LIMIT={total_count}",
+        "Description": "Get list of {wf_obj}'s.",
+        "Docs": "https://experienceleague.adobe.com/docs/workfront/using/adobe-workfront-api/api-general-information/api-basics.html?lang=en"
+      }
+    ],
     "Projects": [
       {
         "Operation": "Get Project Count",
