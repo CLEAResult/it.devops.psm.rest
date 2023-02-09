@@ -1,0 +1,20 @@
+{
+  "GeneralInfo": {
+    "Name": "Genesys",
+    "Description": "Genesys Rest API",
+    "AuthorizationType": "BearerToken",
+    "version": "v2",
+    "Docs": "https://developer.genesys.cloud/developer-tools/#/api-explorer"
+  },
+  "Services": {
+    "Utilities": [
+      {
+        "Operation": "Get IP Ranges",
+        "Method": "GET",
+        "Uri": "https://api.{region_url}/api/{version}/ipranges",
+        "Description": "Get public ip address ranges for Genesys Cloud.  region_url should be something like 'usw2.pure.cloud'.",
+        "Docs": "https://developer.genesys.cloud/developer-tools/#/api-explorer"
+      }
+    ]
+  }
+}
