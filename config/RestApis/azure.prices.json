@@ -1,0 +1,20 @@
+{
+  "GeneralInfo": {
+    "Name": "Azure.Prices",
+    "Description": "Microsoft Azure.(retail).Prices Rest API",
+    "AuthorizationType": "BearerToken",
+    "version": "",
+    "Docs": "https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices"
+  },
+  "Services": {
+    "Prices": [
+      {
+        "Operation": "Azure Prices - Get",
+        "Method": "GET",
+        "Uri": "https://prices.azure.com/api/retail/prices",
+        "Description": "Gets Azure Prices.  Make sure to load all pages or user a filter (i.e. additionalparams = '$filter=armSkuName eq 'Standard_DS12_v2' and currencyCode eq 'USD')",
+        "Docs": "https://learn.microsoft.com/en-us/rest/api/cost-management/retail-prices/azure-retail-prices"
+      }
+    ]
+  }
+}
