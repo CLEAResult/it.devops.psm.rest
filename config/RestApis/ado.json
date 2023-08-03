@@ -1966,9 +1966,9 @@
       {
         "Operation": "List with Continuation Token",
         "Method": "GET",
-        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?continuationToken={continuationToken}&api-version=6.0-preview.1",
+        "Uri": "https://vssps.dev.azure.com/{organization}/_apis/graph/users?continuationToken={continuationToken}&api-version=7.0-preview.1",
         "Description": "Get a list of all users in a given scope.  Since the list of users may be large, results are returned in pages of users. If there are more results than can be returned in a single page, the result set will contain a continuation token for retrieval of the next set of results.",
-        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/list?view=azure-devops-rest-6.0"
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users/list?view=azure-devops-rest-7.0"
       },
       {
         "Operation": "List by Scope",
