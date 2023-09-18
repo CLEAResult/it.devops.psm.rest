@@ -15,6 +15,29 @@
         "Description": "Returns a Microsoft Oath2 Token",
         "Docs": "TBD"
       }
+    ],
+    "ResourceTemplates": [
+      {
+        "Operation": "Get Resource Group Resource Template",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/subscriptions/{subscription_id}/resourceGroups/{resource_group}?api-version=2014-04-01",
+        "Description": "Returns an Azure Resource Group's resource template object.",
+        "Docs": "TBD"
+      },
+      {
+        "Operation": "Get Web App Resource Template",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.Web/sites/{app_service_name}?api-version=2020-12-01",
+        "Description": "Returns an Azure Web App's resource template object.",
+        "Docs": "TBD"
+      },
+      {
+        "Operation": "Get Web App Deployments Resource Template",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/subscriptions/{subscription_id}/resourceGroups/{resource_group}/providers/Microsoft.Web/sites/{app_service_name}/deployments?api-version=2020-12-01",
+        "Description": "Returns an Azure Web App's deployment(s) resource template object.",
+        "Docs": "TBD"
+      }
     ]
   }
 }
