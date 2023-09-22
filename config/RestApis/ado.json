@@ -2010,28 +2010,28 @@
       {
         "Operation": "Tags - Delete",
         "Method": "DELETE",
-        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/wit/tags/{tagIdOrName}?api-version={version}",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/wit/tags/{tagIdOrName}?api-version=7.2-preview.1",
         "Description": "Delete the tag for the project. Please note, that the deleted tag will be removed from all Work Items as well as Pull Requests.",
         "Docs": "https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/tags/delete?view=azure-devops-rest-7.2&tabs=HTTP"
       },
       {
         "Operation": "Tags - Get",
         "Method": "GET",
-        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/wit/tags/{tagIdOrName}?api-version={version}",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/wit/tags/{tagIdOrName}?api-version=7.2-preview.1",
         "Description": "Get the tag for the project.",
         "Docs": "https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/tags/get?view=azure-devops-rest-7.2&tabs=HTTP"
       },
       {
         "Operation": "Tags - List",
         "Method": "GET",
-        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/wit/tags?api-version={version}",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/wit/tags?api-version=7.2-preview.1",
         "Description": "Get all the tags for the project.",
         "Docs": "https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/tags/list?view=azure-devops-rest-7.2&tabs=HTTP"
       },
       {
         "Operation": "Tags - Update",
         "Method": "PATCH",
-        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/wit/tags/{tagIdOrName}?api-version={version}",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/wit/tags/{tagIdOrName}?api-version=7.2-preview.1",
         "Description": "Update the tag for the project.",
         "Docs": "https://learn.microsoft.com/en-us/rest/api/azure/devops/wit/tags/update?view=azure-devops-rest-7.2&tabs=HTTP"
       },
