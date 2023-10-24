@@ -45,6 +45,22 @@
         "Docs": "https://api.cloudflare.com/#dns-records-for-a-zone-update-dns-record"
       }
     ],
+    "Firewall Rules": [
+      {
+        "Operation": "Get a firewall rule",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_identifier}/firewall/rules/{id}",
+        "Description": "Fetches the details of a firewall rule.",
+        "Docs": "https://developers.cloudflare.com/api/operations/firewall-rules-get-a-firewall-rule"
+      },
+      {
+        "Operation": "List firewall rules",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_identifier}/firewall/rules",
+        "Description": "Fetches firewall rules in a zone. You can filter the results using several optional parameters.",
+        "Docs": "https://developers.cloudflare.com/api/operations/firewall-rules-list-firewall-rules"
+      }
+    ],
     "Page Rules": [
       {
         "Operation": "Get Page Rules",
