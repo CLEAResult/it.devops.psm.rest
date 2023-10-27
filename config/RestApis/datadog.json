@@ -45,6 +45,50 @@
         "Docs": "https://docs.datadoghq.com/api/latest/hosts/"
       }
     ],
+    "Tags": [
+      {
+        "Operation": "Get Tags",
+        "Method": "GET",
+        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Description": "Return a mapping of tags to hosts for your whole infrastructure.",
+        "Docs": "https://docs.datadoghq.com/api/latest/tags/#get-tags"
+      },
+      {
+        "Operation": "Get host tags",
+        "Method": "GET",
+        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Description": "Get host tags",
+        "Docs": "https://docs.datadoghq.com/api/latest/tags/#get-host-tags"
+      },
+      {
+        "Operation": "Add tags to a host",
+        "Method": "POST",
+        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Description": "This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.",
+        "Docs": "https://docs.datadoghq.com/api/latest/tags/#add-tags-to-a-host"
+      },
+      {
+        "Operation": "Add tags to a host",
+        "Method": "POST",
+        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Description": "This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.",
+        "Docs": "https://docs.datadoghq.com/api/latest/tags/#add-tags-to-a-host"
+      },
+      {
+        "Operation": "Update host tags",
+        "Method": "PUT",
+        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Description": "This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.",
+        "Docs": "https://docs.datadoghq.com/api/latest/tags/#update-host-tags"
+      },
+      {
+        "Operation": "Remove host tags",
+        "Method": "DELETE",
+        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Description": "This endpoint allows you to remove all user-assigned tags for a single host.",
+        "Docs": "https://docs.datadoghq.com/api/latest/tags/#remove-host-tags"
+      }
+    ],
     "Synthetics": [
       {
         "Operation": "Get the list of all tests",
