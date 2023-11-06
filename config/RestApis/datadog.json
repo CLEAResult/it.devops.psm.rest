@@ -45,6 +45,15 @@
         "Docs": "https://docs.datadoghq.com/api/latest/hosts/"
       }
     ],
+    "Monitors": [
+      {
+        "Operation": "Get all monitor details",
+        "Method": "GET",
+        "Uri": "https://api.datadoghq.com/api/{version}/mointor?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Description": "Get details about the specified monitor from your organization. This endpoint requires the monitors_read authorization scope.",
+        "Docs": "https://docs.datadoghq.com/api/latest/monitors/?code-lang=curl#get-all-monitor-details"
+      }
+    ],
     "Tags": [
       {
         "Operation": "Get Tags",
