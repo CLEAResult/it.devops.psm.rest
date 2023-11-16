@@ -15,6 +15,24 @@
     ]
   },
   "Services": {
+    "Account Members": [
+      {
+        "Operation": "List Members",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/{version}/accounts/{account_identifier}/members",
+        "Description": "List all members of an account.",
+        "Docs": "https://developers.cloudflare.com/api/operations/account-members-list-members"
+      }
+    ],
+    "Accounts": [
+      {
+        "Operation": "List Accounts",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/{version}/accounts",
+        "Description": "List all accounts you have ownership or verified access to.",
+        "Docs": "https://developers.cloudflare.com/api/operations/accounts-list-accounts"
+      }
+    ],
     "DNS Records for a Zone": [
       {
         "Operation": "Create DNS Record",
