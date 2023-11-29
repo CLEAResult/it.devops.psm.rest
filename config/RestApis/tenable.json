@@ -36,6 +36,22 @@
         "Description": "Returns details for the specified host.",
         "Docs": "https://developer.tenable.com/reference/scans-host-details"
       }
+    ],
+    "Users": [
+      {
+        "Operation": "List users",
+        "Method": "GET",
+        "Uri": "https://cloud.tenable.com/users",
+        "Description": "Returns a list of users.",
+        "Docs": "https://developer.tenable.com/reference/users-list"
+      },
+      {
+        "Operation": "Get user details",
+        "Method": "GET",
+        "Uri": "https://cloud.tenable.com/users/{user_id}",
+        "Description": "Returns details for a specific user.",
+        "Docs": "https://developer.tenable.com/reference/users-details"
+      }
     ]
   }
 }
