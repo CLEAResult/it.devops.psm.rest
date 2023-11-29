@@ -14,6 +14,22 @@
     ]
   },
   "Services": {
+    "Access Control": [
+      {
+        "Operation": "List User Permissions",
+        "Method": "GET",
+        "Uri": "https://cloud.tenable.com/api/v3/access-control/permissions/users/{user_uuid}",
+        "Description": "Returns a list of all permissions defined in your container.",
+        "Docs": "https://developer.tenable.com/reference/io-v3-access-control-permissions-user-list"
+      },
+      {
+        "Operation": "List User Group Permissions",
+        "Method": "GET",
+        "Uri": "https://cloud.tenable.com/api/v3/access-control/permissions/users/{user_uuid}",
+        "Description": "Returns a list of all permissions defined in your container.",
+        "Docs": "https://developer.tenable.com/reference/io-v3-access-control-permissions-user-list"
+      }
+    ],
     "Scans": [
       {
         "Operation": "List Scans",
