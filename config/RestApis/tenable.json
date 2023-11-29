@@ -39,7 +39,7 @@
         "Docs": "https://developer.tenable.com/reference/groups-list"
       },
       {
-        "Operation": "List Groups",
+        "Operation": "List Users in Group",
         "Method": "GET",
         "Uri": "https://cloud.tenable.com/groups/{group_id}/users",
         "Description": "Return the group user list.",
