@@ -25,9 +25,25 @@
       {
         "Operation": "List User Group Permissions",
         "Method": "GET",
-        "Uri": "https://cloud.tenable.com/api/v3/access-control/permissions/users/{user_uuid}",
+        "Uri": "https://cloud.tenable.com/api/v3/access-control/permissions/user-groups/{user_group_uuid}",
         "Description": "Returns a list of all permissions defined in your container.",
-        "Docs": "https://developer.tenable.com/reference/io-v3-access-control-permissions-user-list"
+        "Docs": "https://developer.tenable.com/reference/io-v3-access-control-permissions-user-group-list"
+      }
+    ],
+    "Groups": [
+      {
+        "Operation": "List Groups",
+        "Method": "GET",
+        "Uri": "https://cloud.tenable.com/groups",
+        "Description": "Returns a list of groups.",
+        "Docs": "https://developer.tenable.com/reference/groups-list"
+      },
+      {
+        "Operation": "List Groups",
+        "Method": "GET",
+        "Uri": "https://cloud.tenable.com/groups/{group_id}/users",
+        "Description": "Return the group user list.",
+        "Docs": "https://developer.tenable.com/reference/groups-list-users"
       }
     ],
     "Scans": [
