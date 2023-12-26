@@ -77,6 +77,27 @@
         "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_identifier}/firewall/rules",
         "Description": "Fetches firewall rules in a zone. You can filter the results using several optional parameters.",
         "Docs": "https://developers.cloudflare.com/api/operations/firewall-rules-list-firewall-rules"
+      },
+      {
+        "Operation": "Get custom rule sets",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/rulesets/",
+        "Description": "xxx",
+        "Docs": "xxx"
+      },
+      {
+        "Operation": "Get a custom rule set",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/rulesets/{ruleset_id}/rules/",
+        "Description": "xxx",
+        "Docs": "xxx"
+      },
+      {
+        "Operation": "Get a custom rule sets rule",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/rulesets/{ruleset_id}/rules/{id}",
+        "Description": "xxx",
+        "Docs": "xxx"
       }
     ],
     "Page Rules": [
