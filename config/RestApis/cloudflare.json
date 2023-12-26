@@ -81,21 +81,21 @@
       {
         "Operation": "Get custom rule sets",
         "Method": "GET",
-        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/rulesets/",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zone_identifier}/rulesets",
         "Description": "xxx",
         "Docs": "xxx"
       },
       {
         "Operation": "Get a custom rule set",
         "Method": "GET",
-        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/rulesets/{ruleset_id}/rules/",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zone_identifier}/rulesets/{ruleset_id}/rules",
         "Description": "xxx",
         "Docs": "xxx"
       },
       {
         "Operation": "Get a custom rule sets rule",
         "Method": "GET",
-        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/rulesets/{ruleset_id}/rules/{id}",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zone_identifier}/rulesets/{ruleset_id}/rules/{id}",
         "Description": "xxx",
         "Docs": "xxx"
       }
