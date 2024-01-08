@@ -88,6 +88,43 @@
         "Docs": "https://api.cloudflare.com/#page-rules-for-a-zone-properties"
       }
     ],
+    "Worker Routes": [
+      {
+        "Operation": "List Routes",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zone_id}/workers/routes",
+        "Description": "Returns routes for a zone.",
+        "Docs": "https://developers.cloudflare.com/api/operations/worker-routes-list-routes"
+      },
+      {
+        "Operation": "Create Route",
+        "Method": "POST",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zone_id}/workers/routes",
+        "Description": "Creates a route that maps a URL pattern to a Worker.",
+        "Docs": "https://developers.cloudflare.com/api/operations/worker-routes-create-route"
+      },
+      {
+        "Operation": "Delete Route",
+        "Method": "DELETE",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zone_id}/workers/routes/{route_id}",
+        "Description": "Deletes a route.",
+        "Docs": "https://developers.cloudflare.com/api/operations/worker-routes-delete-route"
+      },
+      {
+        "Operation": "Get Route",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zone_id}/workers/routes/{route_id}",
+        "Description": "Returns information about a route, including URL pattern and Worker.",
+        "Docs": "https://developers.cloudflare.com/api/operations/worker-routes-get-route"
+      },
+      {
+        "Operation": "Update Route",
+        "Method": "PUT",
+        "Uri": "https://api.cloudflare.com/client/{version}/zones/{zone_id}/workers/routes/{route_id}",
+        "Description": "Updates the URL pattern or Worker associated with a route.",
+        "Docs": "https://developers.cloudflare.com/api/operations/worker-routes-update-route"
+      }
+    ],
     "Zone": [
       {
         "Operation": "List Zones",
