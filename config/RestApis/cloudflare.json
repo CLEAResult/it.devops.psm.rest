@@ -19,7 +19,7 @@
       {
         "Operation": "List Members",
         "Method": "GET",
-        "Uri": "https://api.cloudflare.com/client/{version}/accounts/{account_identifier}/members",
+        "Uri": "https://api.cloudflare.com/client/{version}/accounts/{account_identifier}/members?per_page=50",
         "Description": "List all members of an account.",
         "Docs": "https://developers.cloudflare.com/api/operations/account-members-list-members"
       }
