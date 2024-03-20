@@ -1,0 +1,27 @@
+{
+  "GeneralInfo": {
+    "Name": "Snaplogic",
+    "Description": "Snaplogic Rest API",
+    "AuthorizationType": "BearerToken",
+    "version": "1",
+    "Docs": "https://docs.snaplogic.com/public-apis/public-apis-about.html"
+  },
+  "Services": {
+    "UsersAndGroups": [
+      {
+        "Operation": "Retrieve info about a group",
+        "Method": "GET",
+        "Uri": "https://{pod_path}/api/{version}/rest/public/groups/{env_org}/{groupname}",
+        "Description": "This API retrieves information about the specified group.",
+        "Docs": "https://docs.snaplogic.com/public-apis/get-groups-org-group.html"
+      },
+      {
+        "Operation": "Retrieve info about a user",
+        "Method": "GET",
+        "Uri": "https://{pod_path}/api/{version}/rest/public/users/{email}",
+        "Description": "This API retrieves the user record associated with the specified email address.",
+        "Docs": "https://docs.snaplogic.com/public-apis/get-users-email.html"
+      }
+    ]
+  }
+}
