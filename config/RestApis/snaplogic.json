@@ -2,9 +2,16 @@
   "GeneralInfo": {
     "Name": "Snaplogic",
     "Description": "Snaplogic Rest API",
-    "AuthorizationType": "BearerToken",
+    "AuthorizationType": "CustomHeaders",
     "version": "1",
     "Docs": "https://docs.snaplogic.com/public-apis/public-apis-about.html"
+  },
+  "Requirements": {
+    "Headers": [
+      {
+        "Item1": "authorization"
+      }
+    ]
   },
   "Services": {
     "UsersAndGroups": [
