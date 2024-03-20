@@ -7,7 +7,7 @@
     "Docs": "https://docs.snaplogic.com/public-apis/public-apis-about.html"
   },
   "Services": {
-    "Requests": [
+    "UsersAndGroups": [
       {
         "Operation": "Retrieve info about a group",
         "Method": "GET",
