@@ -30,6 +30,22 @@
         "Docs": "https://developer.tenable.com/reference/io-v3-access-control-permissions-user-group-list"
       }
     ],
+    "Configurations": [
+      {
+        "Operation": "Web App Scanning V2 - Search scan configurations",
+        "Method": "POST",
+        "Uri": "https://cloud.tenable.com/was/v2/configs/search",
+        "Description": "Returns a list of web application scan configurations. If a scan has been run using the configuration, the list also contains information about the last scan that was run.",
+        "Docs": "https://developer.tenable.com/reference/was-v2-config-search"
+      },
+      {
+        "Operation": "Web App Scanning V2 - Get scan configuration details",
+        "Method": "GET",
+        "Uri": "https://cloud.tenable.com/was/v2/configs/{config_id}",
+        "Description": "Returns details for the specified scan configuration.",
+        "Docs": "https://developer.tenable.com/reference/was-v2-config-details"
+      }
+    ],
     "Groups": [
       {
         "Operation": "List Groups",
@@ -67,6 +83,20 @@
         "Uri": "https://cloud.tenable.com/scans/{scan_id}/hosts/{host_id}",
         "Description": "Returns details for the specified host.",
         "Docs": "https://developer.tenable.com/reference/scans-host-details"
+      },
+      {
+        "Operation": "Web App Scanning V2 - Search scans",
+        "Method": "GET",
+        "Uri": "https://cloud.tenable.com/was/v2/configs/{config_id}/scans/search",
+        "Description": "Returns a list of scans.",
+        "Docs": "https://developer.tenable.com/reference/was-v2-scans-search"
+      },
+      {
+        "Operation": "Web App Scanning V2 - Get scan details",
+        "Method": "GET",
+        "Uri": "https://cloud.tenable.com/was/v2/scans/{scan_id}",
+        "Description": "Returns scan details.",
+        "Docs": "https://developer.tenable.com/reference/was-v2-scans-details"
       }
     ],
     "Users": [
