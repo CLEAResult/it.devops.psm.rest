@@ -106,7 +106,7 @@
         "Uri": "https://cloud.tenable.com/was/v2/templates",
         "Description": "Returns a paginated list of Tenable-provided templates that are available to be used for scan configurations.",
         "Docs": "https://developer.tenable.com/reference/was-v2-templates-list"
-      }
+      },
       {
         "Operation": "Web App Scanning V2 - Get Tenable-provided template details",
         "Method": "GET",
