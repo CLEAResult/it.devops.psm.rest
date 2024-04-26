@@ -85,9 +85,9 @@
         "Docs": "https://developer.tenable.com/reference/scans-host-details"
       },
       {
-        "Operation": "Web App Scanning V2 - List scans",
+        "Operation": "Web App Scanning V2 - Search Scans",
         "Method": "POST",
-        "Uri": "https://cloud.tenable.com/was/v2/configs/search",
+        "Uri": "https://cloud.tenable.com/was/v2/configs/{config_id}/scans/search",
         "Description": "Returns a list of scans.",
         "Docs": "https://developer.tenable.com/reference/was-v2-scans-search"
       },
