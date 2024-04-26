@@ -101,7 +101,7 @@
     ],
     "Templates": [
       {
-        "Operation": "Web App Scanning V2 - xxxList Tenable-provided templates",
+        "Operation": "Web App Scanning V2 - List Tenable-provided templates",
         "Method": "GET",
         "Uri": "https://cloud.tenable.com/was/v2/templates",
         "Description": "Returns a paginated list of Tenable-provided templates that are available to be used for scan configurations.",
