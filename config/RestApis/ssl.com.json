@@ -1,0 +1,20 @@
+{
+  "GeneralInfo": {
+    "Name": "SSL.com",
+    "Description": "SSL.COM Rest API",
+    "AuthorizationType": "None",
+    "version": "v0",
+    "Docs": "https://secure.ssl.com/certificates/apidocs/apply"
+  },
+  "Services": {
+    "Certificates": [
+      {
+        "Operation": "List Certificates",
+        "Method": "GET",
+        "Uri": "https://sws.sslpki.com/certificates?account_key={account_key}&secret_key={secret_key}",
+        "Description": "Retrieves a list of all certificates.",
+        "Docs": "https://secure.ssl.com/certificates/apidocs/apply"
+      }
+    ]
+  }
+}
