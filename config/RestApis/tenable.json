@@ -103,7 +103,7 @@
       {
         "Operation": "Web App Scanning V2 - List Tenable-provided templates",
         "Method": "GET",
-        "Uri": "https://cloud.tenable.com/was/v2/templates",
+        "Uri": "https://cloud.tenable.com/was/v2/templates?limit=200",
         "Description": "Returns a paginated list of Tenable-provided templates that are available to be used for scan configurations.",
         "Docs": "https://developer.tenable.com/reference/was-v2-templates-list"
       },
@@ -117,7 +117,7 @@
       {
         "Operation": "Web App Scanning V2 - Search user-defined templates",
         "Method": "POST",
-        "Uri": "https://cloud.tenable.com/was/v2/user-templates/search",
+        "Uri": "https://cloud.tenable.com/was/v2/user-templates/search?limit=200",
         "Description": "Returns a paginated list of user-defined templates that are available to be used for scan configurations.",
         "Docs": "https://developer.tenable.com/reference/was-v2-user-templates-search"
       },
