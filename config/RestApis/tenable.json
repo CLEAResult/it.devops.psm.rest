@@ -64,6 +64,20 @@
     ],
     "Scans": [
       {
+        "Operation": "Download exported scan",
+        "Method": "GET",
+        "Uri": "https://cloud.tenable.com/was/v2/scans/{scan_id}/report",
+        "Description": "Downloads a scan report for the specified scan.",
+        "Docs": "https://developer.tenable.com/reference/was-v2-scans-download-export"
+      },
+      {
+        "Operation": "Export scan results",
+        "Method": "PUT",
+        "Uri": "https://cloud.tenable.com/was/v2/scans/{scan_id}/report",
+        "Description": "Generates a scan report for the specified scan.",
+        "Docs": "https://developer.tenable.com/reference/was-v2-scans-export"
+      },
+      {
         "Operation": "List Scans",
         "Method": "GET",
         "Uri": "https://cloud.tenable.com/scans",
