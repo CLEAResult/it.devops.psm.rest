@@ -159,6 +159,13 @@
     ],
     "Zone Settings": [
       {
+        "Operation": "Get HTTP/2 Edge Prioritization setting",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/h2_prioritization",
+        "Description": "Gets HTTP/2 Edge Prioritization setting.",
+        "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-h2_prioritization-setting"
+      },
+      {
         "Operation": "Get Web Application Firewall (WAF) setting",
         "Method": "GET",
         "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/settings/waf",
