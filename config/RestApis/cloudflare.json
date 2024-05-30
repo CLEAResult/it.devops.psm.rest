@@ -180,6 +180,13 @@
         "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-h2_prioritization-setting"
       },
       {
+        "Operation": "Get Minimum TLS Version setting",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/min_tls_version",
+        "Description": "Gets Minimum TLS Version setting.",
+        "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-minimum-tls-version-setting"
+      },
+      {
         "Operation": "Get Web Application Firewall (WAF) setting",
         "Method": "GET",
         "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/settings/waf",
