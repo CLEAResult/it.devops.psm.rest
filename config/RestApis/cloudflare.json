@@ -187,6 +187,13 @@
         "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-minimum-tls-version-setting"
       },
       {
+        "Operation": "Get TLS 1.3 setting enabled for a zone",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/tls_1_3",
+        "Description": "Gets TLS 1.3 setting enabled for a zone.",
+        "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-tls-1.-3-setting-enabled-for-a-zone"
+      },
+      {
         "Operation": "Get Web Application Firewall (WAF) setting",
         "Method": "GET",
         "Uri": "https://api.cloudflare.com/client/{version}/zones/{zoneid}/settings/waf",
