@@ -159,10 +159,17 @@
     ],
     "Zone Settings": [
       {
+        "Operation": "Get Always Use HTTPS setting",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/always_use_https",
+        "Description": "Reply to all requests for URLs that use 'http' with a 301 redirect to the equivalent 'https' URL. If you only want to redirect for a subset of requests, consider creating an 'Always use HTTPS' page rule.",
+        "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-always-use-https-setting"
+      },
+      {
         "Operation": "Get HTTP2 setting",
         "Method": "GET",
         "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/http2",
-        "Description": "GValue of the HTTP2 setting.",
+        "Description": "Value of the HTTP2 setting.",
         "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-h-t-t-p-2-setting"
       },
       {
