@@ -194,6 +194,13 @@
         "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-minimum-tls-version-setting"
       },
       {
+        "Operation": "Get Opportunistic Encryption setting",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/opportunistic_encryption",
+        "Description": "Gets Opportunistic Encryption setting.",
+        "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-opportunistic-encryption-setting"
+      },
+      {
         "Operation": "Get Security Header (HSTS) setting",
         "Method": "GET",
         "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/security_header",
