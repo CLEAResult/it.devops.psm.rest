@@ -88,6 +88,15 @@
         "Docs": "https://api.cloudflare.com/#page-rules-for-a-zone-properties"
       }
     ],
+    "Universal SSL Settings for a Zone": [
+      {
+        "Operation": "Universal SSL Settings Details",
+        "Method": "GET",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/ssl/universal/settings",
+        "Description": "Get Universal SSL Settings for a Zone.",
+        "Docs": "https://developers.cloudflare.com/api/operations/universal-ssl-settings-for-a-zone-universal-ssl-settings-details"
+      }
+    ],
     "Worker Routes": [
       {
         "Operation": "List Routes",
