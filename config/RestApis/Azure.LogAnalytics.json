@@ -1,0 +1,20 @@
+{
+  "GeneralInfo": {
+    "Name": "Azure.LogAnalytics",
+    "Description": "Microsoft Azure Log Analytics API",
+    "AuthorizationType": "BearerToken",
+    "version": "v1",
+    "Docs": "https://learn.microsoft.com/en-us/rest/api/"
+  },
+  "Services": {
+    "LogAnalytics": [
+      {
+        "Operation": "Send Request",
+        "Method": "GET",
+        "Uri": "https://api.loganalytics.azure.com/{version}/workspaces/{workspaceId}/query?{parameters}",
+        "Description": "Send queries to the Log Analytics API",
+        "Docs": "https://learn.microsoft.com/en-us/azure/azure-monitor/logs/api/request-format"
+      }
+    ]
+  }
+}
