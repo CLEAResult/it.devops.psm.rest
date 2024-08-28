@@ -29,6 +29,15 @@
         "Description": "Returns an Azure Web App's deployment(s) resource template object.",
         "Docs": "TBD"
       }
+    ],
+    "ResourceManager": [
+      {
+        "Operation": "Recommendations - List",
+        "Method": "GET",
+        "Uri": "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Advisor/recommendations?api-version=2023-01-01",
+        "Description": "Obtains cached recommendations for a subscription. The recommendations are generated or computed by invoking generateRecommendations.",
+        "Docs": "https://learn.microsoft.com/en-us/rest/api/advisor/recommendations/list?view=rest-advisor-2023-01-01&tabs=HTTP"
+      }
     ]
   }
 }
