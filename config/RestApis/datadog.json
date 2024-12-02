@@ -47,11 +47,32 @@
     ],
     "Monitors": [
       {
+        "Operation": "Create a monitor",
+        "Method": "POST",
+        "Uri": "https://api.datadoghq.com/api/{version}/monitor?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Description": "Create a monitor using the specified options.",
+        "Docs": "https://docs.datadoghq.com/api/latest/monitors/?code-lang=curl#create-a-monitor"
+      },
+      {
         "Operation": "Get all monitor details",
         "Method": "GET",
         "Uri": "https://api.datadoghq.com/api/{version}/monitor?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
         "Description": "Get details about the specified monitor from your organization. This endpoint requires the monitors_read authorization scope.",
         "Docs": "https://docs.datadoghq.com/api/latest/monitors/?code-lang=curl#get-all-monitor-details"
+      },
+      {
+        "Operation": "Mute a monitor",
+        "Method": "POST",
+        "Uri": "https://api.datadoghq.com/api/{version}/monitor/{monitor_id}/mute?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Description": "Mute the specified monitor. This endpoint requires the monitors_write permission.",
+        "Docs": "https://docs.datadoghq.com/api/latest/monitors/?code-lang=curl#mute-a-monitor"
+      },
+      {
+        "Operation": "Unmute a monitor",
+        "Method": "POST",
+        "Uri": "https://api.datadoghq.com/api/{version}/monitor/{monitor_id}/unmute?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Description": "Unmute the specified monitor. This endpoint requires the monitors_write permission.",
+        "Docs": "https://docs.datadoghq.com/api/latest/monitors/?code-lang=curl#unmute-a-monitor"
       }
     ],
     "Tags": [
