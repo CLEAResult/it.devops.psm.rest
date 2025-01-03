@@ -9,7 +9,8 @@
   "Requirements": {
     "Headers": [
       {
-        "Item1": "DD-API-KEY"
+        "Item1": "DD-API-KEY",
+        "Item1": "DD-APPLICATION-KEY"
       }
     ]
   },
@@ -18,28 +19,28 @@
       {
         "Operation": "Get all hosts for your organization",
         "Method": "GET",
-        "Uri": "https://api.datadoghq.com/api/{version}/hosts?DD-APPLICATION-KEY={DD-APPLICATION-KEY}&count=1000",
+        "Uri": "https://api.datadoghq.com/api/{version}/hosts?count=1000",
         "Description": "This endpoint allows searching for hosts by name, alias, or tag. Hosts live within the past 3 hours are included by default. Retention is 7 days. Results are paginated with a max of 1000 results at a time.",
         "Docs": "https://docs.datadoghq.com/api/latest/hosts/"
       },
       {
         "Operation": "Get the total number of active hosts",
         "Method": "GET",
-        "Uri": "https://api.datadoghq.com/api/{version}/hosts/totals?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/hosts/totals",
         "Description": "This endpoint returns the total number of active and up hosts in your Datadog account. Active means the host has reported in the past hour, and up means it has reported in the past two hours.",
         "Docs": "https://docs.datadoghq.com/api/latest/hosts/"
       },
       {
         "Operation": "Mute a host",
         "Method": "POST",
-        "Uri": "https://api.datadoghq.com/api/{version}/host/{host_name}/mute?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/host/{host_name}/mute",
         "Description": "Mute a host",
         "Docs": "https://docs.datadoghq.com/api/latest/hosts/"
       },
       {
         "Operation": "Unmute a host",
         "Method": "POST",
-        "Uri": "https://api.datadoghq.com/api/{version}/host/{host_name}/unmute?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/host/{host_name}/unmute",
         "Description": "Unmutes a host. This endpoint takes no JSON arguments.",
         "Docs": "https://docs.datadoghq.com/api/latest/hosts/"
       }
@@ -48,28 +49,28 @@
       {
         "Operation": "Create a monitor",
         "Method": "POST",
-        "Uri": "https://api.datadoghq.com/api/{version}/monitor?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/monitor",
         "Description": "Create a monitor using the specified options.",
         "Docs": "https://docs.datadoghq.com/api/latest/monitors/?code-lang=curl#create-a-monitor"
       },
       {
         "Operation": "Get all monitor details",
         "Method": "GET",
-        "Uri": "https://api.datadoghq.com/api/{version}/monitor?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/monitor",
         "Description": "Get details about the specified monitor from your organization. This endpoint requires the monitors_read authorization scope.",
         "Docs": "https://docs.datadoghq.com/api/latest/monitors/?code-lang=curl#get-all-monitor-details"
       },
       {
         "Operation": "Mute a monitor",
         "Method": "POST",
-        "Uri": "https://api.datadoghq.com/api/{version}/monitor/{monitor_id}/mute?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/monitor/{monitor_id}/mute",
         "Description": "Mute the specified monitor. This endpoint requires the monitors_write permission.",
         "Docs": "https://docs.datadoghq.com/api/latest/monitors/?code-lang=curl#mute-a-monitor"
       },
       {
         "Operation": "Unmute a monitor",
         "Method": "POST",
-        "Uri": "https://api.datadoghq.com/api/{version}/monitor/{monitor_id}/unmute?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/monitor/{monitor_id}/unmute",
         "Description": "Unmute the specified monitor. This endpoint requires the monitors_write permission.",
         "Docs": "https://docs.datadoghq.com/api/latest/monitors/?code-lang=curl#unmute-a-monitor"
       }
@@ -78,42 +79,42 @@
       {
         "Operation": "Get Tags",
         "Method": "GET",
-        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts",
         "Description": "Return a mapping of tags to hosts for your whole infrastructure.",
         "Docs": "https://docs.datadoghq.com/api/latest/tags/#get-tags"
       },
       {
         "Operation": "Get host tags",
         "Method": "GET",
-        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}",
         "Description": "Get host tags",
         "Docs": "https://docs.datadoghq.com/api/latest/tags/#get-host-tags"
       },
       {
         "Operation": "Add tags to a host",
         "Method": "POST",
-        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}",
         "Description": "This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.",
         "Docs": "https://docs.datadoghq.com/api/latest/tags/#add-tags-to-a-host"
       },
       {
         "Operation": "Add tags to a host",
         "Method": "POST",
-        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}",
         "Description": "This endpoint allows you to add new tags to a host, optionally specifying where these tags come from.",
         "Docs": "https://docs.datadoghq.com/api/latest/tags/#add-tags-to-a-host"
       },
       {
         "Operation": "Update host tags",
         "Method": "PUT",
-        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}",
         "Description": "This endpoint allows you to update/replace all tags in an integration source with those supplied in the request.",
         "Docs": "https://docs.datadoghq.com/api/latest/tags/#update-host-tags"
       },
       {
         "Operation": "Remove host tags",
         "Method": "DELETE",
-        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/tags/hosts/{host_name}",
         "Description": "This endpoint allows you to remove all user-assigned tags for a single host.",
         "Docs": "https://docs.datadoghq.com/api/latest/tags/#remove-host-tags"
       }
@@ -122,21 +123,21 @@
       {
         "Operation": "Get the list of all tests",
         "Method": "GET",
-        "Uri": "https://api.datadoghq.com/api/{version}/synthetics/tests?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/synthetics/tests",
         "Description": "Get the list of all Synthetic tests.",
         "Docs": "https://docs.datadoghq.com/api/latest/synthetics/#get-the-list-of-all-tests"
       },
       {
         "Operation": "Trigger Synthetics tests",
         "Method": "POST",
-        "Uri": "https://api.datadoghq.com/api/{version}/synthetics/tests/trigger?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/{version}/synthetics/tests/trigger",
         "Description": "Trigger a set of Synthetics tests.",
         "Docs": "https://docs.datadoghq.com/api/latest/synthetics/#trigger-synthetics-tests"
       },
       {
         "Operation": "Get an API test result",
         "Method": "GET",
-        "Uri": "https://api.datadoghq.com/api/v1/synthetics/tests/{public_id}/results/{result_id}?DD-APPLICATION-KEY={DD-APPLICATION-KEY}",
+        "Uri": "https://api.datadoghq.com/api/v1/synthetics/tests/{public_id}/results/{result_id}",
         "Description": "Get a specific full result from a given (API) Synthetic test. This endpoint requires the synthetics_read authorization scope.",
         "Docs": "https://docs.datadoghq.com/api/latest/synthetics/#get-an-api-test-result"
       }
