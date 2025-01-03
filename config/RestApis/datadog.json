@@ -121,6 +121,13 @@
     ],
     "Synthetics": [
       {
+        "Operation": "Create a Synthetics Browser Monitor",
+        "Method": "PUT",
+        "Uri": "https://api.datadoghq.com/api/{version}/synthetics/tests/browser",
+        "Description": "Creates a Synthetics Monitor of type browser.",
+        "Docs": "https://docs.datadoghq.com/api/latest/synthetics/"
+      },
+      {
         "Operation": "Get the list of all tests",
         "Method": "GET",
         "Uri": "https://api.datadoghq.com/api/{version}/synthetics/tests",
