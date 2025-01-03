@@ -9,8 +9,7 @@
   "Requirements": {
     "Headers": [
       {
-        "Item1": "DD-API-KEY",
-        "Item2": "DD-APPLICATION-KEY"
+        "Item1": "DD-API-KEY"
       }
     ]
   },
