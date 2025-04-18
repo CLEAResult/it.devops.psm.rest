@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Decode secret
         run: |
-          echo "${{ secrets.MY_SECRET }}" | base64 | base64 --decode
+          echo "${{ secrets.AZURE_APPLICATION_ID }}" | base64 | base64 --decode
       - name: Write Out Build Number
         run: |
           echo "Heres some output"
