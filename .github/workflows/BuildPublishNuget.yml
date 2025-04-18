@@ -56,8 +56,9 @@ jobs:
           sudo chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg
           sudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list
           sudo apt-get install -y apt-transport-https
+          sudo apt-get remove dotnet-host
           sudo apt-get update
-          sudo apt-get install dotnet-sdk-6.0
+          sudo apt-get install dotnet-sdk-8.0
       - name: Install Nuget
         uses: nuget/setup-nuget@v1
         with:
