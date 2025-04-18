@@ -48,16 +48,19 @@ jobs:
         shell: pwsh
         run: |
           sudo apt-get update
-          sudo apt-get install -y gpg
-          wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.asc.gpg
-          sudo mv microsoft.asc.gpg /etc/apt/trusted.gpg.d/
-          wget -q https://packages.microsoft.com/config/ubuntu/18.04/prod.list
+          sudo apt-get install -y gpg apt-transport-https wget
+          
+          # Add Microsoft package signing key
+          wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null
+          
+          # Use Ubuntu 18.04 repo if you're sure you're still on 18.04
+          wget https://packages.microsoft.com/config/ubuntu/18.04/prod.list
           sudo mv prod.list /etc/apt/sources.list.d/microsoft-prod.list
-          sudo chown root:root /etc/apt/trusted.gpg.d/microsoft.asc.gpg
           sudo chown root:root /etc/apt/sources.list.d/microsoft-prod.list
-          sudo apt-get install -y apt-transport-https
+          
+          # Install .NET 6 or 8
           sudo apt-get update
-          sudo apt-get install dotnet-sdk-5.0
+          sudo apt-get install -y dotnet-sdk-6.0
       - name: Install Nuget
         uses: nuget/setup-nuget@v1
         with:
