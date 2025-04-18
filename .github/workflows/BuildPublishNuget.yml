@@ -98,6 +98,7 @@ jobs:
         shell: pwsh
         run: |
           $azureAplicationId = '${{ secrets.AZURE_APPLICATION_ID }}'
+          echo $azureAplicationId
           $azureTenantId= '${{ secrets.AZURE_TENANTID }}'
           $azurePassword = ConvertTo-SecureString '${{ secrets.AZURE_ACCESSTOKEN }}' -AsPlainText -Force
           $psCred = New-Object System.Management.Automation.PSCredential($azureAplicationId , $azurePassword)
