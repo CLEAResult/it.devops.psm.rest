@@ -22,13 +22,12 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - name: Show Base64-encoded secret
+        run: echo "${{ secrets.AZURE_APPLICATION_ID }}" | base64
       - name: Write Out Build Number
         run: |
           echo "Heres some output"
           echo $GITHUB_RUN_NUMBER
-          echo "My secret is: $MY_SECRET"
-          env:
-            MY_SECRET: ${{ secrets.AZURE_APPLICATION_ID }}
       - uses: actions/checkout@v2
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
