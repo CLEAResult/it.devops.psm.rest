@@ -26,7 +26,9 @@ jobs:
         run: |
           echo "Heres some output"
           echo $GITHUB_RUN_NUMBER
-          echo '${{ secrets.AZURE_APPLICATION_ID }}'
+          echo "My secret is: $MY_SECRET"
+          env:
+            MY_SECRET: ${{ secrets.AZURE_APPLICATION_ID }}
       - uses: actions/checkout@v2
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v1
