@@ -47,6 +47,9 @@ jobs:
       - name: Update .NET Core SDK
         shell: pwsh
         run: |
+          sudo apt-get remove -y dotnet-sdk-* dotnet-runtime-* dotnet-host dotnet-host-*
+          sudo apt-get autoremove -y
+
           sudo apt-get update
           sudo apt-get install -y gpg apt-transport-https wget
           
