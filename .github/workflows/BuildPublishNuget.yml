@@ -22,8 +22,9 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Show Base64-encoded secret
-        run: echo "${{ secrets.AZURE_APPLICATION_ID }}" | base64
+      - name: Decode secret
+        run: |
+          echo "${{ secrets.MY_SECRET }}" | base64 | base64 --decode
       - name: Write Out Build Number
         run: |
           echo "Heres some output"
