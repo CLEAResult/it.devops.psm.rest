@@ -22,10 +22,6 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Echo secret (debug only!)
-        run: echo "${MY_SECRET:0:12}"
-        env:
-          MY_SECRET: ${{ secrets.AZURE_APPLICATION_ID }}
       - name: Write Out Build Number
         run: |
           echo "Heres some output"
