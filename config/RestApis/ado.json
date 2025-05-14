@@ -880,6 +880,13 @@
     ],
     "Git": [
       {
+        "Operation": "Commits - Get Commits",
+        "Method": "GET",
+        "Uri": "GET https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/commits?api-version=6.0",
+        "Description": "Retrieve git commits for a project",
+        "Docs": "https://learn.microsoft.com/en-us/rest/api/azure/devops/git/commits/get-commits?view=azure-devops-rest-6.0&tabs=HTTP"
+      },
+      {
         "Operation": "Items - Get",
         "Method": "GET",
         "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/items?path={path}&api-version=6.0",
