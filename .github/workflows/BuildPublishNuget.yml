@@ -42,7 +42,7 @@ jobs:
         shell: pwsh
         run: |
           if (Get-PSResourceRepository -Name PSGallery -ErrorAction SilentlyContinue) {
-            Unregister-PSResourceRepository -Name PSGallery -Force
+            Unregister-PSResourceRepository -Name PSGallery
           }
           Register-PSResourceRepository -PSGallery
       - name: Publish PowerShell Module
