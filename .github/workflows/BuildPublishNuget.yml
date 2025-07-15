@@ -38,10 +38,19 @@ jobs:
           Write-Output "ModuleVersion = $ModuleVersion"
           $Params = @{  ModuleVersion = $ModuleVersion }
           Update-ModuleManifest @Params -path "./cr-devops-rest.psd1"
-      - name: Register PSGallery Repository
+      - name: Fix PSResourceGet state
         shell: pwsh
         run: |
-          Register-PSResourceRepository -PSGallery
+          $repoPath = "$HOME/.local/share/PSResourceGet"
+          $filePath = Join-Path $repoPath 'PSResourceRepository.xml'
+      
+          if (-not (Test-Path $repoPath)) {
+            New-Item -ItemType Directory -Path $repoPath -Force | Out-Null
+          }
+      
+          if (-not (Test-Path $filePath)) {
+            Register-PSResourceRepository -PSGallery
+          }
       - name: Publish PowerShell Module
         uses: natescherer/publish-powershell-action@v1
         with:
