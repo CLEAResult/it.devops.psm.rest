@@ -971,6 +971,13 @@
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/git/pull%20request%20work%20items/list?view=azure-devops-rest-6.1"
       },
       {
+        "Operation": "Refs - List",
+        "Method": "GET",
+        "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories/{repositoryId}/refs?api-version=6.0",
+        "Description": "Queries the provided repository for its refs and returns them.",
+        "Docs": "https://learn.microsoft.com/en-us/rest/api/azure/devops/git/refs/list?view=azure-devops-rest-6.0&tabs=HTTP"
+      },
+      {
         "Operation": "Repositories - Create",
         "Method": "POST",
         "Uri": "https://dev.azure.com/{organization}/{project}/_apis/git/repositories?api-version=5.1{version}",
