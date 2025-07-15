@@ -38,6 +38,12 @@ jobs:
           Write-Output "ModuleVersion = $ModuleVersion"
           $Params = @{  ModuleVersion = $ModuleVersion }
           Update-ModuleManifest @Params -path "./cr-devops-rest.psd1"
+      - name: Register PSGallery
+        shell: pwsh
+        run: |
+          Register-PSResourceRepository -Name PSGallery `
+            -Uri https://www.powershellgallery.com/api/v2 `
+            -Trusted -InstallationPolicy Trusted
       - name: Publish PowerShell Module
         uses: natescherer/publish-powershell-action@v1
         with:
