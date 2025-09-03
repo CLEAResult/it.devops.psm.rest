@@ -243,6 +243,13 @@
         "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/acm/total_tls",
         "Description": "Get Total TLS Settings for a Zone.",
         "Docs": "https://developers.cloudflare.com/api/operations/total-tls-total-tls-settings-details"
+      },
+      {
+        "Operation": "Get Security Header (HSTS) setting",
+        "Method": "PATCH",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/security_header",
+        "Description": "Cloudflare security header for a zone.",
+        "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-security-header-(-hsts)-setting"
       }
     ]
   }
