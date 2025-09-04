@@ -252,6 +252,13 @@
         "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-always-use-https-setting"
       },
       {
+        "Operation": "Set Automatic HTTPS Rewrites setting",
+        "Method": "PATCH",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/automatic_https_rewrites",
+        "Description": "Set Automatic HTTPS rewrite settings for a zone.",
+        "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-automatic-https-rewrites-setting"
+      },
+      {
         "Operation": "Set Security Header (HSTS) setting",
         "Method": "PATCH",
         "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/security_header",
