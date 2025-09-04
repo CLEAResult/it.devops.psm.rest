@@ -259,6 +259,13 @@
         "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-automatic-https-rewrites-setting"
       },
       {
+        "Operation": "Set Minimum TLS Version setting",
+        "Method": "PATCH",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/min_tls_version",
+        "Description": "Sets Minimum TLS Version setting.",
+        "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-minimum-tls-version-setting"
+      },
+      {
         "Operation": "Set Security Header (HSTS) setting",
         "Method": "PATCH",
         "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/security_header",
