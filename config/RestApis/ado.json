@@ -1128,7 +1128,7 @@
       {
         "Operation": "Group Entitlements - Delete",
         "Method": "DELETE",
-        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements/{userId}?api-version=6.0-preview.3",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements/{userId}?api-version=7.1",
         "Description": "Delete a user from the account.  The delete operation includes unassigning Extensions and Licenses and removing the user from all project memberships. The user would continue to have access to the account if she is member of an AAD group, that is added directly to the account.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/delete?view=azure-devops-rest-6.0"
       },
@@ -1163,7 +1163,14 @@
       {
         "Operation": "Get User Entitlements",
         "Method": "GET",
-        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements?api-version=5.1-preview.2",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements?api-version=7.1",
+        "Description": "Get a paged set of user entitlements matching the filter criteria. If no filter is is passed, a page from all the account users is returned.",
+        "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/get%20user%20entitlements?view=azure-devops-rest-5.1"
+      },
+      {
+        "Operation": "Get User Entitlements with Continuation Token",
+        "Method": "GET",
+        "Uri": "https://vsaex.dev.azure.com/{organization}/_apis/userentitlements?continuationToken={continuationToken}&api-version=7.1",
         "Description": "Get a paged set of user entitlements matching the filter criteria. If no filter is is passed, a page from all the account users is returned.",
         "Docs": "https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/get%20user%20entitlements?view=azure-devops-rest-5.1"
       },

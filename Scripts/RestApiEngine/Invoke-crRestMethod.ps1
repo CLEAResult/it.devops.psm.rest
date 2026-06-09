@@ -255,14 +255,9 @@ function Invoke-crRestMethod {
                Write-Verbose "URI (with additional params)= $Uri"
             }
 
-            try {
-               if ( $RelevantApi.BodyJson -and -not $BodyJson ) {
-                  Write-Verbose "BodyJson property found for the endpoint, setting!"
-                  $BodyJson = $RelevantApi.BodyJson
-               }
-            }
-            catch {
-               Write-Verbose "BodyJson property not found for the endpoint, skipping"
+            if ( $RelevantApi.PSObject.Properties['BodyJson'] -and $RelevantApi.BodyJson -and -not $BodyJson ) {
+               Write-Verbose "BodyJson property found for the endpoint, setting!"
+               $BodyJson = $RelevantApi.BodyJson
             }
 
             $WebResult = $Null
@@ -367,12 +362,8 @@ function Invoke-crRestMethod {
                }
             }
 
-            try {
-               $GetProperty = ($Global:crRestApis[$Params["RestApi"]].Services."$($Params["Service"])" | Where-Object { $_.Operation -eq $($Params["Operation"]) }).GetProperty
-            }
-            catch {
-               $GetProperty = $Null
-            }
+            $apiDef = $Global:crRestApis[$Params["RestApi"]].Services."$($Params["Service"])" | Where-Object { $_.Operation -eq $($Params["Operation"]) }
+            $GetProperty = if ( $apiDef -and $apiDef.PSObject.Properties['GetProperty'] ) { $apiDef.GetProperty } else { $Null }
 
             if ( $RestResult ) {
                if ( $RelevantApi.Method -ne "DELETE") {

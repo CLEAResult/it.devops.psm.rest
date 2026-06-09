@@ -44,6 +44,13 @@ jobs:
           Register-PSResourceRepository -Name PSGallery `
             -Uri https://www.powershellgallery.com/api/v2 `
             -Trusted -InstallationPolicy Trusted
+      - name: Fix PSResourceGet repository store
+        shell: pwsh
+        run: |
+          if (Get-PSResourceRepository -Name PSGallery -ErrorAction SilentlyContinue) {
+            Unregister-PSResourceRepository -Name PSGallery
+          }
+          Register-PSResourceRepository -PSGallery
       - name: Publish PowerShell Module
         uses: natescherer/publish-powershell-action@v1
         with:

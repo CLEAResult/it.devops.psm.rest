@@ -243,6 +243,48 @@
         "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/acm/total_tls",
         "Description": "Get Total TLS Settings for a Zone.",
         "Docs": "https://developers.cloudflare.com/api/operations/total-tls-total-tls-settings-details"
+      },
+      {
+        "Operation": "Set Always Use HTTPS setting",
+        "Method": "PATCH",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/always_use_https",
+        "Description": "Set always use https for a zone.",
+        "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-always-use-https-setting"
+      },
+      {
+        "Operation": "Set Automatic HTTPS Rewrites setting",
+        "Method": "PATCH",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/automatic_https_rewrites",
+        "Description": "Set Automatic HTTPS rewrite settings for a zone.",
+        "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-automatic-https-rewrites-setting"
+      },
+      {
+        "Operation": "Set Minimum TLS Version setting",
+        "Method": "PATCH",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/min_tls_version",
+        "Description": "Sets Minimum TLS Version setting.",
+        "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-minimum-tls-version-setting"
+      },
+      {
+        "Operation": "Set Opportunistic Encryption setting",
+        "Method": "PATCH",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/opportunistic_encryption",
+        "Description": "Sets Opportunistic Encryption setting.",
+        "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-opportunistic-encryption-setting"
+      },
+      {
+        "Operation": "Set Security Header (HSTS) setting",
+        "Method": "PATCH",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/security_header",
+        "Description": "Set Cloudflare security header for a zone.",
+        "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-security-header-(-hsts)-setting"
+      },
+      {
+        "Operation": "Set TLS 1.3 setting enabled for a zone",
+        "Method": "PATCH",
+        "Uri": "https://api.cloudflare.com/client/v4/zones/{zone_id}/settings/tls_1_3",
+        "Description": "Sets TLS 1.3 setting enabled for a zone.",
+        "Docs": "https://developers.cloudflare.com/api/operations/zone-settings-get-tls-1.-3-setting-enabled-for-a-zone"
       }
     ]
   }
